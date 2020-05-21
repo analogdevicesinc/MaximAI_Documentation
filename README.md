@@ -7,4 +7,6 @@ The purpose of this README file is to be the high-level 'home' for IC, EV Kit, S
   * Link to Rev A EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
   * **Getting Started with the MAX78000 Evaluation Kit:** [README.md](./MAX78000_Evaluation_Kit/README.md)
   * Link to EV Kit folder containing schematic and additional resources: [MAX78000_Evaluation_Kit](./MAX78000_Evaluation_Kit)
+  * Link to SDK repository:
+  * Link to SDK documentation:
 
