@@ -1,4 +1,4 @@
-# Getting Started with the MAX78000 Evaluation Kit
+# Getting Started with the MAX78000 Evaluation Kit (EV Kit)
 
 ## List of Evaluation Kit Components
 
@@ -7,6 +7,9 @@ Before beginning, you should make sure you have all of the following components 
   * Additional MAX78000 sample(s)
   * Maxim Pico JTAG/SWD adapter
   * USB cable(s)
+
+## Picture of EV Kit
+![](MAX78000_RevA_EV_Kit.jpg)
 
 ## Powering the MAX78000 Evaluation Kit for the First Time
 
