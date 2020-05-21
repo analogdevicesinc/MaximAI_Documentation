@@ -3,13 +3,16 @@
 ## List of Evaluation Kit Components
 
 Before beginning, you should make sure you have all of the following components of the evaluation kit.
-  * *EV Kit board* - Note:  EV Kits come with MAX78000 device already inside the socket.  
+  * *EV Kit board* - **Note:  EV Kits come with MAX78000 device already inside the socket.**
   * Additional MAX78000 sample(s)
   * Maxim Pico JTAG/SWD adapter
   * USB cable(s)
 
 ## Picture of EV Kit
 ![](MAX78000_RevA_EV_Kit.jpg)
+
+## Rev A EV Kit Schematic
+![](MAX78000%20REV%20A%20including%20mods.pdf)
 
 ## Powering the MAX78000 Evaluation Kit for the First Time
 
