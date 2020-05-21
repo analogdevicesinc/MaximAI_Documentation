@@ -1,7 +1,5 @@
 # Getting Started with the MAX78000 Evaluation Kit
 
-[TOC]
-
 ## List of Evaluation Kit Components
 
 Before beginning, you should make sure you have all of the following components of the evaluation kit.
