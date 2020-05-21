@@ -151,4 +151,15 @@ The jumpers on the board have been set to the proper position prior to shipment.
 
 ## Next Steps:  Loading and running the mnist CNN example
 
-Link to the CNN mnist example:
+Now that proper operation of the EV Kit has been established by running a simple demo and observing the expected LED and console output, the next step is to move on to the 'Hello World' of CNNs, mnist.  But before jumping to the mnist example, there are a couple of addtional comments about the EV Kit worth mentioning.
+
+### CNN Boost
+The CNN draw up to 160mA under some circumstances, which exceeds the capabilities of the built-in SIMO.
+
+**Install JP7**, CNN BOOST, and use the `--boost 2.5` command line argument to ai8xizer (more on this later). This enables P2.5 during CNN computation, which enables the current boost circuitry.  Also, **install jumper JP14**, CNN 1V1.
+
+### Measuring CNN Current
+To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance current meter across JP13. If the meter is not very low impedance, also remove R14 from the board.
+
+Link: [mnist CNN examples](../../MAX78000_SDK/Examples/MAX78000/CNN/mnist)
+Link: [CNN examples](../../MAX78000_SDK/Examples/MAX78000/CNN/)
