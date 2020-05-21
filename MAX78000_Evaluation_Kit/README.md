@@ -20,7 +20,7 @@ The MAX78000 Evaluation Kit (EV kit) comes preloaded with a MAX78000 device that
 
 1.  Begin by making sure the PWR switch (SW1) is in the "OFF" position.
 
-2.  Make sure that jumper JP1 is installed.  This jumper enables LED, D1.  Also, make sure that the P0_0 and P0_1 jumpers are installed on JH1.
+2.  Make sure that jumper JP1 is installed.  This jumper enables LED, D1.  Also, make sure that the P0_0 and P0_1 jumpers are installed on JH1.  These two jumpers connect UART0 RX and TX to the console output.
 
 3.  Connect USB cables from the PC to the USB/PWR connector (CN1) of the EV kit. This cable will power the board and provide a virtual serial port connection to the MAX78000's UART.
 
