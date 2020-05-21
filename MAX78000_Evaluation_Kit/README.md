@@ -20,13 +20,15 @@ The MAX78000 Evaluation Kit (EV kit) comes preloaded with a MAX78000 device that
 
 1.  Begin by making sure the PWR switch (SW1) is in the "OFF" position.
 
-2.  Connect USB cables from the PC to the USB/PWR connector (CN1) of the EV kit. This cable will power the board and provide a virtual serial port connection to the MAX78000's UART.
+2.  Make sure that jumper JP1 is installed.  This jumper enables LED, D1.  Also, make sure that the P0_0 and P0_1 jumpers are installed on JH1.
 
-3.  On your PC, open a serial terminal application (minicom, gtkterm, etc.), and connect to the virtual serial port using a baud rate of 115200 and 8-N-1 settings.
+3.  Connect USB cables from the PC to the USB/PWR connector (CN1) of the EV kit. This cable will power the board and provide a virtual serial port connection to the MAX78000's UART.
 
-4.  Move the PWR switch to the "ON" position.
+4.  On your PC, open a serial terminal application (minicom, gtkterm, etc.), and connect to the virtual serial port using a baud rate of 115200 and 8-N-1 settings.
 
-5.  You will see message from the MAX78000 appear in the terminal and LED1 (D1) on the board will begin blinking at a steady rate.
+5.  Move the PWR switch to the "ON" position.
+
+6.  You will see message from the MAX78000 appear in the terminal and LED1 (D1) on the board will begin blinking at a steady rate.
 
 Once you see the described behavior, you know your board is functioning properly.
 
