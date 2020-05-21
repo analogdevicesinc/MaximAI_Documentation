@@ -161,5 +161,5 @@ The CNN draw up to 160mA under some circumstances, which exceeds the capabilitie
 ### Measuring CNN Current
 To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance current meter across JP13. If the meter is not very low impedance, also remove R14 from the board.
 
-Link: [mnist CNN examples](../../MAX78000_SDK/Examples/MAX78000/CNN/mnist)
-Link: [CNN examples](../../MAX78000_SDK/Examples/MAX78000/CNN/)
+Link: [mnist CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/Examples/MAX78000/CNN/mnist)
+Link: [CNN examples](../../MAX78000_SDK/Examples/MAX78000/CNN)
