@@ -8,5 +8,5 @@ The purpose of this README file is to be the high-level 'home' for IC, EV Kit, S
   * **Getting Started with the MAX78000 Evaluation Kit:** [README.md](./MAX78000_Evaluation_Kit/README.md)
   * Link to EV Kit folder containing schematic and additional resources: [MAX78000_Evaluation_Kit](./MAX78000_Evaluation_Kit)
   * Link to SDK repository: [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
-  * Link to SDK documentation:
+  * Link to SDK documentation: [SDK Docs](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000/index.html)
 
