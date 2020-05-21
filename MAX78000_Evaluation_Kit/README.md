@@ -46,7 +46,7 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 -   OpenOCD
 
-    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. The binaries can be downloaded from <!--TBD-->.
+    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. The binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
@@ -68,7 +68,9 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
 
 3.  Change to the OpenOCD directory and launch OpenOCD with the following command:
 
-    > ./openocd -f tcl/interface/cmsis-dap.cfg -f tcl/target/max78000.cfg
+    ```
+    ./openocd -f tcl/interface/cmsis-dap.cfg -f tcl/target/max78000.cfg
+    ```
 
 4.  On successful connection, you will see messages as shown below.
 
@@ -78,23 +80,31 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
 
 6.  Launch GDB using one of the following commands:
 
-    > arm-none-eabi-gdb max78000.elf
-    > arm-none-eabi-gdb max78000-combined.elf
+    ```
+    arm-none-eabi-gdb max78000.elf
+    arm-none-eabi-gdb max78000-combined.elf
+    ```
 
 7.  Connect GDB to OpenOCD and reset the MAX78000.
 
-    > target remote localhost:3333
-    > monitor reset halt
+    ```
+    target remote localhost:3333
+    monitor reset halt
+    ```
 
 8.  Load and verify the application.
 
-    > load
-    > compare-sections
+    ```
+    load
+    compare-sections
+    ```
 
 9.  Reset the device and run the application:
 
-    > monitor reset halt
-    > c
+    ```
+    monitor reset halt
+    c
+    ```
 
 ![](gdb.png)
 
