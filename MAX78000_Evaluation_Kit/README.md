@@ -148,3 +148,7 @@ The jumpers on the board have been set to the proper position prior to shipment.
 | JP2             | Allows P0.3 to the control the state of LED2 (D2).           |
 | JP7             | Enables the CNN BOOST circuitry. When this jumper is connected, use the \`\--boost 2.5\` command line argument to ai8xizer. This enables port 2.5 during CNN computation, which enables the current boost. |
 | JP13            | Can be removed to measure the CNN current. To measure current connect a low impedance current meter across this jumper. If the meter is not low impedance, resister R14 should be removed from the board. |
+
+## Next Steps:  Loading and running the mnist CNN example
+
+Link to the CNN mnist example:
