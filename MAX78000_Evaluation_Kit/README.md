@@ -159,9 +159,11 @@ The jumpers on the board have been set to the proper position prior to shipment.
 | JP7             | Enables the CNN BOOST circuitry. When this jumper is connected, use the \`\--boost 2.5\` command line argument to ai8xizer. This enables port 2.5 during CNN computation, which enables the current boost. |
 | JP13            | Can be removed to measure the CNN current. To measure current connect a low impedance current meter across this jumper. If the meter is not low impedance, resister R14 should be removed from the board. |
 
-## Next Steps:  Loading and running the mnist CNN example
+## Next Steps:  Loading and running the included **mnist** CNN example
 
-Now that proper operation of the EV Kit has been established by running a simple demo and observing the expected LED and console output, the next step is to move on to the 'Hello World' of CNNs, mnist.  But before jumping to the mnist example, there are a couple of addtional comments about the EV Kit worth mentioning.
+Now that proper operation of the EV Kit has been established by running a simple demo and observing the expected LED and console output, the next step is to run the included 'Hello World' of CNNs, the **mnist** example.  
+
+But before jumping to the mnist example, there are a couple of addtional comments about the EV Kit worth mentioning.
 
 ### CNN Boost
 The CNN draw up to 160mA under some circumstances, which exceeds the capabilities of the built-in SIMO.
@@ -175,3 +177,9 @@ To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance c
 [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
 
 [Additional CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN)
+
+### Going beyond the included CNN examples - Advanced Topics
+  * AI8X Model Training and Quantization
+  * AI8X Network Loader and RTL Simulation Generator
+[Learn More](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
+
