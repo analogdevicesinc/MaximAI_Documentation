@@ -8,5 +8,5 @@ The purpose of this README file is to be the high-level 'home' for IC, EV Kit, S
   * Link to Rev A EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
   * Link to EV Kit folder containing schematic and additional resources: [MAX78000_Evaluation_Kit](./MAX78000_Evaluation_Kit)
   * Link to SDK repository: [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
-  * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and therefor recommended to view the SDK documentation from a local copy, which is install along with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
+  * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and therefore recommended to view the SDK documentation from a local copy, which is install along with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
 
