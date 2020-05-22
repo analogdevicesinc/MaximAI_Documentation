@@ -40,7 +40,7 @@ All contributors should correctly setup their git and GitHub credentials before 
 - Make changes, validate correctness.
 - Merge upstream changes from the root repositories, revalidate (test).
 - Consider squashing local commits into one.  This will make it easier for reviewers to understand and review the change.
-- push the new (squashed) branch to the forked repository.
+- Push the new (squashed) branch to the forked repository.
 - [Initiate a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) back to the root repository.  Include descriptions of the change, why it is necessary, etc.  Note, if this fixes an issue, include it in the description.  We may add a pull request template in the future.
 - [Request code review of the pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) from one of the maintainers.
 - After approval the maintainer will typically [rebase merge](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges) the pull request into either the `develop` or `master` branches of the root repository.
