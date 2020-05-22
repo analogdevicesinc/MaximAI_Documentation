@@ -6,8 +6,8 @@ Remember that these are **Private** repositories and are not to be published in 
 
 ## Procedures and Access Rules
 
-- We will primarily be using the **GitHub Flow** model of development.  Note that this is **NOT** "git flow". More information is available [here](https://guides.github.com/introduction/flow/) and [here.](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/github-flow)
-- Development is to be done via Forking into your personal account that is tied to the access of the [MaximIntegratedAI](https://github.com/MaximIntegratedAI) organization.  These forks will continue to be private.  More [information.](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+- We will primarily be using the **GitHub Flow** model of development.  Note that this is **NOT** "git flow". More information is available [here](https://guides.github.com/introduction/flow/) and [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/github-flow).
+- Development is to be done via Forking into your personal account that is tied to the access of the [MaximIntegratedAI](https://github.com/MaximIntegratedAI) organization.  These forks will continue to be private.  More [information](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 - Only admins and maintainer currently have write access to the root repositories.  This is designed to help curate the contents of the project, via code reviews on all pull requests.
 
 **Before submitting a pull request:**
@@ -33,20 +33,20 @@ All contributors should correctly setup their git and GitHub credentials before 
 
 ## Example Workflow
 
-- [Setup Git](https://help.github.com/en/github/getting-started-with-github/set-up-git)
-- [Fork desired repos](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
-- [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the new fork locally for development
-- [Create a topic branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) and check it out
+- [Setup Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
+- [Fork desired repos](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+- [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the new fork locally for development.
+- [Create a topic branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) and check it out.
 - Make changes, validate correctness.
-- Merge upstream changes from the root repositories, revalidate (test)
-- Consider squashing local commits into one.  This will make it easier for reviewers to understand the review the change.
-- push the new (squashed) branch to the forked repository
+- Merge upstream changes from the root repositories, revalidate (test).
+- Consider squashing local commits into one.  This will make it easier for reviewers to understand and review the change.
+- push the new (squashed) branch to the forked repository.
 - [Initiate a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) back to the root repository.  Include descriptions of the change, why it is necessary, etc.  Note, if this fixes an issue, include it in the description.  We may add a pull request template in the future.
 - [Request code review of the pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) from one of the maintainers.
 - After approval the maintainer will typically [rebase merge](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges) the pull request into either the `develop` or `master` branches of the root repository.
 - Typically after successful pull request merges the originating branch is deleted.
 
 ## NOTES
-- Please check this document for changes parodically as new requirements may be deployed
+- Please check this document for changes periodically as new requirements may be deployed.
 
 - Continuous Integration checks and other automated checks will likely be added to the pull request system in the future.
