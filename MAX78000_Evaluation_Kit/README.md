@@ -177,7 +177,7 @@ To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance c
   * [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
   * [Directory of additional CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN)
 
-### Going beyond the included CNN examples - Advanced Topics
+## Going beyond the included CNN examples - Advanced Topics
   * [AI8X Model Training and Quantization](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
   * [AI8X Network Loader and RTL Simulation Generator](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
 
