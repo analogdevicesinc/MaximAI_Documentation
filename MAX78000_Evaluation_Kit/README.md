@@ -152,7 +152,7 @@ The SDK provides an API for working with the device's components. To use the API
 
 ## Jumper Settings for the MAX78000 EV Kit
 
-The jumpers on the board have been set to the proper position prior to shipment. There are a few that you may want to change based on the needs of your application.  Note: The complete list of jumpers can be found at: [jumper settings.xlsx](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/MAX78000_Evaluation_Kit/jumper%20settings.xlsx)
+The jumpers on the board have been set to the proper position prior to shipment. There are a few that you may want to change based on the needs of your application.  Note: The complete list of jumpers can be found at: [jumper settings.xlsx](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Evaluation_Kit/jumper%20settings.xlsx)
 
 | **Jumper Name** | **Description**                                              |
 | --------------- | ------------------------------------------------------------ |
