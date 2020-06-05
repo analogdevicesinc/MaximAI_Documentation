@@ -42,7 +42,7 @@ If you do not get the expected results, here are some things to note.
   * Some early versions of the EV Kit did not pre-program the Blinky example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
   * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.
 
-## Installing the Developer Tools
+## Installing the Developer Tools (Linux)
 
 There are a few tools you will need to build, load, run, and debug applications on the EV Kit.
 
@@ -52,15 +52,20 @@ There are a few tools you will need to build, load, run, and debug applications 
 
     2.  Edit your PATH variable to include the path to the arm-none-eabi directory.
 
+-   The MAX78000 SDK
+
+    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+
 -   OpenOCD
 
-    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. The binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
--   The MAX78000 SDK
+## Installing the Developer Tools (Windows 10)
 
-    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+Instructions on how to install the developer tools on Windows machines will be provided prior to 6/12/2020.  Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning.  
+
 
 ## Building the SDK Examples
 
