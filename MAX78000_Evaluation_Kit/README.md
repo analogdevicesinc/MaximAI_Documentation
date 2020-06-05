@@ -40,6 +40,7 @@ If you do not get the expected results, here are some things to note.
   * If the terminal program you are using says 'permission denied,' try prepending `sudo`.  For example, instead of typing 'gtkterm', type 'sudo gtkterm'.  Alternatively, ensure your user is part of the `dialout` group.
   * If the serial port successfully opens, but nothing appears on the console output, press RESET on the EV Kit, SW5.
   * Some early versions of the EV Kit did not pre-program the Blinky example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
+  * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.
 
 ## Installing the Developer Tools
 
@@ -165,6 +166,12 @@ The jumpers on the board have been set to the proper position prior to shipment.
 | JP2             | Allows P0.3 to the control the state of LED2 (D2).           |
 | JP7             | Enables the CNN BOOST circuitry. When this jumper is connected, use the \`\--boost 2.5\` command line argument to ai8xizer. This enables port 2.5 during CNN computation, which enables the current boost. |
 | JP13            | Can be removed to measure the CNN current. To measure current connect a low impedance current meter across this jumper. If the meter is not low impedance, resister R14 should be removed from the board. |
+
+## Proper installation of MAX78000 in the socket
+
+In rare ocassions, you may need to open the socket containing the MAX78000.  If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Other times this information is relevant is when the user wants to swap MAX78000s, for example, to program more than one device.
+
+![](MAX78000ball1marker.jpg)
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
 
