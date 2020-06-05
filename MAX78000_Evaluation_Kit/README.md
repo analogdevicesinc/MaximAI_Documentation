@@ -40,8 +40,9 @@ If you do not get the expected results, here are some things to note.
   * If the terminal program you are using says 'permission denied,' try prepending `sudo`.  For example, instead of typing 'gtkterm', type 'sudo gtkterm'.  Alternatively, ensure your user is part of the `dialout` group.
   * If the serial port successfully opens, but nothing appears on the console output, press RESET on the EV Kit, SW5.
   * Some early versions of the EV Kit did not pre-program the Blinky example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
+  * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.
 
-## Installing the Developer Tools
+## Installing the Developer Tools (Linux)
 
 There are a few tools you will need to build, load, run, and debug applications on the EV Kit.
 
@@ -51,15 +52,20 @@ There are a few tools you will need to build, load, run, and debug applications 
 
     2.  Edit your PATH variable to include the path to the arm-none-eabi directory.
 
+-   The MAX78000 SDK
+
+    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+
 -   OpenOCD
 
-    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. The binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
--   The MAX78000 SDK
+## Installing the Developer Tools (Windows 10)
 
-    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+Instructions on how to install the developer tools on Windows machines will be provided prior to 6/12/2020.  Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning.  
+
 
 ## Building the SDK Examples
 
@@ -151,7 +157,7 @@ The SDK provides an API for working with the device's components. To use the API
 
 ## Jumper Settings for the MAX78000 EV Kit
 
-The jumpers on the board have been set to the proper position prior to shipment. There are a few that you may want to change based on the needs of your application.  Note: The complete list of jumpers can be found at: [jumper settings.xlsx](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/MAX78000_Evaluation_Kit/jumper%20settings.xlsx)
+The jumpers on the board have been set to the proper position prior to shipment. There are a few that you may want to change based on the needs of your application.  Note: The complete list of jumpers can be found at: [jumper settings.xlsx](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Evaluation_Kit/jumper%20settings.xlsx)
 
 | **Jumper Name** | **Description**                                              |
 | --------------- | ------------------------------------------------------------ |
@@ -165,6 +171,12 @@ The jumpers on the board have been set to the proper position prior to shipment.
 | JP2             | Allows P0.3 to the control the state of LED2 (D2).           |
 | JP7             | Enables the CNN BOOST circuitry. When this jumper is connected, use the \`\--boost 2.5\` command line argument to ai8xizer. This enables port 2.5 during CNN computation, which enables the current boost. |
 | JP13            | Can be removed to measure the CNN current. To measure current connect a low impedance current meter across this jumper. If the meter is not low impedance, resister R14 should be removed from the board. |
+
+## Proper installation of MAX78000 in the socket
+
+In rare ocassions, you may need to open the socket containing the MAX78000.  If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  When looking at the top of the MAX78000 chip, the plus sign (+) indicates the corner containing ball 1.  Ball 1 of the MAX78000 needs to match the ball 1 location of the socket, which can be determined by looking at the PCB silkscreen (see picture below).  Other times this information is relevant is when the user wants to swap MAX78000s, for example, to program more than one device.
+
+![](./resources/MAX78000ball1marker.jpg)
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
 
