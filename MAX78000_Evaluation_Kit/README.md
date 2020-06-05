@@ -171,7 +171,7 @@ The jumpers on the board have been set to the proper position prior to shipment.
 
 In rare ocassions, you may need to open the socket containing the MAX78000.  If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Other times this information is relevant is when the user wants to swap MAX78000s, for example, to program more than one device.
 
-![](MAX78000ball1marker.jpg)
+![](./resources/MAX78000ball1marker.jpg)
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
 
