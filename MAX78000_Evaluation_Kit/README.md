@@ -75,13 +75,15 @@ Note:  Linux is the preferred platform for machine learning due to the tools nee
 
     ![](resources/WinInstallSettingsScreen.png)
 
-4.  Add two temporary repositories by clicking on _Temporary repositories_ and clicking the _Add_ button twice.  Add the following URLs:
-    - http://www.mxim.net/product/msdk/dist/dev/max78000
-    - http://www.mxim.net/product/msdk/toolchain/win32/gnu_riscv
+4.  Add three temporary repositories by clicking on _Temporary repositories_ and clicking the _Add_ button three times.  Add the following URLs:
+    - http://www.mxim.net/prerelease/msdk/dist/libs
+    - http://www.mxim.net/prerelease/msdk/dist/dev
+    - http://www.mxim.net/prerelease/msdk/toolchain/win32
 
     ![](resources/WinInstallTempRepos.png)
 
-5.  Click the _OK_ button and follow the on-screen instructions to complete the installation.
+5.  Click on the _Use temporary repositories only_ checkbox to enable it.
+6.  Click the _OK_ button and follow the on-screen instructions to complete the installation.
 
 ## Building the SDK Examples
 
