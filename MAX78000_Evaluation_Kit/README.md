@@ -64,8 +64,17 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 ## Installing the Developer Tools (Windows 10)
 
-Instructions on how to install the developer tools on Windows machines will be provided prior to 6/12/2020.  Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning.  
+Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning.  
 
+    1.  Download and run the [Maxim Micros SDK](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0010820A).
+    2.  At the first screen that appears, click the _Settings_ button in the lower left corner of the application.
+    ![](resources/WinInstallInitialScreen.png)
+    3.  Click on the _Repositories_ tab.
+    ![](resources/WinInstallSettingsScreen.png)
+    4.  Add two temporary repositories by clicking on _Temporary repositories_ and clicking the _Add_ button twice.  Add the following URLs:
+    - http://www.mxim.net/product/msdk/dist/dev/max78000
+    - http://www.mxim.net/product/msdk/toolchain/win32/gnu_riscv
+    5.  Click the _OK_ button and follow the on-screen instructions to complete the installation.
 
 ## Building the SDK Examples
 
