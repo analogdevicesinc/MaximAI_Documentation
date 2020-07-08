@@ -3,10 +3,14 @@
 ## List of Evaluation Kit Components
 
 Before beginning, you should make sure you have all of the following components of the evaluation kit.
-  * *EV Kit board* - **Note:  EV Kits come with MAX78000 device already inside the socket.**
-  * Additional MAX78000 sample(s)
-  * Maxim Pico JTAG/SWD adapter
-  * USB cable(s)
+  * EV Kit Board with Socketed MAX78000
+  * MAX32625PICO Debugger with Cables
+  * Olimex ARM-USB-OCD-H
+  * Olimex ARM-JTAG 20-10 ADAPTER
+  * Camera Module
+  * 2 USB-A to MICRO-B Cables
+  * 1 USB-A to USB-B Cable
+  * Extra Shunts
 
 ## Picture of EV Kit
 ![](MAX78000_RevA_EV_Kit.jpg)
