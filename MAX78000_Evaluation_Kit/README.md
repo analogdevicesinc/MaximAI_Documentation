@@ -24,15 +24,19 @@ The MAX78000 Evaluation Kit (EV kit) comes preloaded with a MAX78000 device that
 
 1.  Begin by making sure the PWR switch (SW1) is in the "OFF" position.
 
-2.  Make sure that jumper JP1 is installed.  This jumper enables LED, D1.  Also, make sure that the P0_0 and P0_1 jumpers are installed on JH1.  These two jumpers connect UART0 RX and TX to the console output.
+2.  Make sure that jumper JP1 is installed.  This jumper enables LED, D1.  
 
-3.  Connect USB cables from the PC to the USB/PWR connector (CN1) of the EV kit. This cable will power the board and provide a virtual serial port connection to the MAX78000's UART.
+3.  Make sure that the P0_0 and P0_1 jumpers are installed on JH1.  These two jumpers connect UART0 RX and TX to the console output.
 
-4.  On your PC, open a serial terminal application (minicom, gtkterm, etc.), and connect to the virtual serial port using a baud rate of 115200 and 8-N-1 settings.
+4.  Connect USB cables from the PC to the USB/PWR connector (CN1) of the EV kit. This cable will power the board and provide a virtual serial port connection to the MAX78000's UART.
 
-5.  Move the PWR switch to the "ON" position.
+5.  Install JP7 and JP14 to enable the external boost controller.
 
-6.  You will see message from the MAX78000 appear in the terminal and LED1 (D1) on the board will begin blinking at a steady rate.
+6.  Move the PWR switch to the "ON" position.
+
+7.  On your PC, open a serial terminal application (minicom, gtkterm, etc.), and connect to the virtual serial port using a baud rate of 115200 and 8-N-1 settings.
+
+8.  Reset the EV kit via SW5.  You will see message from the MAX78000 appear in the terminal and LED1 (D1) on the board will begin blinking at a steady rate.
 
 Once you see the described behavior, you know your board is functioning properly.
 
@@ -43,8 +47,8 @@ Once you see the described behavior, you know your board is functioning properly
 If you do not get the expected results, here are some things to note.
   * If the terminal program you are using says 'permission denied,' try prepending `sudo`.  For example, instead of typing 'gtkterm', type 'sudo gtkterm'.  Alternatively, ensure your user is part of the `dialout` group.
   * If the serial port successfully opens, but nothing appears on the console output, press RESET on the EV Kit, SW5.
-  * Some early versions of the EV Kit did not pre-program the Blinky example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
-  * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.
+  * Some early versions of the EV Kit did not pre-program the Hello World example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
+  * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.  Be sure to power off the board before opening the socket.
 
 ## Installing the Developer Tools (Linux)
 
@@ -93,6 +97,15 @@ Note:  Linux is the preferred platform for machine learning due to the tools nee
 
 The SDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
 
+On Windows, the MinGW shell can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
+
+![](msys.png)
+
+Below is an example of how to build the "hello world" example.  Other tools, such as openocd and gdb can be accessed from the MinGW shell.
+
+![](make.png)
+
+
 ## Loading and Running Applications on the EV Kit
 
 Applications are loaded, debugged, and run using OpenOCD and GDB.
@@ -104,7 +117,7 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
 3.  Change to the OpenOCD directory and launch OpenOCD with the following command:
 
     ```
-    ./openocd -f tcl/interface/cmsis-dap.cfg -f tcl/target/max78000.cfg
+    openocd -f interface/cmsis-dap.cfg -f target/max78000.cfg -s/c/MaximSDK/Tools/OpenOCD/scripts
     ```
 
 4.  On successful connection, you will see messages as shown below.
@@ -112,6 +125,8 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
 ![](ocd.png)
 
 5.  From another command prompt, change to the directory containing the application you would like to load.
+
+![](gdb.png)
 
 6.  Launch GDB using one of the following commands:
 
@@ -141,7 +156,6 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
     c
     ```
 
-![](gdb.png)
 
 ## Debugging Applications with GDB
 
@@ -173,7 +187,7 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 -   \*.c -- These files contain additional source code required by the example if necessary. Many of the examples reside entirely in the main.c file and will not have additional .c files.
 
--   \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)
+-   \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf)
 
 The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 
@@ -207,12 +221,11 @@ Now that proper operation of the EV Kit has been established by running a simple
 But before jumping to the mnist example, there are a couple of addtional comments about the EV Kit worth mentioning.
 
 ### CNN Boost
-The CNN draw up to 160mA under some circumstances, which exceeds the capabilities of the built-in SIMO.
-
-**Install JP7**, CNN BOOST, and use the `--boost 2.5` command line argument to ai8xizer (more on this later). This enables P2.5 during CNN computation, which enables the current boost circuitry.  Also, **install jumper JP14**, CNN 1V1.
+The EV kit features an external boost circuit that can be used to supply the CNN when under high computational load.  The boost circuit is enabled by jumping JP7 and J14 as described previously and supplying the `--boost 2.5` command line argument to ai8xizer.
+The internal SIMO can be used to power the CNN under moderate computational loads, however, the external boot circuit is recommended during development to avoid SIMO brown-out due to transient over-current conditions which can cause the CNN to fail.
 
 ### Measuring CNN Current
-To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance current meter across JP13. If the meter is not very low impedance, also remove R14 from the board.
+To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance current meter (<5 m&Omega;) across JP13. If the meter impedance is greater than 5 m&Omega; then also remove R14 from the board.
 
 ### Links to mnist and additional CNN examples
   * [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
