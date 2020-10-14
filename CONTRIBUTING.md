@@ -2,18 +2,19 @@
 
 Please read and understand the contribution guide before creating an issue or pull request.
 
-Remember that these are **Private** repositories and are not to be published in any way.  Refer to LICENSE.md for more details.
+Remember that these are **public** repositories and anyone can see all contributions. Refer to LICENSE.md for more details.
 
 ## Procedures and Access Rules
 
 - We will primarily be using the **GitHub Flow** model of development.  Note that this is **NOT** "git flow". More information is available [here](https://guides.github.com/introduction/flow/) and [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/github-flow).
-- Development is to be done via Forking into your personal account that is tied to the access of the [MaximIntegratedAI](https://github.com/MaximIntegratedAI) organization.  These forks will continue to be private.  More [information](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
-- Only admins and maintainer currently have write access to the root repositories.  This is designed to help curate the contents of the project, via code reviews on all pull requests.
+- Development is to be done via Forking into your personal account. More [information](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+- Only admins and maintainer currently have write access to the root repositories. This is designed to help curate the contents of the project, via code reviews on all pull requests.
 
 **Before submitting a pull request:**
 
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
+- Pull requests are checked by the [GitHub Super-Linter](https://github.com/github/super-linter).
 
 ### Technical Requirements
 
@@ -49,4 +50,4 @@ All contributors should correctly setup their git and GitHub credentials before 
 ## NOTES
 - Please check this document for changes periodically as new requirements may be deployed.
 
-- Continuous Integration checks and other automated checks will likely be added to the pull request system in the future.
+- Additional Continuous Integration checks and other automated checks will likely be added to the pull request system in the future.
