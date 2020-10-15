@@ -8,6 +8,7 @@ Remember that these are **public** repositories and anyone can see all contribut
 
 - We will primarily be using the **GitHub Flow** model of development.  Note that this is **NOT** "git flow". More information is available [here](https://guides.github.com/introduction/flow/) and [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/github-flow).
 - Development is to be done via Forking into your personal account. More [information](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+  *Note: After creating the fork, you must re-enable actions in the “Actions” tab of the repository on GitHub.*
 - Only admins and maintainer currently have write access to the root repositories. This is designed to help curate the contents of the project, via code reviews on all pull requests.
 
 **Before submitting a pull request:**
