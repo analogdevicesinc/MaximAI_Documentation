@@ -5,13 +5,9 @@
 ## Schematic
 The schematic and BOM can be found in the MAX78000FTHR Datasheet.  See https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html
 
-## Two Ways to Get Started
+## Developing with Eclipse
 
-There are two paths to getting started with the MAX78000FTHR.  The first approach is firmware-focused and will be familar to the traditional embedded developer using Windows and Eclipse to code, flash, and debug.  The second approach is ML-focused and provides tools for training and sythesiszing machine learning models.  This approach requires a Linux host and non-trivial training practically requires CUDA support.
-
-## Firmware-Focused Approach
-
-This is the quickest way to evaluate pre-trained and sythesized ML demonstrations.   but you won't be able to train/sythesize your own models.  You'll need to download and install the Maxim SDK onto a Windows 10 host.  The Maxim SDK is available here:
+This is the quickest way to evaluate pre-trained and sythesized ML demonstrations.  You'll need to download and install the Maxim SDK onto a Windows 10 host.  The Maxim SDK is available here:
 
 https://www.maximintegrated.com/content/maximintegrated/en/design/software-description.html/swpart=SFW0010820A
 
@@ -61,58 +57,17 @@ Note that all examples are targted at the EVKIT by default.  To change the targe
 
 The Firmware-Focused Approach allows you to quickly compile, modify, and debug existing CNN examples, but if you want to modify the ML models or re-train the ML network, you will need to use the ML-focused approach described in the next section.
 
-## ML-Focused Approach using Linux
-
-This approach allows the user to train and sythesize convolutional neural networks using Pytorch and TensorFlow.  Additionaly, compilation and debugging is supported under Linux making this method peferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific sythesis tools and supporting software are made available via github.
-
-Two github repositories are required:  
-
-https://github.com/MaximIntegratedAI/ai8x-training
-
-https://github.com/MaximIntegratedAI/ai8x-synthesis
-
-Refer to the readme found in each repository for details on how to configure your Linux host.
-
-Additional repositories of intrest include documentation and early-release versions of the Maxim SDK:
-
-https://github.com/MaximIntegratedAI/MaximAI_Documentation
-
-https://github.com/MaximIntegratedAI/MAX78000_SDK
-
-
-## Installing the Developer Tools (Linux)
-
-In addition to Windows+Eclipse, you can compile, flash, and debug firmware under Linux:
-
--   The GNU Tools for ARM Embedded Processors
-
-    1.  Browse to <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads> and download and extract the gcc-arm-none-eabi-9-2019-q4-major package that corresponds to your system.
-
-    2.  Edit your PATH variable to include the path to the arm-none-eabi directory.
-
--   The MAX78000 SDK
-
-    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
-
--   OpenOCD
-
-    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
-
-    2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
-
-
-## Building the SDK Examples using MSYS on Windows
+## Building the SDK Examples using MINGW on Windows
 
 The SDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
 
-On Windows, the MSYS shell can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
+On Windows, the MSYS shell (included in the SDK) can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
 
 ![](msys.png)
 
 Below is an example of how to build the "hello world" example.  Other tools, such as openocd and gdb can be accessed from the MinGW shell.
 
 ![](make.png)
-
 
 ## Loading and Running Example Firmware
 
@@ -198,6 +153,47 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 -   \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf)
 
 The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
+
+## ML-Focused Approach using Linux
+
+This approach allows the user to train and sythesize convolutional neural networks using Pytorch and TensorFlow.  Additionaly, compilation and debugging is supported under Linux making this method peferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific sythesis tools and supporting software are made available via github.
+
+Two github repositories are required:  
+
+https://github.com/MaximIntegratedAI/ai8x-training
+
+https://github.com/MaximIntegratedAI/ai8x-synthesis
+
+Refer to the readme found in each repository for details on how to configure your Linux host.
+
+Additional repositories of intrest include documentation and early-release versions of the Maxim SDK:
+
+https://github.com/MaximIntegratedAI/MaximAI_Documentation
+
+https://github.com/MaximIntegratedAI/MAX78000_SDK
+
+
+## Installing the Developer Tools (Linux)
+
+In addition to Windows+Eclipse, you can compile, flash, and debug firmware under Linux:
+
+-   The GNU Tools for ARM Embedded Processors
+
+    1.  Browse to <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads> and download and extract the gcc-arm-none-eabi-9-2019-q4-major package that corresponds to your system.
+
+    2.  Edit your PATH variable to include the path to the arm-none-eabi directory.
+
+-   The MAX78000 SDK
+
+    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+
+-   OpenOCD
+
+    1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+
+    2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
+
+
 
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
