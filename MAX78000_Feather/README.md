@@ -11,9 +11,9 @@ This is the quickest way to evaluate pre-trained and sythesized ML demonstration
 
 https://www.maximintegrated.com/content/maximintegrated/en/design/software-description.html/swpart=SFW0010820A
 
-### Creating a Peripheral Project from an Example
+### Creating a I/O Peripheral Project
 
-Once installed, run Eclipse which is included in the SDK. Create a new Maxim Microcontroller project.
+The SDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within clipse as demonstrated below.
 
 ![](maxim_microcontrollers.png)
 
@@ -71,7 +71,7 @@ Below is an example of how to build the "hello world" example.  Other tools, suc
 
 ## Loading and Running Example Firmware
 
-Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.
+Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.  In fact, if you prefer to develop using Linux, see the section [Installing the Developer Tools \(Linux\)](# Installing the Developer Tools (Linux)) below.
 
 The MAX78000FTHR has an integrated daplink debuggger. 
 
@@ -172,7 +172,6 @@ https://github.com/MaximIntegratedAI/MaximAI_Documentation
 
 https://github.com/MaximIntegratedAI/MAX78000_SDK
 
-
 ## Installing the Developer Tools (Linux)
 
 In addition to Windows+Eclipse, you can compile, flash, and debug firmware under Linux:
@@ -192,8 +191,6 @@ In addition to Windows+Eclipse, you can compile, flash, and debug firmware under
     1.  Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
-
-
 
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
