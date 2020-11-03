@@ -71,7 +71,7 @@ Below is an example of how to build the "hello world" example.  Other tools, suc
 
 ## Loading and Running Example Firmware
 
-Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.  In fact, if you prefer to develop using Linux, see the section [Installing the Developer Tools \(Linux\)](# Installing the Developer Tools (Linux)) below.
+Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.  In fact, if you prefer to develop using Linux, see the section [Installing the Developer Tools \(Linux\)](#installing-the-developer-tools-linux) below.
 
 The MAX78000FTHR has an integrated daplink debuggger. 
 
