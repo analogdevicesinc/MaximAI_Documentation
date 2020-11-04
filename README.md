@@ -1,7 +1,12 @@
 # MAXIM AI Documentation
 This is the “home” for IC, EV Kit, SDK, and AI documentation for the Maxim AI product family.
 
-**START HERE: Getting Started with the MAX78000 Evaluation Kit:** [README.md](./MAX78000_Evaluation_Kit/README.md)
+**START HERE:**
+
+**[Getting Started with the MAX78000 Evaluation Kit](./MAX78000_Evaluation_Kit/README.md)**
+
+**[Getting Started with the MAX78000 Feather Board](./MAX78000_Feather/README.md)**
+
 
 ## Project Structure
 
