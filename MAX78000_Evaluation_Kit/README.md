@@ -16,7 +16,7 @@ Before beginning, you should make sure you have all of the following components 
 ![](MAX78000_RevA_EV_Kit.jpg)
 
 ## Rev A EV Kit Schematic
-Rev A EV Kit schematic: [MAX78000 REV A including mods.pdf](MAX78000%20REV%20A%20including%20mods.pdf)
+EV Kit schematic: [Schematics](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
 
 ## Powering the MAX78000 Evaluation Kit for the First Time
 
