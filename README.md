@@ -33,4 +33,4 @@ The project consists of four repositories:
 
 ## External ML Education Resources
 
-Just getting started with ML.  [Here's a set of video and books to get you going.](./learning/README.md)**
+Just getting started with ML?  [ Here's a set of video and books to get you going.](./learning/README.md)
