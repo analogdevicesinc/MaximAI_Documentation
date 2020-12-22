@@ -1,7 +1,12 @@
 # MAXIM AI Documentation
 This is the “home” for IC, EV Kit, SDK, and AI documentation for the Maxim AI product family.
 
-**START HERE: Getting Started with the MAX78000 Evaluation Kit:** [README.md](./MAX78000_Evaluation_Kit/README.md)
+**START HERE:**
+
+->->-> **[Getting Started with the MAX78000 Evaluation Kit](./MAX78000_Evaluation_Kit/README.md)**
+
+->->-> **[Getting Started with the MAX78000 Feather Board](./MAX78000_Feather/README.md)**
+
 
 ## Project Structure
 
@@ -22,5 +27,6 @@ The project consists of four repositories:
 * Link to EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
   * (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
   * (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
+* Link to Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
 * Link to SDK repository: [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
 * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
