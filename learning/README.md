@@ -4,13 +4,13 @@
 Here's a list of books and videos that present ML fundamentals from theoretical and practical perspectives.
 
 
-##Videos
+## Videos
 
 - [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning) Fundamentals.  Andrew Ng.
 - [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
 - [https://www.tensorflow.org/resources/learn-ml](https://www.tensorflow.org/resources/learn-ml) TensorFlow
 
-##Books
+## Books
 
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2019](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/ref=sr_1_1?dchild=1&amp;keywords=%E2%80%A2+Hands-On+Machine+Learning+with+Scikit-Learn%2C+Keras%2C+and+TensorFlow%3A+Concepts%2C+Tools%2C+and+Techniques+to+Build+Intelligent+Systems&amp;qid=1607102764&amp;s=books&amp;sr=1-1)
 - [The Hundred-Page Machine Learning Book – 2019](https://www.amazon.com/Hundred-Page-Machine-Learning-Book/dp/199957950X/ref=sr_1_3?dchild=1&amp;keywords=The+Hundred-Page+Machine+Learning+Book&amp;qid=1607102722&amp;s=books&amp;sr=1-3)
