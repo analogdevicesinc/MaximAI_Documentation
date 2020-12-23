@@ -6,10 +6,9 @@ Here's a list of books and videos that present ML fundamentals from theoretical 
 
 ##Videos
 
-- [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning)
-- [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)
-- [https://www.aws.training/LearningLibrary?filters=classification%3A30&amp;filters=language%3A1&amp;tab=view\_all](https://www.aws.training/LearningLibrary?filters=classification%3A30&amp;filters=language%3A1&amp;tab=view_all)
-- [https://www.tensorflow.org/resources/learn-ml](https://www.tensorflow.org/resources/learn-ml)
+- [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning) Fundamentals.  Andrew Ng.
+- [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
+- [https://www.tensorflow.org/resources/learn-ml](https://www.tensorflow.org/resources/learn-ml) TensorFlow
 
 ##Books
 
