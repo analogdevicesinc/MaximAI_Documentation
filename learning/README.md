@@ -1,8 +1,7 @@
 
-# External ML Education Resources
+# Machine Learning Education Resources
 
-Here's a list of books and videos that present ML fundamentals from theoretical and practical perspectives.
-
+Here's a list of books and videos that present machine learning fundamentals from theoretical and practical perspectives.
 
 ## Videos
 
