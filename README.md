@@ -33,4 +33,4 @@ The project consists of four repositories:
 
 ## External Machine Learning Education Resources
 
-Just getting started with Machine Learning? [Here's a set of video and books to get you going.](./learning/README.md)
+Just getting started with Machine Learning? [Here's a set of videos and books to get you going.](./learning/README.md)
