@@ -177,6 +177,29 @@ Follow the same steps provided in the *Loading and Running Applications on the E
 | help                           |                   | Print descriptions for available commands                    |
 | help \<cmd\>                   |                   | Print description for given command.                         |
 
+## How to Unlock a MAX78000 That Can No Longer Be Programmed
+
+The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this lockout state:  
+1.  Remove the USB cable connected to the MAX32625PICO debug adapter board.  
+2.  Remove power to the target device by powering down the EV Kit or feather board.  
+3.  Place the MAX32625PICO debug adapter in MAINTENENCE mode by holding down its button while reconnecting the USB cable to the host PC.  
+   - The MAX32625PICO debug adapter will enumerate as a mass storage device named MAINTENANCE.  
+   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [special DAPLINK bin file](MAX32625PICO_files/max32625_max32630fthr_if_mass-erase-v1.bin).  
+   - Following the Drag-n-Drop, the MAX32625PICO should reboot and reconnect as a drive named DAPLINK.  
+
+4.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive.  If not, follow [these instructions](https://https://github.com/ARMmbed/DAPLink/blob/master/docs/ENABLE_AUTOMATION.md) to enable it.  
+5.  If not already connected, use the supplied ribbon cable to re-connect the MAX32625PICO debug adapter board to the target board that is locked-out and turn on power to the target device/board.  
+6.  Create an empty file named 'erase128.act' and Drag-n-Drop it onto the DAPLINK drive.
+7.  This should mass erase the flash of the target device, allowing the device to be programmed again.
+8.  Restore the original MAX32625PICO debug adapter board firmware by performing the following:  
+   - Re-enter MAINTENANCE mode by disconnecting the USB cable to the MAX32625PICO debug adapter board, pressing down on the button, and then reconnecting the USB cable.  
+   - Once the MAINTENANCE drive appears, Drag-n-Drop this file: [original DAPLINK bin file](MAX32625PICO_files/max32625pico_daplink.bin).  
+   - This will again reboot the MAX32625PICO and reconnect as DAPLINK.  
+
+At this point, the target device should be once again programmable and the MAX32625PICO adapter board restored to its original firmware.  
+
+Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
+
 ## Additional SDK Information
 
 The examples are separated by device type. The SDK on GitHub currently only includes the MAX78000. Therefore, the examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files.
