@@ -10,7 +10,7 @@ Two part presentation on the MAX78000 with focus on the MAX78000FTHR development
 - [EVB Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616)
 - [EVB Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039)
 
-## Genral AI Topic Videos
+## General AI Topic Videos
 
 - [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning) Fundamentals.  Andrew Ng.
 - [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
