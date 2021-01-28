@@ -3,12 +3,12 @@
 
 Here's a list of books and videos that present machine learning fundamentals from theoretical and practical perspectives.
 
-## Maxim MAX78000 EVB Webinars
+## Maxim MAX78000 EBV Webinars
 
-Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform
+Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform:
 
-- [EVB Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616)
-- [EVB Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039)
+- [EBV Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616)
+- [EBV Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039)
 
 ## General AI Topic Videos
 
