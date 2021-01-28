@@ -31,6 +31,6 @@ The project consists of four repositories:
 * Link to SDK repository: [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
 * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
 
-## Machine Learning Education Resources
+## Additional MAX78000 and Machine Learning Education Resources
 
-Just getting started with Machine Learning? [Here's a set of videos and books to get you going.](./learning/README.md)
+Interested in the MAX78000, or just getting started with Machine Learning? [Here's a set of videos and books to get you going.](./learning/README.md)
