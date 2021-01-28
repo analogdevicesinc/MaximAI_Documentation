@@ -48,7 +48,9 @@ If you do not get the expected results, here are some things to note.
   * If the terminal program you are using says 'permission denied,' try prepending `sudo`.  For example, instead of typing 'gtkterm', type 'sudo gtkterm'.  Alternatively, ensure your user is part of the `dialout` group.
   * If the serial port successfully opens, but nothing appears on the console output, press RESET on the EV Kit, SW5.
   * Some early versions of the EV Kit did not pre-program the Hello World example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
+  * If you can no longer program the MAX78000, it may be in a locked-out state.  Refer to the "How to Unlock a MAX78000 That Can No Longer Be Programmed" section.
   * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.  Be sure to power off the board before opening the socket.
+  
 
 ## Installing the Developer Tools (Linux)
 
@@ -176,6 +178,29 @@ Follow the same steps provided in the *Loading and Running Applications on the E
 | info reg                       |                   | Print the values of the ARM registers.                       |
 | help                           |                   | Print descriptions for available commands                    |
 | help \<cmd\>                   |                   | Print description for given command.                         |
+
+## How to Unlock a MAX78000 That Can No Longer Be Programmed
+
+The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this lockout state:  
+1.  Remove the USB cable connected to the MAX32625PICO debug adapter board.  
+2.  Remove power to the target device by powering down the EV Kit or feather board.  
+3.  Place the MAX32625PICO debug adapter in MAINTENENCE mode by holding down its button while reconnecting the USB cable to the host PC.  
+   - The MAX32625PICO debug adapter will enumerate as a mass storage device named MAINTENANCE.  
+   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [special DAPLINK bin file](MAX32625PICO_files/max32625_max32630fthr_if_mass-erase-v1.bin).  
+   - Following the Drag-n-Drop, the MAX32625PICO should reboot and reconnect as a drive named DAPLINK.  
+
+4.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive.  If not, follow [these instructions](https://https://github.com/ARMmbed/DAPLink/blob/master/docs/ENABLE_AUTOMATION.md) to enable it.  
+5.  If not already connected, use the supplied ribbon cable to re-connect the MAX32625PICO debug adapter board to the target board that is locked-out and turn on power to the target device/board.  
+6.  Create an empty file named 'erase128.act' and Drag-n-Drop it onto the DAPLINK drive.
+7.  This should mass erase the flash of the target device, allowing the device to be programmed again.
+8.  Restore the original MAX32625PICO debug adapter board firmware by performing the following:  
+   - Re-enter MAINTENANCE mode by disconnecting the USB cable to the MAX32625PICO debug adapter board, pressing down on the button, and then reconnecting the USB cable.  
+   - Once the MAINTENANCE drive appears, Drag-n-Drop this file: [original DAPLINK bin file](MAX32625PICO_files/max32625pico_daplink.bin).  
+   - This will again reboot the MAX32625PICO and reconnect as DAPLINK.  
+
+At this point, the target device should be once again programmable and the MAX32625PICO adapter board restored to its original firmware.  
+
+Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
 
 ## Additional SDK Information
 
