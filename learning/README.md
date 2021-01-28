@@ -3,7 +3,14 @@
 
 Here's a list of books and videos that present machine learning fundamentals from theoretical and practical perspectives.
 
-## Videos
+## Maxim MAX78000 EVB Webinars
+
+Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform
+
+- [EVB Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616)
+- [EVB Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039)
+
+## General AI Topic Videos
 
 - [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning) Fundamentals.  Andrew Ng.
 - [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
