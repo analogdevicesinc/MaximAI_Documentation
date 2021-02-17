@@ -175,6 +175,24 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 
+## TFT display
+
+The TFT display is optional and not supplied with the MAX78000 Feather board.
+
+The MAX78000 Feather compatible 2.4'' TFT FeatherWing display can be ordered here:
+
+https://learn.adafruit.com/adafruit-2-4-tft-touch-screen-featherwing
+
+This TFT display comes fully assembled with dual sockets for MAX78000 Feather to plug into.
+
+To connect TFT display to MAX78000 Feather board you need to solder two headers as shown below:
+
+<img src="feather_header.png" style="zoom: 25%;" />
+
+<img src="Feather_TFT.png" style="zoom:25%;" />
+
+While using TFT display keep its power switch in "ON" position. The TFT "Reset" button also can be used as Feather reset.
+
 ## ML-Focused Approach using Linux
 
 This approach allows the user to train and sythesize convolutional neural networks using Pytorch and TensorFlow.  Additionaly, compilation and debugging is supported under Linux making this method peferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific sythesis tools and supporting software are made available via github.
