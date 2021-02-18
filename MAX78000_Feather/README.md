@@ -189,7 +189,7 @@ To connect TFT display to MAX78000 Feather board you need to solder two headers 
 
 <img src="feather_header.png" style="zoom: 25%;" />
 
-<img src="Feather_TFT.png" style="zoom:25%;" />
+<img src="feather_TFT.png" style="zoom:25%;" />
 
 While using TFT display keep its power switch in "ON" position. The TFT "Reset" button also can be used as Feather reset.
 
