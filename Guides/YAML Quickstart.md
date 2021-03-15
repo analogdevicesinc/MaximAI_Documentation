@@ -68,7 +68,7 @@ The table below shows the description of frequently used keywords. For a complet
 
 | keyword      | Description                                                  | Available options                                            |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| data_format  | **ONLY in first layer**, specifies the organization of data in memory | CHW or HWC                                                   |
+| data_format  | **ONLY in first layer**, specifies the organization of data in memory. The optimum choice depends on the data source (interleaved channels/HWC or channels in sequence/CHW). When there is no particular preference, HWC is recommended for input data of less than 90×91 per channel. | CHW or HWC                                                   |
 | op           | The layer operation as in the model                          | Conv1d, Conv2d, ConvTranspose2d, None (or Passthrough), Linear (or FC or MLP), Add, Sub, Xor, Or |
 | pad          | The padding of the layer in the model                        | For Conv2d , this value can be 0 , 1 (the default), or 2 .<br/>For Conv1d , the value can be 0 , 1 , 2 , or 3 (the default).<br/>For Passthrough , this value must be 0 (the default). |
 | activate     | The layer activation                                         | ReLU , Abs or None (the default).                            |
