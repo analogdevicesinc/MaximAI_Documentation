@@ -10,7 +10,7 @@ Here's a list of books and videos that present machine learning fundamentals fro
 - [AI Speech Recognition](https://youtu.be/uMZQYnMXGQ0)
 - [AI Defined Radio](https://youtu.be/r9T9Xwdy-Lw)
 
-# tinyML Talks Presentation
+## tinyML Talks Presentation
 
 - [Cutting the AI Power Cord: Technology to Enable True Edge Interface](https://youtu.be/7B19a1ua3qE)
 
