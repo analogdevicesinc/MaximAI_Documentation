@@ -18,7 +18,7 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 ### Elektor Webinar
 
-- [MAX78000FTHR - A Platform for Innovation](MAX78000FTHR%20-%20A%20Platform%20for%20Innovation.pdf) (March 30, 2021) [Slide Deck](MAX78000FTHR%20-%20A%20Platform%20for%20Innovation.pdf)
+- [MAX78000FTHR – A Platform for Innovation](https://youtu.be/cWq4kKQrY0o) (March 30, 2021) [Slide Deck](MAX78000FTHR%20-%20A%20Platform%20for%20Innovation.pdf)
 
 
 
@@ -39,7 +39,7 @@ Two part presentation on the MAX78000 with focus on the MAX78000FTHR development
 
 ### Articles and Blog Posts
 
-- [Making Coffee with the MAX78000 and Some AI (Part 1)](https://www.elektormagazine.com/articles/making-coffee-max78000-ai) / [Part 2](https://www.elektormagazine.com/articles/making-coffee-with-the-max78000-and-some-ai-part-2)
+- [Making Coffee with the MAX78000 and Some AI](https://www.elektormagazine.com/articles/making-coffee-max78000-ai) (Part 1) / [Part 2](https://www.elektormagazine.com/articles/making-coffee-with-the-max78000-and-some-ai-part-2)
 
 
 
