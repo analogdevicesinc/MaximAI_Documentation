@@ -10,11 +10,11 @@ Here's a list of books and videos that present machine learning fundamentals fro
 - [AI Speech Recognition](https://youtu.be/uMZQYnMXGQ0)
 - [AI Defined Radio](https://youtu.be/r9T9Xwdy-Lw)
 
-## tinyML Talks Presentation
+## tinyML Talks Presentation (March 25, 2021)
 
 - [Cutting the AI Power Cord: Technology to Enable True Edge Interface](https://youtu.be/7B19a1ua3qE)
 
-## Maxim MAX78000 EBV Webinars
+## Maxim MAX78000 EBV Webinars (January 27-28, 2021)
 
 Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform:
 
