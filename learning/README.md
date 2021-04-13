@@ -59,6 +59,12 @@ Two part presentation on the MAX78000 with focus on the MAX78000FTHR development
 
 
 
+## AI Blog Posts
+
+* [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)
+
+
+
 ## AI Books
 
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2019](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/ref=sr_1_1?dchild=1&amp;keywords=%E2%80%A2+Hands-On+Machine+Learning+with+Scikit-Learn%2C+Keras%2C+and+TensorFlow%3A+Concepts%2C+Tools%2C+and+Techniques+to+Build+Intelligent+Systems&amp;qid=1607102764&amp;s=books&amp;sr=1-1)
