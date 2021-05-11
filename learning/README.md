@@ -1,7 +1,9 @@
 
 # Machine Learning Education Resources
 
-Here's a list of books and videos that present machine learning fundamentals from theoretical and practical perspectives.
+Here’s a list of books and videos that present the MAX78000, and machine learning fundamentals from theoretical and practical perspectives.
+
+
 
 ## MAX78000 Product Demonstration Videos
 
@@ -10,16 +12,38 @@ Here's a list of books and videos that present machine learning fundamentals fro
 - [AI Speech Recognition](https://youtu.be/uMZQYnMXGQ0)
 - [AI Defined Radio](https://youtu.be/r9T9Xwdy-Lw)
 
-# tinyML Talks Presentation
 
-- [Cutting the AI Power Cord: Technology to Enable True Edge Interface](https://youtu.be/7B19a1ua3qE)
 
-## Maxim MAX78000 EBV Webinars
+## MAX780000 Webinars and Presentations
+
+### Elektor Webinar
+
+- [MAX78000FTHR – A Platform for Innovation](https://youtu.be/cWq4kKQrY0o) (March 30, 2021) [Slide Deck](MAX78000FTHR%20-%20A%20Platform%20for%20Innovation.pdf)
+
+
+
+### tinyML Talks Presentation
+
+- [Cutting the AI Power Cord: Technology to Enable True Edge Interface](https://youtu.be/7B19a1ua3qE) (March 25, 2021)
+
+
+
+### EBV Webinars
 
 Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform:
 
-- [EBV Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616)
-- [EBV Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039)
+- [EBV Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616) (January 27, 2021)
+- [EBV Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039) (January 28, 2021)
+
+
+
+### Articles and Blog Posts
+
+- [Making Coffee with the MAX78000 and Some AI](https://www.elektormagazine.com/articles/making-coffee-max78000-ai) (Part 1) / [Part 2](https://www.elektormagazine.com/articles/making-coffee-with-the-max78000-and-some-ai-part-2)
+
+
+
+---
 
 ## General AI Topic Videos
 
@@ -27,7 +51,21 @@ Two part presentation on the MAX78000 with focus on the MAX78000FTHR development
 - [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
 - [https://www.tensorflow.org/resources/learn-ml](https://www.tensorflow.org/resources/learn-ml) TensorFlow
 
-## Books
+
+
+## AI Podcasts
+
+* [The Robot Brains Podcast](https://www.therobotbrains.ai) - listen on [Apple Podcasts](https://podcasts.apple.com/gb/podcast/the-robot-brains-podcast/id1559275284), [Spotify](https://open.spotify.com/show/2qbLq3HrhTnnmmsHc37QOD), [Google](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5hY2FzdC5jb20vcHVibGljL3Nob3dzL3RoZS1yb2JvdC1icmFpbnM), [Amazon](https://music.amazon.com/podcasts/944100c5-b2f7-4124-84e0-5f74ebe42177/THE-ROBOT-BRAINS-PODCAST)
+
+
+
+## AI Blog Posts
+
+* [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)
+
+
+
+## AI Books
 
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems - 2019](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646/ref=sr_1_1?dchild=1&amp;keywords=%E2%80%A2+Hands-On+Machine+Learning+with+Scikit-Learn%2C+Keras%2C+and+TensorFlow%3A+Concepts%2C+Tools%2C+and+Techniques+to+Build+Intelligent+Systems&amp;qid=1607102764&amp;s=books&amp;sr=1-1)
 - [The Hundred-Page Machine Learning Book – 2019](https://www.amazon.com/Hundred-Page-Machine-Learning-Book/dp/199957950X/ref=sr_1_3?dchild=1&amp;keywords=The+Hundred-Page+Machine+Learning+Book&amp;qid=1607102722&amp;s=books&amp;sr=1-3)
