@@ -148,13 +148,13 @@ The SWD interface is unavailable for a certain number of clock cycles after rese
    - The debug adapter will enumerate as a mass storage device named MAINTENANCE.  
    - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK binary file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
    - Following the Drag-n-Drop, the debug adapter should reboot and reconnect as a drive named DAPLINK.  
-3.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not:
+3.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not do as follow:
     - Create and copy an empty text file named '**auto_on.cfg**' to DAPLINK drive while SW5 button is held.
     - Release SW5 button when the drive unmounts. When it remounts, confirm "Automation Allowed" is set to 1 in DETAILS.TXT file.
 4.  Create an empty text file named '**erase.act**' and Drag-n-Drop it onto the DAPLINK drive.
 5.  This should mass erase the flash of the target device, allowing the device to be programmed again.
 
-At this point, the target device should be once again programmable and no need to restore original firmware of debug adapter.  
+At this point, the target device should be once again programmable.  
 
 Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
 
