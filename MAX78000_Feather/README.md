@@ -142,16 +142,16 @@ Follow the same steps provided in the *Loading and Running Applications on the E
 
 ## How to Unlock a MAX78000 That Can No Longer Be Programmed
 
-The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this lockout state:  
+The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this "lockout" state.
 1.  Remove the USB cable connected to the MAX78000FTHR board.  
 2.  Place the on-board debug adapter in MAINTENENCE mode by holding down button SW5 while reconnecting the USB cable to the host PC.  
    - The debug adapter will enumerate as a mass storage device named MAINTENANCE.  
-   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK binary file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
-   - Following the Drag-n-Drop, the debug adapter should reboot and reconnect as a drive named DAPLINK.  
-3.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not do as follow:
-    - Create and copy an empty text file named '**auto_on.cfg**' to DAPLINK drive while SW5 button is held.
-    - Release SW5 button when the drive unmounts. When it remounts, confirm "Automation Allowed" is set to 1 in DETAILS.TXT file.
-4.  Create an empty text file named '**erase.act**' and Drag-n-Drop it onto the DAPLINK drive.
+   - Drag-and-drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK binary file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
+   - Following the Drag-and-drop, the debug adapter should reboot and reconnect as a drive named DAPLINK.  
+3.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
+    - Create an empty text file named '**auto_on.cfg**'. Copy the file to DAPLINK drive while SW5 button is held.
+    - Release SW5 button when the drive unmounts. When it remounts, confirm "Automation allowed" is set to 1 in DETAILS.TXT file.
+4.  Create an empty text file named '**erase.act**' and Drag-and-drop it onto the DAPLINK drive.
 5.  This should mass erase the flash of the target device, allowing the device to be programmed again.
 
 At this point, the target device should be once again programmable.  
