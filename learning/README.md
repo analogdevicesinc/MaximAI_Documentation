@@ -32,8 +32,8 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform:
 
-- [EBV Session 1](https://www.globalspec.com/events/eventdetails?eventId=2616) (January 27, 2021)
-- [EBV Session 2](https://www.globalspec.com/events/eventdetails?eventId=3039) (January 28, 2021)
+- [EBV Session 1](https://www.maximintegrated.com/en/support/videos.html/vd_1_3b0yibd5) (January 27, 2021)
+- [EBV Session 2](https://www.maximintegrated.com/en/support/videos.html/vd_1_e6myvpjx) (January 28, 2021)
 
 
 
