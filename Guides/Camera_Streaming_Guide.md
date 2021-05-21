@@ -1,13 +1,14 @@
-# MAX78000 Camera DMA Streaming
+# MAX78000 Camera Streaming using DMA
 
 
 
 ## Overview
-Capturing and storing QVGA (320x240) or VGA(640x480) images require a significant amount of memory beyond the internal memory of MAX78000. For this purpose, camera DMA streaming mode can be used to capture large images and transfer them line by line into MAX78000 memory for further CNN processing or displaying on the TFT. 
 
-## Camera settings
+Capturing and storing QVGA (320×240) or VGA (640×480) images requires a significant amount of memory beyond the internal memory of MAX78000. To solve this issue, camera streaming mode with Direct Memory Access (DMA) can be used to capture large images and transfer them line-by-line into MAX78000 memory for further processing in the Neural Network Accelerator, or for display on the TFT. 
 
-To activate the camera DMA streaming mode, use `STREAMING_DMA` argument of `camera_setup()` function. An example of camera initialization code is shown below:
+## Camera Settings
+
+To activate the camera DMA streaming mode, use the `STREAMING_DMA` argument of the `camera_setup()` function. A code example for initializing the camera is shown below:
 
 ```c++
  int ret = 0;
@@ -15,7 +16,7 @@ To activate the camera DMA streaming mode, use `STREAMING_DMA` argument of `came
  int id; 
  int dma_channel;
 
- // Initialize DMA for camera interface
+ // Initialize DMA for camera interface.
  MXC_DMA_Init();
  dma_channel = MXC_DMA_AcquireChannel(); 
 
@@ -36,7 +37,7 @@ To activate the camera DMA streaming mode, use `STREAMING_DMA` argument of `came
 
  PR_DEBUG("Camera Product ID is %04x\n", id);
 
- // Obtain the manufacture ID of the camera.
+ // Obtain the manufacturer ID of the camera.
  ret = camera_get_manufacture_id(&id);
 
  if (ret != STATUS_OK) {
@@ -44,16 +45,17 @@ To activate the camera DMA streaming mode, use `STREAMING_DMA` argument of `came
      return -1;
  }
 
- PR_DEBUG("Camera Manufacture ID is %04x\n", id);
+ PR_DEBUG("Camera Manufacturer ID is %04x\n", id);
 
- // Setup the camera image dimensions, pixel format and data acquiring details.
+ // Setup camera image dimensions, pixel format and data acquiring details.
  ret = camera_setup(IMAGE_XRES, IMAGE_YRES, PIXFORMAT_RGB565, FIFO_FOUR_BYTE, STREAMING_DMA, dma_channel); // RGB565 stream
 
  if (ret != STATUS_OK) {
      PR_ERR("Error returned from setting up camera. Error %d\n", ret);
      return -1;
  }
- // If needed, reduce speed by setting camera internal clock pre-scaler value=0x0-0x1F.
+ // If needed, reduce transfer speed by setting the camera internal
+ // clock pre-scaler value=0x0-0x1F.
  camera_write_reg(0x11, 0x1);
 ```
 
@@ -61,7 +63,7 @@ To activate the camera DMA streaming mode, use `STREAMING_DMA` argument of `came
 
 ## Camera DMA Streaming API
 
-The DMA automatically transfers captured images from PCIF RX FIFO into two streaming  ping-pong buffers with image width size allocated in the memory. When one buffer is being accessed by the DMA, a second buffer can be consumed by the application (CNN process, TFT display). The application needs to get a pointer to the available streaming buffer by calling `get_camera_stream_buffer()` and waits until it's not NULL. After consuming the data, the application must release the streaming buffer for the next DMA transaction by calling `release_camera_stream_buffer()`function. Also, the application can monitor the number of DMA transfers (image height) per image as well as an overflow condition.
+DMA automatically transfers captured images from the PCIF RX FIFO into two streaming double (“ping-pong”) buffers, each sized to match the image width and allocated in memory. While one buffer is being accessed by the DMA, the second buffer can be consumed by the application (CNN process, TFT display). The application needs to get a pointer to the available streaming buffer by calling `get_camera_stream_buffer()` and wait until it is not `NULL`. After consuming the data, the application must release the streaming buffer for the next DMA transaction by calling the `release_camera_stream_buffer()`function. Also, the application can monitor the number of DMA transfers (image height) per image as well as an overflow condition.
 
 ```c++
 typedef struct _stream_stat {
@@ -79,19 +81,19 @@ void release_camera_stream_buffer(void);
 stream_stat_t* get_camera_stream_statistic(void);
 ```
 
-The overflow condition is detected when `overflow_count` is not zero. It may happen if the processing of the image by the application is at a slower pace than its capturing. To match the image capturing and processing speed, increase the camera clock pre-scale value: *camera_write_reg(0x11, **0x1**)*. This value can be set in 0x0 - 0x1F range. Reducing the clock pre-scale value brings down the camera output clock and slows down the image capture speed.
+The overflow condition is detected when `overflow_count` is not zero. It may happen if the processing of the image by the application is slower pace than the image capture. To match the image capture and processing speeds, increase the camera clock pre-scale value: *camera_write_reg(0x11, **0x1**)*. This value can be set in the range from 0x0 to 0x1F inclusively. Reducing the clock pre-scale value slows the camera output clock and reduces the image capture speed.
 
-## Streaming image to the CNN
+## Streaming an Image to the CNN
 
-The CNN model must be  synthesized with `--fifo ` or `--fast-fifo` options in ai8xize.py.
+The CNN model must be  synthesized with the `--fifo ` or `--fast-fifo` options in ai8xize.py.
 
-The `cnn_start()` function should be called first followed by `camera_start_capture_image()` to capture  an image. 
+The `cnn_start()` function should be called first, followed by `camera_start_capture_image()` to capture  an image. 
 
 The CNN will start processing data automatically when enough data is available.
 
 Loading image data to the CNN is done in a time-critical nested loop by writing image horizontal lines one by one into the CNN FIFO.
 
-It's important to check `stat->dma_transfer_count` to make sure there is no overflow of streaming buffers. If an overflow condition is detected, increase the camera clock pre-scale value as described above.
+It is important to check `stat->dma_transfer_count` to make sure there is no overflow of streaming buffers. If an overflow condition is detected, increase the camera clock pre-scale value as described above.
 
 ```c++
 uint32_t cnn_unload_buffer[CNN_NUM_OUTPUTS/4];
