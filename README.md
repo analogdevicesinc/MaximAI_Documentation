@@ -42,7 +42,7 @@ The project consists of five repositories:
 * Link to SDK repository: [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
 * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
 * Link to Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes) 
-* Quick Start Guides: [Guides](Guides)
+* Quick Start Guides and Optional Features: [Guides](Guides)
 
 ## Application Notes
 
