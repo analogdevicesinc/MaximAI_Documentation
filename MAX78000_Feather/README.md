@@ -48,8 +48,14 @@ All CNN examples will run on the MAX78000EVKIT, but not all a currently supporte
 * mnist
 * mnist-riscv
 * mnist-streaming
-* kws20
+* kws20_v3
 * kws20_demo
+* faceid
+* faceid_demo
+* faceid_evkit
+* cats-dogs_demo
+* rps
+* snake_game_demo
 
 Note that all examples are targted at the EVKIT by default.  To change the target to the FTHR, you must pass BOARD=FTHR_RevA to make.  This can be accomplished within Eclipse on a per-project basis as follows:
 
