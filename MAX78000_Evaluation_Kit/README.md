@@ -50,7 +50,7 @@ If you do not get the expected results, here are some things to note.
   * Some early versions of the EV Kit did not pre-program the Hello World example, instead, they still have a test program in flash.  If you see a console output that starts with '*** CNN Test *** ', you should also see '*** PASS *** '.  In this case LED D1 should also be illuminated constantly.
   * If you can no longer program the MAX78000, it may be in a locked-out state.  Refer to the "How to Unlock a MAX78000 That Can No Longer Be Programmed" section.
   * If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  Additional information regarding the socket and ball 1 indicators are provided below.  Be sure to power off the board before opening the socket.
-  
+
 
 ## Installing the Developer Tools (Linux)
 
@@ -186,19 +186,15 @@ The SWD interface is unavailable for a certain number of clock cycles after rese
 2.  Remove power to the target device by powering down the EV Kit or feather board.  
 3.  Place the MAX32625PICO debug adapter in MAINTENENCE mode by holding down its button while reconnecting the USB cable to the host PC.  
    - The MAX32625PICO debug adapter will enumerate as a mass storage device named MAINTENANCE.  
-   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [special DAPLINK bin file](MAX32625PICO_files/max32625_max32630fthr_if_mass-erase-v1.bin).  
+   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK bin file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
    - Following the Drag-n-Drop, the MAX32625PICO should reboot and reconnect as a drive named DAPLINK.  
+4.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
+    - Create an empty text file named '**auto_on.cfg**'. Copy the file to DAPLINK drive while its button is held.
+    - Release the button when the drive unmounts. When it remounts, confirm "Automation allowed" is set to 1 in DETAILS.TXT file.
+5.  Create an empty text file named '**erase.act**' and Drag-and-drop it onto the DAPLINK drive.
+6.  This should mass erase the flash of the target device, allowing the device to be programmed again.
 
-4.  Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive.  If not, follow [these instructions](https://https://github.com/ARMmbed/DAPLink/blob/master/docs/ENABLE_AUTOMATION.md) to enable it.  
-5.  If not already connected, use the supplied ribbon cable to re-connect the MAX32625PICO debug adapter board to the target board that is locked-out and turn on power to the target device/board.  
-6.  Create an empty file named 'erase128.act' and Drag-n-Drop it onto the DAPLINK drive.
-7.  This should mass erase the flash of the target device, allowing the device to be programmed again.
-8.  Restore the original MAX32625PICO debug adapter board firmware by performing the following:  
-   - Re-enter MAINTENANCE mode by disconnecting the USB cable to the MAX32625PICO debug adapter board, pressing down on the button, and then reconnecting the USB cable.  
-   - Once the MAINTENANCE drive appears, Drag-n-Drop this file: [original DAPLINK bin file](MAX32625PICO_files/max32625pico_daplink.bin).  
-   - This will again reboot the MAX32625PICO and reconnect as DAPLINK.  
-
-At this point, the target device should be once again programmable and the MAX32625PICO adapter board restored to its original firmware.  
+At this point, the target device should be once again programmable.
 
 Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
 
