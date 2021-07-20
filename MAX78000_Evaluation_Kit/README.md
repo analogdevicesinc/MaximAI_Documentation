@@ -1,3 +1,5 @@
+
+
 # Getting Started with the MAX78000 Evaluation Kit (EV Kit)
 
 ## List of Evaluation Kit Components
@@ -7,7 +9,7 @@ Before beginning, you should make sure you have all of the following components 
   * MAX32625PICO Debugger with Cables
   * Olimex ARM-USB-OCD-H
   * Olimex ARM-JTAG 20-10 ADAPTER
-  * Camera Module
+  * Camera Module + right angle header adapter
   * 2 USB-A to MICRO-B Cables
   * 1 USB-A to USB-B Cable
   * Extra Shunts
@@ -15,7 +17,16 @@ Before beginning, you should make sure you have all of the following components 
 ## Picture of EV Kit
 ![](MAX78000_RevA_EV_Kit.jpg)
 
+## Picture of Camera Module:
+
+<img src="./resources/camera.jpg" style="zoom:50%;" />
+
+For demos that need the camera to work in selfie mode(e.g. faceID), please use the provided right angle adapter to connect the camera to the evkit.
+
+**Make sure to remove all protective film from the camera lens.**
+
 ## Rev A EV Kit Schematic
+
 EV Kit schematic: [Schematics](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
 
 ## Powering the MAX78000 Evaluation Kit for the First Time
