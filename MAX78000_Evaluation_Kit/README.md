@@ -23,7 +23,7 @@ Before beginning, you should make sure you have all of the following components 
 
 For demos that need the camera to work in selfie mode(e.g. faceID), please use the provided right angle adapter to connect the camera to the evkit.
 
-**Make sure the protective film on camera lens is removed.**
+**Make sure to remove all protective film from the camera lens.**
 
 ## Rev A EV Kit Schematic
 
