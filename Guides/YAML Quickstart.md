@@ -66,27 +66,32 @@ The following figure shows how a layer in the model is mapped to YAML:
 
 The table below shows the description of frequently used keywords. For a complete list of keywords and more description, please check the main documentation [README.md](https://raw.githubusercontent.com/MaximIntegratedAI/MaximAI_Documentation/develop/README.md).
 
-| keyword      | Description                                                  | Available options                                            |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| data_format  | **ONLY in first layer**, specifies the organization of data in memory. The optimum choice depends on the data source (interleaved channels/HWC or channels in sequence/CHW). When there is no particular preference, HWC is recommended for input data of less than 90×91 per channel. | CHW or HWC                                                   |
-| op           | The layer operation as in the model                          | Conv1d, Conv2d, ConvTranspose2d, None (or Passthrough), Linear (or FC or MLP), Add, Sub, Xor, Or |
-| pad          | The padding of the layer in the model                        | For Conv2d , this value can be 0 , 1 (the default), or 2 .<br/>For Conv1d , the value can be 0 , 1 , 2 , or 3 (the default).<br/>For Passthrough , this value must be 0 (the default). |
-| activate     | The layer activation                                         | ReLU , Abs or None (the default).                            |
-| max_pool     | The pool_size if the layer includes MaxPool                  | 1 to 16                                                      |
-| avg_pool     | The pool_size if the layer includes AvgPool                  | 1 to 16                                                      |
-| pool_stride  | The pool_stride if the layer includes MaxPool or AvgPool     | 1 to 16                                                      |
-| kernel_size  | The kernel size                                              | For conv2d: 1 (1×1) or 3 (3×3) (default)<br/>For conv1d: 1 (default) to 9 |
-| processors   | Each bit of this 64-bit processor map represents enabling of one of the 64 processors in CNN.  The number of enabled processors should match the input channel count. When using more than 64 channels, the number of processors is an integer division of the channel count, rounded up. For example, 60 processors (0x0fffffffffffffff) are specified for 120 channels.<br/>**Note 1:** If possible, try to use processors with non-overlapping memory instances (*4 processors share the same memory instance*) in consecutive layers (e.g. processors: 0x0000000000000001 in layer 1 and 0x00000000000ffff0 in layer 2)<br/>**Note 2:** if CHW data_format is used, processors must be attached to different memory instances (e.g. for <u>3 input channels: 0x0000000000000111 in CHW, 0x0000000000000007 in HWC)<br/>**Note 3:**  For optimum efficiency, it is recommended to choose the number of channels as a multiple of 4 in each layer<br/>**Note 4:**  In linear layers, the number of processors is the number of channels before flattening. | 0x0000000000000001  to 0xffffffffffffffff                    |
-| out_offset   | The relative offset inside the data memory to write the output data to.<br/>**Note 5:**  The input of each layer is taken from the output offset of the previous layer. To avoid overwriting an input that has not been consumed, use ping-ponging between out_offset=0 and half the memory (0x4000)  or less in consecutive layers. | 0x0000 to 0x8000                                             |
-| flatten      | Used in Linear layers to specify that 2D input data should be transformed to 1D data | True, False (default)                                        |
-| output_width | Specifies the output number of bits. It is used **only in the last layer** if there is no activation to specify 32-bit output of unclipped data in Q17.14 format. <br/>**Note 6:**  To use `output_width: 32`, the last layer in the model must be trained with *wide=True* | 8 (default),  32                                             |
-| in_dim       | Specifies the dimensions of the input data. Automatically computed in most cases, **but must be specified when changing from 1D to 2D data or vice versa** | [x, y]                                                       |
+| keyword                 | Description                                                  | Available options                                            |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| data_format             | **ONLY in first layer**, specifies the organization of data in memory. The optimum choice depends on the data source (interleaved channels/HWC or channels in sequence/CHW). When there is no particular preference, HWC is recommended for input data of less than 90×91 per channel. | CHW or HWC                                                   |
+| op<br/>operation        | The layer operation as in the model. Use None or Passthrough for a pooling-only layer. | Conv1d, Conv2d, ConvTranspose2d, None (or Passthrough), Linear (or FC or MLP), Add, Sub, Xor, Or |
+| pad (optional)          | The padding of the layer in the model                        | For Conv2d , this value can be 0 , 1 (the default), or 2 .<br/>For Conv1d , the value can be 0 , 1 , 2 , or 3 (the default).<br/>For Passthrough , this value must be 0 (the default). |
+| activate (optional)     | The layer activation                                         | ReLU , Abs or None (the default).                            |
+| max_pool (optional)     | The pool_size if the layer includes MaxPool                  | 1 to 16                                                      |
+| avg_pool (optional)     | The pool_size if the layer includes AvgPool                  | 1 to 16                                                      |
+| pool_stride (optional)  | The pool_stride if the layer includes MaxPool or AvgPool     | 1 to 16                                                      |
+| kernel_size (optional)  | The kernel size                                              | For conv2d: 1 (1×1) or 3 (3×3) (default)<br/>For conv1d: 1 (default) to 9 |
+| processors              | Each bit of this 64-bit processor map represents enabling of one of the 64 processors in CNN.  The number of enabled processors should match the input channel count. If there are more than 64 channels, the number of processor is the largest integer division of the channel count up to 64, rounded to the next multiple of 4. For example, 60 processors (0x0fffffffffffffff) are specified for 120 channels, or 52 processors for 100 channels.<br/> **Note 1:** If possible, try to use processors with non-overlapping memory instances (*4 processors share the same memory instance*) in consecutive layers (e.g. processors: 0x0000000000000001 in layer 1 and 0x00000000000ffff0 in layer 2)<br/>**Note 2:** if CHW data_format is used, processors must be attached to different memory instances (e.g. for <u>3 input channels: 0x0000000000000111 in CHW, 0x0000000000000007 in HWC)<br/>**Note 3:**  For optimum efficiency, it is recommended to choose the number of channels as a multiple of 4 in each layer<br/>**Note 4:**  In linear layers, the number of processors is the number of channels before flattening. | 0x0000000000000001  to 0xffffffffffffffff                    |
+| out_offset (optional)   | The relative offset inside the data memory to write the output data to.<br/>**Note 5:**  The input of each layer is taken from the output offset of the previous layer. To avoid overwriting an input that has not been consumed, use ping-ponging between out_offset=0 and half the memory (0x4000)  or less in consecutive layers. | 0x0000 to 0x8000                                             |
+| in_offset (optional)    | Specifies the offset into the data memory instances where the input data should be loaded from. When not specified, this key defaults to the previous layer’s `out_offset`, or `0` for the first layer. | 0x0000 to 0x8000 (default: out_offset of last layer)         |
+| flatten (optional)      | Used in Linear layers to specify that 2D input data should be transformed to 1D data | True, False (default)                                        |
+| output_width (optional) | Specifies the output number of bits. It is used **only in the last layer** if there is no activation to specify 32-bit output of unclipped data in Q17.14 format. <br/>**Note 6:**  To use `output_width: 32`, the last layer in the model must be trained with *wide=True* | 8 (default),  32                                             |
+| in_dim (optional)       | Specifies the dimensions of the input data. Automatically computed in most cases, **but must be specified when changing from 1D to 2D data or vice versa** | [x, y]                                                       |
+| streaming (optional)    | Specifies if the layer is using streaming (FIFO enabled). This is necessary when the input data dimensions exceed the available data memory (data greater than 90×91). When enabling `streaming`, all prior layers have to enable `streaming` as well. `streaming`  is limited to 8 consecutive layers or fewer, and is limited to four FIFOs (up to 4 input channels in CHW and up to 16 channels in HWC format). See Example 3. <br/>**Note 7:** **The final streaming layer must use padding.** | True, False(default)                                         |
+| in_sequences (optional) | Specifies the layer that the input of current layer comes from. It can be used to point to the output of one or more arbitrary previous layers, for example when processing the same data using two different kernel sizes, or when combining the outputs of several prior layers. `in_sequences` can be specified as an integer (for a single input) or as a list (for multiple inputs). As a special case, `-1` refers to the input data. The `in_offset` and `out_offset` must be set to match the specified sequence. See Example 5. | [i,j] (default: last layer)<br/> -1 for input data           |
+| write_gap (optional)    | specifies the number of channels that should be skipped during write operations (this value is multiplied with the output multi-pass, i.e., write every *n*th word where *n = write_gap × output_multipass*). This creates an interleaved output that can be used as the input for subsequent layers that use an element-wise operation, or to concatenate multiple inputs to form data with more than 64 channels.<br/>Set `write_gap` to `1` to produce output for a subsequent two-input element-wise operation. See Example 5. | integer                                                      |
+| eltwise (optional)      | element-wise operations can also be added “in-flight” to `Conv2d`. In this case, the element-wise operation is specified using the `eltwise` key. See Example 5.<br/>**Note 8: On MAX78000, this is only supported for 64 channels, or up to 128 channels when only two operands are used. Use a separate layer for the element-wise operation when more operands or channels are needed instead of combining the element-wise operator with a convolution.** | none                                                         |
 
 
 
 ## Examples
 
-**Example 1: MNIST** 
+### **Example 1:** MNIST, CHW data format, 28x28x1
 
 See the model equivalent of each layer:
 
@@ -96,7 +101,7 @@ dataset: MNIST
 
 # Define layer parameters in order of the layer sequence
 layers:
-# +++++++++++++++++++++ layer 0:   input 28x28x1:  ai8x.FusedConv2dReLU(3, 60, 3, padding=1)
+# +++++++++++++++++++++ layer 0:   input 28x28x1:  ai8x.FusedConv2dReLU(1, 60, 3, padding=1)
 - pad: 1
   activate: ReLU
   out_offset: 0x4000
@@ -105,7 +110,7 @@ layers:
   op: conv2d
   kernel_size: 3x3
   
-# +++++++++++++++++++++ layer 1: ai8x.FusedMaxPoolConv2dReLU(60, planes, 3, pool_size=2, pool_stride=2, padding=2)
+# +++++++++++++++++++++ layer 1: ai8x.FusedMaxPoolConv2dReLU(60, 60, 3, pool_size=2, pool_stride=2, padding=2)
 - max_pool: 2
   pool_stride: 2
   pad: 2
@@ -145,7 +150,7 @@ layers:
 
 
 
-**Example 2:** KWS20_v1
+### **Example 2**: KWS20_v1, HWC data format, 128x128x1
 
 ```yaml
 arch: ai85kws20net
@@ -231,6 +236,205 @@ layers:
   operation: MLP
   output_width: 32
 
+```
+
+
+
+### **Example 3:** FaceID, HWC data format 160x120x3,  Streaming mode
+
+```yaml
+arch: ai85faceidnet
+dataset: FaceID
+
+layers:
+# +++++++++++++++++++++ layer 0: input 160x120x3: ai8x.FusedConv2dReLU(3, 16, 3, padding=1)
+- out_offset: 0x1000
+  processors: 0x0000000000000007
+  operation: conv2d
+  kernel_size: 3x3
+  pad: 1
+  activate: ReLU
+  data_format: HWC
+  streaming: true  # FIFO is used
+
+# +++++++++++++++++++++ layer 1: ai8x.FusedMaxPoolConv2dReLU(16, 32, 3, pool_size=2, pool_stride=2,padding=1)
+- max_pool: 2
+  pool_stride: 2
+  pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x2000
+  processors: 0x00000000000ffff0
+  streaming: true  # FIFO is used, last streaming layer, padding should be none-zero
+
+# +++++++++++++++++++++ layer 2: ai8x.FusedMaxPoolConv2dReLU(32, 32, 3, pool_size=2, pool_stride=2,padding=1)
+- max_pool: 2
+  pool_stride: 2
+  pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x0000
+  processors: 0x00000000ffffffff
+  
+# +++++++++++++++++++++ layer 3: FusedMaxPoolConv2dReLU(32, 64, 3, pool_size=2, pool_stride=2,padding=1)
+- max_pool: 2
+  pool_stride: 2
+  pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x2000
+  processors: 0xffffffff00000000
+  
+# +++++++++++++++++++++ layer 4: ai8x.FusedMaxPoolConv2dReLU(64, 64, 3, pool_size=2, pool_stride=2, padding=1)
+- max_pool: 2
+  pool_stride: 2
+  pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x0000
+  processors: 0xffffffffffffffff
+  
+# +++++++++++++++++++++ layer 5: ai8x.FusedConv2dReLU(64, 64, 3, padding=1)
+- pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x2000
+  processors: 0xffffffffffffffff
+
+# +++++++++++++++++++++ layer 6: ai8x.FusedConv2dReLU(64, 64, 3, padding=1)
+- pad: 1
+  operation: conv2d
+  kernel_size: 3x3
+  activate: ReLU
+  out_offset: 0x0000
+  processors: 0xffffffffffffffff
+
+# +++++++++++++++++++++ layer 7: ai8x.FusedMaxPoolConv2d(64, 512, 1, pool_size=2, pool_stride=2, padding=0)
+- max_pool: 2
+  pool_stride: 2
+  pad: 0
+  operation: conv2d
+  kernel_size: 1x1
+  out_offset: 0x2000
+  processors: 0xffffffffffffffff
+
+# +++++++++++++++++++++ layer 8: ai8x.AvgPool2d((5, 3))
+- avg_pool: [5, 3]
+  pool_stride: 1
+  operation: None  # a Pooling-only layer
+  out_offset: 0x0000
+  processors: 0xffffffffffffffff
+
+```
+
+
+
+### **Example 4:**  Cats and Dogs, CHW data format 64x64x3
+
+```yaml
+arch: ai85cdnet
+dataset: cats_vs_dogs
+
+layers:
+# +++++++++++++++++++++ layer 0: Input 64x64x3  ai8x.FusedConv2dReLU(3, 15, 3, padding=1)
+- pad: 1
+  activate: ReLU
+  out_offset: 0x0000
+  processors: 0x0000000100010001 # one processor per group for 3 inputs in CHW mode (only first layer)
+  data_format: CHW
+  operation: Conv2d
+
+# +++++++++++++++++++++ layer 1:  ai8x.FusedMaxPoolConv2dReLU(15, 30, 3, pool_size=2, pool_stride=2,padding=1)
+- max_pool: 2
+  pool_stride: 2
+  pad: 1
+  activate: ReLU
+  out_offset: 0x2000
+  processors: 0x0007fff000000000
+  operation: Conv2d
+
+# ... similar for layers2-4 ...
+
+# +++++++++++++++++++++ layer 5: ai8x.FusedConv2dReLU(30, 30, 3, padding=1)
+- pad: 1
+  activate: ReLU
+  out_offset: 0x2000
+  #output_width: 32
+  processors: 0xfffffffc00000000
+  operation: Conv2d
+# +++++++++++++++++++++ layer 6:self.fc = ai8x.Linear(30*64*64, 2, bias=True)
+- op: mlp
+  flatten: true
+  out_offset: 0x1000
+  output_width: 32
+  processors: 0x000000003fffffff
+```
+
+
+
+### **Example 5:**  Residual connection, element-wise, CHW data format 64x64x3
+
+```yaml
+# Model: 
+#    def forward(self, x):
+#        x = self.conv1(x) 
+#        x_res = self.conv2(x)      
+#        x = self.conv3(x_res)     
+#        x = self.add1(x, x_res)
+#        x = self.conv4(x)
+#		 ...
+
+# Layer 0:  self.conv1 = ai8x.FusedConv2dReLU(num_channels, 16, 3, stride=1, padding=1, bias=bias, **kwargs)
+- out_offset: 0x2000
+  processors: 0x7000000000000000
+  operation: conv2d
+  kernel_size: 3x3
+  pad: 1
+  activate: ReLU
+  data_format: HWC
+  
+# Layer 1: self.conv2 = ai8x.FusedConv2dReLU(16, 20, 3, stride=1, padding=1, bias=bias, **kwargs)
+- out_offset: 0x0000
+  processors: 0x0ffff00000000000
+  operation: conv2d
+  kernel_size: 3x3
+  pad: 1
+  activate: ReLU
+
+# Layer 2 - re-form layer 1 data with gap
+- out_offset: 0x2000
+  processors: 0x00000000000fffff
+  output_processors: 0x00000000000fffff
+  operation: passthrough
+  write_gap: 1  # output is interleaved with 1 word gaps, i.e. 0x2000, 0x2008, ...
+
+# Layer 3: self.conv3 = ai8x.FusedConv2dReLU(20, 20, 3, stride=1, padding=1, bias=bias, **kwargs)
+- in_offset: 0x0000   # output of conv2, layer 1
+  out_offset: 0x2004  # start output from 0x2004
+  processors: 0x00000000000fffff
+  operation: conv2d
+  kernel_size: 3x3
+  pad: 1
+  activate: ReLU
+  write_gap: 1 # output is interleaved with 1 word gap, i.e. 0x2004, 0x200C, ...
+
+# Layer 4: self.add1 = ai8x.Add()
+#          self.conv4 = ai8x.FusedConv2dReLU(20, 20, 3, stride=1, padding=1, bias=bias, **kwargs)
+- in_sequences: [2, 3] # get input from layer 2 and 3
+  in_offset: 0x2000  # Layer 2 and 3 outputs are interleaved starting from 0x2000
+  out_offset: 0x0000
+  processors: 0x00000000000fffff
+  eltwise: add   # element-wise add from output of layer 2 and 3 executed in the same layer as conv4
+  operation: conv2d 
+  kernel_size: 3x3
+  pad: 1
+  activate: ReLU
+  
 ```
 
 
