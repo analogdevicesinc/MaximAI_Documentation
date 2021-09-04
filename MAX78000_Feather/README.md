@@ -1,5 +1,25 @@
 # Getting Started with the MAX78000FTHR
 
+- [Getting Started with the MAX78000FTHR](#getting-started-with-the-max78000fthr)
+  - [Schematic](#schematic)
+  - [Developing with Eclipse](#developing-with-eclipse)
+    - [Creating a I/O Peripheral Project](#creating-a-io-peripheral-project)
+    - [Creating a CNN Project from an Example](#creating-a-cnn-project-from-an-example)
+  - [Building the SDK Examples using MINGW on Windows](#building-the-sdk-examples-using-mingw-on-windows)
+  - [Loading and Running Example Firmware](#loading-and-running-example-firmware)
+  - [Debugging Applications with GDB](#debugging-applications-with-gdb)
+  - [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
+  - [Additional SDK Information](#additional-sdk-information)
+  - [TFT display](#tft-display)
+  - [ML-Focused Approach using Linux](#ml-focused-approach-using-linux)
+  - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
+  - [Next Steps:  Loading and running the included **mnist** CNN example](#next-steps--loading-and-running-the-included-mnist-cnn-example)
+    - [CNN Boost](#cnn-boost)
+    - [Links to mnist and additional CNN examples](#links-to-mnist-and-additional-cnn-examples)
+  - [Going beyond the included CNN examples - Advanced Topics](#going-beyond-the-included-cnn-examples---advanced-topics)
+
+---
+
 ![](MAX78000FTHR.jpg)
 
 ## Schematic
