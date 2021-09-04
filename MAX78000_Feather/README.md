@@ -7,13 +7,13 @@ The schematic and BOM can be found in the MAX78000FTHR Datasheet.  See https://w
 
 ## Developing with Eclipse
 
-This is the quickest way to evaluate pre-trained and sythesized ML demonstrations.  You'll need to download and install the Maxim SDK onto a Windows 10 host.  The Maxim SDK is available here:
+This is the quickest way to evaluate pre-trained and synthesized ML demonstrations.  You'll need to download and install the Maxim SDK onto a Windows 10 host.  The Maxim SDK is available here:
 
 https://www.maximintegrated.com/content/maximintegrated/en/design/software-description.html/swpart=SFW0010820A
 
 ### Creating a I/O Peripheral Project
 
-The SDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within clipse as demonstrated below.
+The SDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within Eclipse as demonstrated below.
 
 ![](maxim_microcontrollers.png)
 
@@ -23,15 +23,15 @@ The 'Select Project Configuration' dialog can be configure as follows:
 
 ![](project_config.png)
 
-The 'Select example type' can be any firmware example you are intrested in.  Note that the CNN-specific examples are not listed here.  CNN examples must be imported via a different mechansim explained below.
+The 'Select example type' can be any firmware example you are interested in.  Note that the CNN-specific examples are not listed here.  CNN examples must be imported via a different mechanism explained below.
 
-If you are using the PICO debugger, set the adapter type to MAX32625_PICO.  If you are using the Olimix debugger, set the adapter type to CMSIS-DAP.
+If you are using the PICO debugger, set the adapter type to MAX32625_PICO.  If you are using the Olimax debugger, set the adapter type to CMSIS-DAP.
 
 Click 'Finish' and Eclipse will open your project and you may edit, compile, and debug.
 
 ### Creating a CNN Project from an Example
 
-If you are intrested in the CNN examples, you can use "File->Import" within Eclipse to import them into your workspace. When prompted, select 'Existing Projects into Workspace'
+If you are interested in the CNN examples, you can use "File->Import" within Eclipse to import them into your workspace. When prompted, select 'Existing Projects into Workspace'
 
 ![](import.png)
 
@@ -39,7 +39,7 @@ You need to provide the path to the CNN examples within the SDK tree similar to 
 
 ![](cnn_import.png)
 
-The Maxim SDK comes with many convolutional nerual network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the SDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
+The Maxim SDK comes with many convolutional neural network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the SDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
 
 All CNN examples will run on the MAX78000EVKIT, but not all a currently supported on the MAX78000FTHR.  Here's a list of examples that are supported on the MAX78000FTHR:
 
@@ -57,7 +57,7 @@ All CNN examples will run on the MAX78000EVKIT, but not all a currently supporte
 * rps
 * snake_game_demo
 
-Note that all examples are targted at the EVKIT by default.  To change the target to the FTHR, you must pass BOARD=FTHR_RevA to make.  This can be accomplished within Eclipse on a per-project basis as follows:
+Note that all examples are targeted at the EVKIT by default.  To change the target to the FTHR, you must pass BOARD=FTHR_RevA to make.  This can be accomplished within Eclipse on a per-project basis as follows:
 
 ![](board_type.png)
 
@@ -79,7 +79,7 @@ Below is an example of how to build the "hello world" example.  Other tools, suc
 
 Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.  In fact, if you prefer to develop using Linux, see the section [Installing the Developer Tools \(Linux\)](#installing-the-developer-tools-linux) below.
 
-The MAX78000FTHR has an integrated daplink debuggger. 
+The MAX78000FTHR has an integrated daplink debugger.
 
 1.  Connect the FTHR to your host PC with a USB cable.  Windows will enumerate a daplink device and-thumb drive device.
 
@@ -150,7 +150,7 @@ Follow the same steps provided in the *Loading and Running Applications on the E
 
 The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this "lockout" state.
 1.  Remove the USB cable connected to the MAX78000FTHR board.  
-2.  Place the on-board debug adapter in MAINTENENCE mode by holding down button SW5 while reconnecting the USB cable to the host PC.  
+2.  Place the on-board debug adapter in MAINTENANCE mode by holding down button SW5 while reconnecting the USB cable to the host PC.  
    - The debug adapter will enumerate as a mass storage device named MAINTENANCE.  
    - Drag-and-drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK binary file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
    - Following the Drag-and-drop, the debug adapter should reboot and reconnect as a drive named DAPLINK.  
@@ -198,7 +198,7 @@ While using TFT display keep its power switch in "ON" position. The TFT "Reset" 
 
 ## ML-Focused Approach using Linux
 
-This approach allows the user to train and sythesize convolutional neural networks using Pytorch and TensorFlow.  Additionaly, compilation and debugging is supported under Linux making this method peferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific sythesis tools and supporting software are made available via github.
+This approach allows the user to train and synthesize convolutional neural networks using Pytorch and TensorFlow.  Additionally, compilation and debugging is supported under Linux making this method preferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific synthesis tools and supporting software are made available via github.
 
 Two github repositories are required:  
 
@@ -208,7 +208,7 @@ https://github.com/MaximIntegratedAI/ai8x-synthesis
 
 Refer to the readme found in each repository for details on how to configure your Linux host.
 
-Additional repositories of intrest include documentation and early-release versions of the Maxim SDK:
+Additional repositories of interest include documentation and early-release versions of the Maxim SDK:
 
 https://github.com/MaximIntegratedAI/MaximAI_Documentation
 
@@ -226,7 +226,7 @@ In addition to Windows+Eclipse, you can compile, flash, and debug firmware under
 
 -   The MAX78000 SDK
 
-    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-sythesis repository. To get the SDK and all the additional supporting files, clone the ai8x-sythesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
+    1.  The SDK is hosted on GitHub and is a submodule of the ai8x-synthesis repository. To get the SDK and all the additional supporting files, clone the ai8x-synthesis repository (including submodules) found at https://github.com/MaximIntegratedAI/ai8x-synthesis.
 
 -   OpenOCD
 
@@ -234,12 +234,12 @@ In addition to Windows+Eclipse, you can compile, flash, and debug firmware under
 
     2.  You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
-
 ## Next Steps:  Loading and running the included **mnist** CNN example
 
 Now that proper operation of the MAX78000FTHR has been established by running a simple demo and observing the expected LED and console output, the next step is to run the included 'Hello World' of CNNs, the **mnist** example.  
 
 ### CNN Boost
+
 The MAX78000FTHR features an external boost circuit that can be used to supply the CNN when under high computational load.  The boost circuit is enabled by  supplying the `--boost 2.5` command line argument to ai8xizer.
 
 The internal SIMO can be used to power the CNN under moderate computational loads, however, the external boot circuit is recommended during development to avoid SIMO brown-out due to transient over-current conditions which can cause the CNN to fail.
