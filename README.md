@@ -10,6 +10,13 @@ This is the home for IC, EV Kit, SDK, and AI documentation for the Maxim AI prod
 
 ->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/MaximIntegratedAI/refdes/blob/main/maxrefdes178)**
 
+-----
+- [Maxim AI Documentation](#maxim-ai-documentation)
+  - [Project Structure](#project-structure)
+  - [Links to MAX78000 Documentation](#links-to-max78000-documentation)
+  - [Application Notes](#application-notes)
+  - [Additional MAX78000 and Machine Learning Education Resources](#additional-max78000-and-machine-learning-education-resources)
+      - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
 
 ## Project Structure
 
@@ -18,7 +25,7 @@ The project consists of five repositories:
 1. This repo (“Documentation”)
 
 2. The software development kit (SDK), which contains peripheral drivers and example programs ready to run on the Evaluation Kit:
-   [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
+   [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK). See [here](https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7219.html) for the most recent SDK Installation Guide.
    
 3. The training repo, which is used for deep learning model development and training:
    [ai8x-training](https://github.com/MaximIntegratedAI/ai8x-training)
