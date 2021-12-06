@@ -49,7 +49,7 @@ For demos that need the camera to work in selfie mode(e.g. faceID), please use t
 
 **Make sure to remove all protective film from the camera lens.**
 
-## Rev A EV Kit Schematic
+## EV Kit Schematic
 
 EV Kit schematic: [Schematics](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
 
@@ -103,7 +103,7 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 - OpenOCD
 
-    1. Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1. Maxim provides pre-built binaries. These should automatically be installed along with the ai8x-synthesis repo above.  The binaries can also be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2. You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
@@ -112,23 +112,8 @@ There are a few tools you will need to build, load, run, and debug applications 
 Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning. See [here](https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7219.html) for the most recent SDK Installation Guide.
 
 1. Download and run the [Maxim Micros SDK](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0010820A).
-2. At the first screen that appears, click the _Settings_ button in the lower left corner of the application.
+2. At the first screen that appears, click the _Next_ button to complete the installation.
 
-    ![](resources/WinInstallInitialScreen.png)
-
-3. Click on the _Repositories_ tab.
-
-    ![](resources/WinInstallSettingsScreen.png)
-
-4. Add three temporary repositories by clicking on _Temporary repositories_ and clicking the _Add_ button three times.  Add the following URLs:
-    - <http://www.mxim.net/prerelease/msdk/dist/libs>
-    - <http://www.mxim.net/prerelease/msdk/dist/dev>
-    - <http://www.mxim.net/prerelease/msdk/toolchain/win32>
-
-    ![](resources/WinInstallTempRepos.png)
-
-5. Click on the _Use temporary repositories only_ checkbox to enable it.
-6. Click the _OK_ button and follow the on-screen instructions to complete the installation.
 
 ### Running Eclipse
 
