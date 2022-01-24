@@ -5,7 +5,13 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 
 
-## MAX78000 Product Demonstration Videos
+## MAX78000 Training Videos
+
+* [Understanding Artificial Intelligence](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4)
+
+
+
+### MAX78000 Product Demonstration Videos
 
 - [AI Camera in Action](https://youtu.be/-cavAgCOTfg)
 - [AI Face Identification](https://youtu.be/z2Gnyxs8kUk)
