@@ -1,6 +1,6 @@
 # Network Description YAML Files: A Quick Start Guide
 
-*3/15/2021*
+*2/14/2022*
 
 This document is intended to help users to create network description YAML files corresponding to their network models.
 
@@ -8,12 +8,12 @@ This document is intended to help users to create network description YAML files
 
 ## Purpose of Network Description YAML files
 
-It is a network description written in YAML, a simple markup language. Typically, the outcome of training a model is a checkpoint (PyTorch). Checkpoint files only include the weights, but not the network operators and layer sequence, and there is no scheduling of hardware resources. However, all of these are needed for the synthesis tool in order to program the MAX78000. The purpose of the YAML file is to describe the model in a hardware-centric fashion. *The YAML file can also be viewed as a “sidecar” file to the checkpoint file.*
+It is a network description written in YAML, a simple markup language. Typically, the outcome of training a model is a checkpoint (PyTorch). Checkpoint files only include the weights, but not the network operators and layer sequence, and there is no scheduling of hardware resources. However, all of these are needed for the synthesis tool in order to program the MAX78000/MAX78002. The purpose of the YAML file is to describe the model in a hardware-centric fashion. *The YAML file can also be viewed as a “sidecar” file to the checkpoint file.*
 
 ## Information needed to create YAML files
 
 1. The model that is used for training.
-2. Some basic knowledge about MAX78000 hardware.
+2. Some basic knowledge about MAX78000/MAX78002 hardware.
 
 Following the instructions below, you will be able to create a layer-by-layer description of your model in the YAML format. Once completed, copy the YAML file to ai8x-synthesis/networks and reference it in the synthesis script for your trained model.
 
@@ -83,7 +83,8 @@ The table below shows the description of frequently used keywords. For a complet
 | output_width (optional) | Specifies the output number of bits. It is used **only in the last layer** if there is no activation to specify 32-bit output of unclipped data in Q17.14 format. <br/>**Note 6:**  To use `output_width: 32`, the last layer in the model must be trained with *wide=True* | 8 (default),  32                                             |
 | in_dim (optional)       | Specifies the dimensions of the input data. Automatically computed in most cases, **but must be specified when changing from 1D to 2D data or vice versa** | [x, y]                                                       |
 | streaming (optional)    | Specifies if the layer is using streaming (FIFO enabled). This is necessary when the input data dimensions exceed the available data memory (data greater than 90×91). When enabling `streaming`, all prior layers have to enable `streaming` as well. `streaming`  is limited to 8 consecutive layers or fewer, and is limited to four FIFOs (up to 4 input channels in CHW and up to 16 channels in HWC format). See Example 3. <br/>**Note 7:** **The final streaming layer must use padding.** | True, False(default)                                         |
-| in_sequences (optional) | Specifies the layer that the input of current layer comes from. It can be used to point to the output of one or more arbitrary previous layers, for example when processing the same data using two different kernel sizes, or when combining the outputs of several prior layers. `in_sequences` can be specified as an integer (for a single input) or as a list (for multiple inputs). As a special case, `-1` refers to the input data. The `in_offset` and `out_offset` must be set to match the specified sequence. See Example 5. | [i,j] (default: last layer)<br/> -1 for input data           |
+| name<br />(optional)    | Optionally specifies the name for a layer so it can be referred to by name instead of only by number. | string                                                       |
+| in_sequences (optional) | Specifies the layer that the input of current layer comes from. It can be used to point to the output of one or more arbitrary previous layers, for example when processing the same data using two different kernel sizes, or when combining the outputs of several prior layers. `in_sequences` can be specified as an integer or string (for a single input) or as a list (for multiple inputs). As a special case, `-1` or `input` refer to the input data. The `in_offset` and `out_offset` must be set to match the specified sequence. See Example 5. | [i,j] (default: last layer)<br/> -1 or input for input data  |
 | write_gap (optional)    | specifies the number of channels that should be skipped during write operations (this value is multiplied with the output multi-pass, i.e., write every *n*th word where *n = write_gap × output_multipass*). This creates an interleaved output that can be used as the input for subsequent layers that use an element-wise operation, or to concatenate multiple inputs to form data with more than 64 channels.<br/>Set `write_gap` to `1` to produce output for a subsequent two-input element-wise operation. See Example 5. | integer                                                      |
 | eltwise (optional)      | element-wise operations can also be added “in-flight” to `Conv2d`. In this case, the element-wise operation is specified using the `eltwise` key. See Example 5.<br/>**Note 8: On MAX78000, this is only supported for 64 channels, or up to 128 channels when only two operands are used. Use a separate layer for the element-wise operation when more operands or channels are needed instead of combining the element-wise operator with a convolution.** | none                                                         |
 
@@ -412,6 +413,7 @@ layers:
   output_processors: 0x00000000000fffff
   operation: passthrough
   write_gap: 1  # output is interleaved with 1 word gaps, i.e. 0x2000, 0x2008, ...
+  name: res2
 
 # Layer 3: self.conv3 = ai8x.FusedConv2dReLU(20, 20, 3, stride=1, padding=1, bias=bias, **kwargs)
 - in_offset: 0x0000   # output of conv2, layer 1
@@ -422,10 +424,11 @@ layers:
   pad: 1
   activate: ReLU
   write_gap: 1 # output is interleaved with 1 word gap, i.e. 0x2004, 0x200C, ...
+  name: res3
 
 # Layer 4: self.add1 = ai8x.Add()
 #          self.conv4 = ai8x.FusedConv2dReLU(20, 20, 3, stride=1, padding=1, bias=bias, **kwargs)
-- in_sequences: [2, 3] # get input from layer 2 and 3
+- in_sequences: [res2, res3] # get input from layer 2 and 3
   in_offset: 0x2000  # Layer 2 and 3 outputs are interleaved starting from 0x2000
   out_offset: 0x0000
   processors: 0x00000000000fffff
