@@ -1,6 +1,6 @@
-# Maxim AI Documentation
+# Analog Devices AI Documentation
 
-This is the home for IC, EV Kit, SDK, and AI documentation for the Maxim AI product family.
+This is the home for IC, EV Kit, SDK, and AI documentation for the Analog Devices MAX78000/MAX78002 AI product family.
 
 **START HERE:**
 
@@ -13,9 +13,9 @@ This is the home for IC, EV Kit, SDK, and AI documentation for the Maxim AI prod
 -----
 - [Maxim AI Documentation](#maxim-ai-documentation)
   - [Project Structure](#project-structure)
-  - [Links to MAX78000 Documentation](#links-to-max78000-documentation)
+  - [Links to MAX78000/MAX78002 Documentation](#links-to-max78000/max78002-documentation)
   - [Application Notes](#application-notes)
-  - [Additional MAX78000 and Machine Learning Education Resources](#additional-max78000-and-machine-learning-education-resources)
+  - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000/max78002-and-machine-learning-education-resources)
       - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
 
 ## Project Structure
@@ -38,7 +38,7 @@ The project consists of five repositories:
 
 
 
-## Links to MAX78000 Documentation
+## Links to MAX78000/MAX78002 Documentation
 
 * Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html)
 * Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
@@ -70,8 +70,8 @@ The project consists of five repositories:
 
 
 
-## Additional MAX78000 and Machine Learning Education Resources
+## Additional MAX78000/MAX78002 and Machine Learning Education Resources
 
 #### Videos, Webinars, Presentations, Books and More
 
-Interested in the MAX78000, or just getting started with Machine Learning? [Here's a set of videos and books to get you going.](./learning/README.md)
+Interested in the MAX78000/MAX78002, or just getting started with Machine Learning? [Here's a set of videos and books to get you going.](./learning/README.md)
