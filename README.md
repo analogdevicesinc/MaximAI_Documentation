@@ -13,9 +13,9 @@ This is the home for IC, EV Kit, SDK, and AI documentation for the Analog Device
 -----
 - [Maxim AI Documentation](#maxim-ai-documentation)
   - [Project Structure](#project-structure)
-  - [Links to MAX78000/MAX78002 Documentation](#links-to-max78000/max78002-documentation)
+  - [Links to MAX78000/MAX78002 Documentation](#links-to-max78000max78002-documentation)
   - [Application Notes](#application-notes)
-  - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000/max78002-and-machine-learning-education-resources)
+  - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000max78002-and-machine-learning-education-resources)
       - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
 
 ## Project Structure
