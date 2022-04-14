@@ -1,0 +1,15 @@
+# DAPLink Firmware - see https://mbed.com/daplink
+Unique ID: 044417016af50c6500000000000000000000000097969906
+HIC ID: 97969906
+Auto Reset: 0
+Automation allowed: 0
+Overflow detection: 1
+Page erasing: 1
+Daplink Mode: Interface
+Interface Version: 0256
+Git SHA: a209a92c65513989f86ac7ff32c1bec27082eee0
+Local Mods: 0
+USB Interfaces: MSD, CDC, HID, WebUSB
+Interface CRC: 0xb61afbb5
+Remount count: 0
+URL: http://www.maximintegrated.com/max78000fthr
