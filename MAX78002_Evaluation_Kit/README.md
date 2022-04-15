@@ -1,24 +1,53 @@
 
-- [Getting Started with the MAX78002EVKIT](#getting-started-with-the-max78000fthr)
-  - [Schematic](#schematic)
-  - [Developing with Eclipse](#developing-with-eclipse)
-    - [Running Eclipse](#running-eclipse)
-    - [Creating a I/O Peripheral Project](#creating-a-io-peripheral-project)
-    - [Creating a CNN Project from an Example](#creating-a-cnn-project-from-an-example)
-  - [Building the SDK Examples using MINGW on Windows](#building-the-sdk-examples-using-mingw-on-windows)
-  - [Loading and Running Example Firmware](#loading-and-running-example-firmware)
-  - [Debugging Applications with GDB](#debugging-applications-with-gdb)
-  - [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
-  - [Additional SDK Information](#additional-sdk-information)
-  - [TFT display](#tft-display)
-  - [ML-Focused Approach using Linux](#ml-focused-approach-using-linux)
-  - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
-  - [Next Steps:  Loading and running the included **mnist** CNN example](#next-steps--loading-and-running-the-included-mnist-cnn-example)
-    - [CNN Boost](#cnn-boost)
-    - [Links to mnist and additional CNN examples](#links-to-mnist-and-additional-cnn-examples)
-  - [Going beyond the included CNN examples - Advanced Topics](#going-beyond-the-included-cnn-examples---advanced-topics)
-
 ![MAX78002EVKIT](img/MAX78002_EVKIT.jpg)
+
+---
+
+* [Introduction](#introduction)
+* [Schematic and BOM](#schematic-and-bom)
+* [First-time Firmware Updates](#first-time-firmware-updates)
+    * [Updating the MAX32625PICO ("PICO") Debug Adapter Firmware](#updating-the-max32625pico-"pico"-debug-adapter-firmware)
+* [Powering and Connecting to the Evaluation Kit](#powering-and-connecting-to-the-evaluation-kit)
+    * [Power Supply](#power-supply)
+    * [Connecting Debug Adapters](#connecting-debug-adapters)
+    * [Connecting Serial Ports](#connecting-serial-ports)
+        * ["USB/UART" (CN2)](#"usbuart"-cn2)
+        * ["USB/AI" (CN3)](#"usbai"-cn3)
+        * ["USB/PWR MON" (CN1)](#"usbpwr-mon"-cn1)
+    * [Connecting Camera Modules](#connecting-camera-modules)
+        * [Pcam 5C](#pcam-5c)
+* [First-time Operation ](#first-time-operation)
+* [Software Development Quick-Start](#software-development-quick-start)
+    * [Setup](#setup)
+    * [Example Projects](#example-projects)
+    * [SDK Documentation and Peripheral API](#sdk-documentation-and-peripheral-api)
+    * [Debugger Limitations of the MAX78002](#debugger-limitations-of-the-max78002)
+    * [Command-Line Development](#command-line-development)
+        * [Building Examples](#building-examples)
+        * [Flashing Examples](#flashing-examples)
+        * [Debugging Examples](#debugging-examples)
+            * [Common GDB Commands](#common-gdb-commands)
+    * [Developing with Visual Studio Code](#developing-with-visual-studio-code)
+        * [Setup](#setup-1)
+        * [Opening Example Projects](#opening-example-projects)
+        * [Usage](#usage)
+    * [Developing with Eclipse](#developing-with-eclipse)
+        * [Setup](#setup-2)
+        * [Running Eclipse](#running-eclipse)
+        * [Importing an Example](#importing-an-example)
+        * [Creating a New Project](#creating-a-new-project)
+        * [Building a Project](#building-a-project)
+        * [Debugging](#debugging)
+        * [Additional Usage Info for Eclipse](#additional-usage-info-for-eclipse)
+    * [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
+* [Power Monitor Sub-Circuit](#power-monitor-sub-circuit)
+    * [Firmware Updates](#firmware-updates)
+    * [Usage](#usage-1)
+* [Machine Learning Development](#machine-learning-development)
+    * [Overview](#overview)
+    * [Setup](#setup-3)
+    * [Videos](#videos)
+    * [Usage](#usage-2)
 
 ---
 
@@ -26,9 +55,9 @@
 
 This quick-start document contains info on getting started with the MAX78002EVKIT evaluation platform.  It supplements the full MAX78002EVKIT datasheet with information on software development and quick tips for getting started.
 
-# Schematic & BOM
+# Schematic and BOM
 
-The schematic and BOM can be found in the MAX78002EVKIT [Datasheet](TODO).  The EVKIT datasheet is the de-facto hardware reference for the MAX78002EVKIT, while this quick-start guide offers more insight into EVKIT operation and software development.
+The schematic and BOM can be found in the MAX78002EVKIT [Datasheet](TODO) TODO: link datasheet.
 
 # First-time Firmware Updates
 
@@ -40,7 +69,7 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
     If you have cloned this repository, the file is in the "MAX78002_Evaluation_Kit/MAX32625PICO_files" folder.  
     
-    Alternatively, it can be downloaded from [this](TODO) link.
+    Alternatively, it can be downloaded from [this](TODO) TODO: download link.
 
 2. Connect the included micro-USB cable to the "PICO" _without_ connecting the other side of the cable to your host PC yet.
 
@@ -58,27 +87,27 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 4. A "MAINTENANCE" drive should now appear on your file system.
 
-    ![Maintenance Drive Image](img\MAINTENANCE.jpg)
+    ![Maintenance Drive Image](img/MAINTENANCE.jpg)
 
     Note:  If a DAPLINK drive presents itself instead, retry the connection while holding the pushbutton down.  Holding the pushbutton while connecting the "PICO" will place it in MAINTENANCE mode, allowing its debugger firmware to be reprogrammed.
 
 5. Drag and drop the "max32625_max78000fthr_if_crc_v1.0.2.bin" file onto the MAINTENANCE drive.  This will flash the "PICO" with the updated firmware.
 
-    ![Drag and Drop](img\drag_and_drop.JPG)
+    ![Drag and Drop](img/drag_and_drop.JPG)
 
-    ![Flashing](img\pico_flashing.JPG)
+    ![Flashing](img/pico_flashing.JPG)
 
 6. Once the flashing is complete, the "PICO" will restart and present itself as a "DAPLINK" drive.
 
-    ![Daplink Drive](img\DAPLINK.jpg)
+    ![Daplink Drive](img/DAPLINK.jpg)
 
 7. Open the DAPLINK drive.
 
-    ![Daplink Opened](img\DAPLINK_opened.jpg)
+    ![Daplink Opened](img/DAPLINK_opened.jpg)
 
 8. Open the "DETAILS.TXT" file and verify the contents match the "MAX32625PICO_files/DETAILS.TXT" file in this repository.  Specifically - the "Git SHA" field should match exactly.
 
-    ![Details GIT SHA](img\DETAILS_Git_SHA.jpg)
+    ![Details GIT SHA](img/DETAILS_Git_SHA.jpg)
 
 9. Your "PICO" debugger is now ready to use with the MAX78002EVKIT.
 
@@ -140,8 +169,6 @@ This serial port connects directly to the USB 2.0 Hi-Speed Controller peripheral
 
 This serial port connects to a secondary MAX32625 microcontroller that manages the power monitoring sub-circuit of the MAX78002EVKIT.  This port will present itself as a standard USB Serial Device.
 
-TODO: Verify USB drivers.
-
 ## Connecting Camera Modules
 
 ### Pcam 5C
@@ -168,9 +195,13 @@ The included Pcam 5C is a CSI camera, and should be connected to the CSI connect
 
     ![Pcam Top](img/pcam_top.jpg)
 
+### TODO: DVP Module
+
 # First-time Operation 
 
-The MAX78002EVKIT will come pre-flashed with a "Hello World" example program out of the box.  Powering on the 
+The MAX78002EVKIT will come pre-flashed with a "Hello World" example program out of the box.  This simple example program will be functional after powering on the MAX78002EVKIT.
+
+TODO: Demonstrate Hello World operation
 
 # Software Development Quick-Start
 
@@ -707,7 +738,7 @@ The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When th
 
     The power monitor sub-circuit is now ready to use.
 
-### Usage
+## Usage
 
 Detailed usage information on the power monitor sub-circuit can be found [here](TODO) TODO: link updated pmon guide for AI87
 
@@ -729,9 +760,6 @@ The documentation associated with the setup and usage of these tools is signific
 
 Both tools are required for custom model development on the MAX78002.
 
-The document below is a great first document to read.  It discusses the Machine Learning workflow for the MAX78000 and MAX78002 at a high level.
-* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md)
-
 ## Setup
 
 The setup and usage of the machine learning tools is thoroughly documented in the "README.md" file that can be found in the root directory of both the "izer" and training tools.
@@ -748,7 +776,12 @@ A large technical library of technical training videos on Artificial Intelligenc
 
 ## Usage
 
-Detailed usage of the "izer" and training tools is beyond the scope of this document.  However, here are a few excercises to get started once setup has been completed and the README has been thoroughly reviewed:
+Detailed usage of the "izer" and training tools is beyond the scope of this document.  The document below is a great first document to read.  It discusses the Machine Learning workflow for the MAX78000 and MAX78002 at a high level.
+* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md)
+
+From there, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) for the tools should be thoroughly reviewed.
+
+Below are a few excercises to get started once setup has been completed and the README has been read:
 
 * Run the `gen-demos-max78002.sh` script found in the root directory of the "izer" tool and reference its ["Command Line Arguments"](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
