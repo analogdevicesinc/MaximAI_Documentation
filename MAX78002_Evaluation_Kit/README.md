@@ -18,6 +18,8 @@
     - [Links to mnist and additional CNN examples](#links-to-mnist-and-additional-cnn-examples)
   - [Going beyond the included CNN examples - Advanced Topics](#going-beyond-the-included-cnn-examples---advanced-topics)
 
+![MAX78002EVKIT](img/MAX78002_EVKIT.jpg)
+
 ---
 
 # Introduction
@@ -80,14 +82,14 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 9. Your "PICO" debugger is now ready to use with the MAX78002EVKIT.
 
-# Powering & Connecting to the Evaluation Kit
+# Powering and Connecting to the Evaluation Kit
 
 ## Power Supply
-The MAX78002EVKIT requires an external 5V supply power supply.  A 5V wall adapter is supplied in the box.  To power the board, connect the 5V adapter to the "5V IN" barrel jack input J1.  The "5V" status LED (D2) should turn on.
+The MAX78002EVKIT requires an external 5V supply power supply.  A 5V wall adapter is supplied in the box.  To power the board, connect the 5V adapter to the "5V IN" barrel jack input J1.  The  should turn on.
 
 TODO: Pic of J1
 
-SW1 is the power switch for the board.  With 5VIN supplied, flip the switch to power the rest of the board.  The "1V1 CNN" (D4) and "3V3" (D3) status LEDs will turn on and can be used to verify the board is powered on successfully.
+SW1 is the power switch for the board.  With 5VIN supplied, flip the switch to power the rest of the board.  The "5V" status LED (D2), "1V1 CNN" (D4), and "3V3" (D3) status LEDs will turn on and can be used to verify the board is powered on successfully.
 
 TODO:  pic of status LEDs.
 
@@ -134,7 +136,7 @@ Serial communication settings can be modified in the "MaximSDK/Libraries/Boards/
 
 This serial port connects directly to the USB 2.0 Hi-Speed Controller peripheral on the MAX78002.  The serial port will not be functional unless the host firmware running on the MAX78002 sets it up.
 
-### "USB/PWR MON (CN1)
+### "USB/PWR MON" (CN1)
 
 This serial port connects to a secondary MAX32625 microcontroller that manages the power monitoring sub-circuit of the MAX78002EVKIT.  This port will present itself as a standard USB Serial Device.
 
@@ -193,6 +195,14 @@ Example projects for the MAX78002EVKIT can be found in the `MaximSDK/Examples/MA
 
 Each example project contains a "README.md" file explaining what the example does.  "Out of the box" each example is set up for command-line development, Visual Studio Code, and Eclipse.  In general, the examples are organized into folder names that are based on the peripheral that it demonstrates.
 
+## SDK Documentation and Peripheral API
+
+Additional documentation on the MAX78002's peripheral API and example projects can be found by opening the `MaximSDK/Documentation/MAX78002.html` file in your system's browser.  This root file contains shortcuts to documentation on the peripheral API, toolchain documentation, example applications, datasheets, and schematics.
+
+The peripheral API documentation is particularly useful and contains full module references.  This document is useful to reference when examining the MAX78002 example projects and/or developing new projects around the peripheral drivers.
+
+![Peripheral API](img/docs_peripheral_api.jpg)
+
 ## Debugger Limitations of the MAX78002
 
 Before continuing into the development quick-starts below, it's important to note some limitations when debugging the MAX78002:
@@ -208,7 +218,7 @@ These limitations may make the device difficult (or impossible) for the debugger
 
 ## Command-Line Development
 
-Every MaximSDK example project contains a core "Makefile" that manages the build system.  This section demonstrate how to build these examples on the command line.  It also demonstrates how to flash and debug over the command line.
+This section demonstrate how to build the MaximSDK's example projects for the MAX78002EVKIT on the command line.  It also demonstrates how to flash and debug over the command-line.
 
 This section is presented first because all of the IDEs supported by the MaximSDK rely on a functional command-line toolchain.  Familiarity with the inner workings of the command-line can facilitate better experiences with the IDEs.  However, this is by no means required reading to use those IDEs.
 
@@ -561,7 +571,7 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
     * "BOARD" should be set to "EvKit_V1"
     * "TARGET" should be set to "MAX78002"
 
-10. The example is now successfully imported.  From here, you may edit, compile, and debug. 
+10. The example is now successfully imported.  From here, you may edit, build, and debug the project. 
 
 
 ### Creating a New Project
@@ -584,7 +594,34 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
     ![Project Configuration](img/eclipse_project_configuration.jpg)
 
-6. Select "Finish" to create the new project.  From here, you may edit, compile, and debug.
+6. Select "Finish" to create the new project.  From here, you may edit, build, and debug the project.
+
+### Building a Project
+
+Use the "Build" button in the top left corner of the window to build a project in Eclipse.  
+
+![Eclipse Build Button](img/eclipse_build.jpg)
+
+Eclipse will use the project Makefile with the "make" command set in "C/C++ Build" project properties setting.  
+
+As shown below, the default "make" target is "all".
+
+![Eclipse Build Properties](img/eclipse_build_properties.jpg)
+
+### Debugging
+
+Ensure that you have connected your debugger and powered on the MAX78002EVKIT before proceeding.  See ["Connecting Debug Adapters"](#connecting-debug-adapters) and [test](#powering--connecting-to-the-evaluation-kit)
+
+A project can be debugged by clicking the "Debug" button in the top left corner of the window, next to the "Build" button.  This button will launch the currently selected debug configuration (circled in blue below).  It's important to ensure that the debug configuration you have selected matches the project you would like to debug.
+
+![Eclipse Debug](img/eclipse_debug.jpg)
+
+The debugger can be stopped with the red "Stop" button next to the "Debug" button.
+
+### Additional Usage Info for Eclipse
+
+Additional usage information for Eclipse can be found in the ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf) document.
+
 
 ## How to Unlock a MAX78000 That Can No Longer Be Programmed
 
@@ -634,27 +671,91 @@ Before following the procedure below, ensure that you have updated the "PICO" de
 
 Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.
 
-## Additional SDK Information
+# Power Monitor Sub-Circuit
 
-The examples are separated by device type. The SDK on GitHub currently only includes the MAX78000. Therefore, the examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files:
+The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit that allows the user to measure the power consumption of the MAX78002.  This separate sub-circuit can be found in the bottom right corner of the board and has its own TFT display, serial port, and microcontroller.
 
-- makefile -- This file contains the rules used to build the application with the "make" command. The binaries for each project can be removed with the "make clean" command. Use "make distclean" to remove the binaries for each project and any libraries the project depends on.
+TODO: Pic of Pmon sub-circuit
 
-- main.c -- This source file contains the entry point for the application.
+## Firmware Updates
 
-- \*.c -- These files contain additional source code required by the example if necessary. Many of the examples reside entirely in the main.c file and will not have additional .c files.
+The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When the MAX78002EVKIT is powered on, this version number should be visible on the TFT display.  If the version number is outdated, then the sub-circuit's firmware must be updated to the latest version before using it.
 
-- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf)
+1. Power off the MAX78002EVKIT.
 
-The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
+2. Connect the included micro-USB cable between the "USB/PWR MON" (CN1) connector on the board and the host PC.
+
+3. Press and hold the SW6 pushbutton found inside the sub-circuit on the bottom edge of the board.
+
+4. _While holding SW6_ power the MAX78002EVKIT back on.
+
+5. Hold SW6 until the power monitor's status LED finishes blinking and becomes solid.
+
+6. A "MAINTENANCE" drive should now appear on your file system.
+
+    ![MAINTENANCE DRIVE](img/MAINTENANCE.jpg)
+
+7. Drag and drop the `PMON_Firmware/max32625_pmon_v15_if.bin` file on to the MAINTENANCE drive.
+
+    TODO: Drag and drop pic with pmon firmware file
+
+    TODO: Progress bar with pmon firmware file
+
+8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor's microcontroller restarts.  
+
+    On restart, the TFT display should come online with the latest functional firmware.
+
+    The power monitor sub-circuit is now ready to use.
+
+### Usage
+
+Detailed usage information on the power monitor sub-circuit can be found [here](TODO) TODO: link updated pmon guide for AI87
 
 # Machine Learning Development
 
-This quick 
+The quick-start development sections aboved have covered the "embedded" side of development with the MAX78002EVKIT.  This includes working with example projects, peripheral driver APIs, and the IDEs and toolchain supported by the MaximSDK.
 
+As the MAX78002 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development with the part.  This is done with a separate set of tools.  The example projects that are found in the "CNN" sub-folder of the MAX78002 examples have been created with these tools.  More specifically, they have been created with the ai8x-synthesis ("izer") tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78002 using the "embedded" development methods discussed in this document.
 
+## Overview
 
-## Going beyond the included CNN examples - Advanced Topics
+The documentation associated with the setup and usage of these tools is significant.  Here are the links to get started:
 
-- [AI8X Model Training and Quantization](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
-- [AI8X Network Loader and RTL Simulation Generator](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
+* [Analog Devices AI Github Repository](https://github.com/maximintegratedAI)
+* [ai8x-synthesis tool](https://github.com/MaximIntegratedAI/ai8x-synthesis)
+    * The ai8x-synthesis ("izer") tool is the easiest tool to get started with.  It includes pre-trained models and example scripts for generating C code from those models.
+* [ai8x-training tool](https://github.com/MaximIntegratedAI/ai8x-training)
+    * The ai8x-training tool is used for model development and training with PyTorch and CUDA-accelerated GPUs.
+
+Both tools are required for custom model development on the MAX78002.
+
+The document below is a great first document to read.  It discusses the Machine Learning workflow for the MAX78000 and MAX78002 at a high level.
+* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md)
+
+## Setup
+
+The setup and usage of the machine learning tools is thoroughly documented in the "README.md" file that can be found in the root directory of both the "izer" and training tools.
+* [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md)
+
+Additional documentation and application notes can also be found in the Documentation repository:  
+* https://github.com/MaximIntegratedAI/MaximAI_Documentation
+
+## Videos
+
+A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is currently available and actively being produced.  These are available via the links below.
+* [Artificial Intelligence Videos Page](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4)
+* The "Understanding Artifical Intelligence" series on the page above is highly recommended for all developers of the MAX78002.
+
+## Usage
+
+Detailed usage of the "izer" and training tools is beyond the scope of this document.  However, here are a few excercises to get started once setup has been completed and the README has been thoroughly reviewed:
+
+* Run the `gen-demos-max78002.sh` script found in the root directory of the "izer" tool and reference its ["Command Line Arguments"](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
+
+* Build and flash the output of one of the `gen-demos-max78002.sh` projects and verify that the generated"known answer" test passes.
+
+* Locate the YAML files for the pre-trained models in the "izer" tool and reference the ["YAML Network Description"](https://github.com/MaximIntegratedAI/ai8x-synthesis#yaml-network-description) to see how they work.
+
+* Run `train_all_models.sh` from the training repository and reference its ["Command Line Arguments"](https://github.com/MaximIntegratedAI/ai8x-training#command-line-arguments) to see how it works.
+
+* Familiarize yourself with the concept of data loaders with [Application Note 7600](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.
