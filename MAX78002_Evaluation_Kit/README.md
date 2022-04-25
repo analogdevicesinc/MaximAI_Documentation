@@ -17,6 +17,7 @@
       * ["USB/PWR MON" (CN1)](#"usbpwr-mon"-cn1)
     * [Connecting Camera Modules](#connecting-camera-modules)
       * [Pcam 5C](#pcam-5c)
+      * [OVM7692](#ovm7692)
 * [First-time Operation](#first-time-operation)
 * [Software Development Quick-Start](#software-development-quick-start)
   * [Setup](#setup)
@@ -118,11 +119,11 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 The MAX78002EVKIT requires an external 5V supply power supply.  A 5V wall adapter is supplied in the box.  Connect the 5V wall adapter to the "5V IN" barrel jack connector (J1).  
 
-TODO: Pic of J1
+![J1](img/J1.jpg)
 
 SW1 (labeled "PWR") is the main power switch.  With 5VIN supplied, flip the switch to power the rest of the board.  The "5V" status LED (D2), "1V1 CNN" (D4), and "3V3" (D3) status LEDs will turn on and can be used to verify the board is powered on successfully.
 
-TODO:  pic of status LEDs.
+![Power LEDs](img/Power_LEDs.jpg)
 
 ### Connecting Debug Adapters
 
@@ -201,13 +202,43 @@ The MAX78002EVKIT includes a Pcam 5C CSI camera module, which should be connecte
 
     ![Pcam Top](img/pcam_top.jpg)
 
-#### TODO: DVP Module
+#### OVM7692
+
+The MAX78002EVKIT also comes with an OVM7692 DVP (Digital Video Port) camera module, which should be connected to the DVP connector JH7 for evaluation.  This camera also requires an external adapter board which is included with the MAX78002EVKIT.
+
+1. Insert the OVM7692 camera module into JH2 on the DVP adapter board.
+
+    The camera module should be facing toward the outer edge of the adapter board.
+
+    ![DVP Camera Module Face](img/DVP_1.jpg)
+
+    ![DVP Camera Module Top](img/DVP_2.jpg)
+
+2. Remove the small amber cover sticker from the OVM7692 camera module to expose the lens.
+
+    ![DVP Camera Module Cover Removed](img/OVM7692.jpg)
+
+3. Remove the plastic cover from the DVP port of the adapter board and attach one side of the included DVP cable.
+
+    Use the end of the cable with the notch such that the cable comes out from the adapter board.
+
+    ![DVP Cable on Adapter](img/DVP_3.jpg)
+
+4. Attach the other side of the DVP cable to JH7 on the MAX78002EVKIT.
+
+    **It should be noted that removing the cable after fully inserting it into JH7 can very easily damage it.**  To safely remove the DVP cable use a small flat-head to push out the plastic notch.  Do no remove the cable by pulling on the cable wire itself.
+
+    ![DVP Cable on EVKIT](img/DVP_4.jpg)
 
 ## First-time Operation
 
 The MAX78002EVKIT will come pre-flashed with a "Hello World" example program out of the box.  This simple example program will be functional after powering on the MAX78002EVKIT.
 
-TODO: Demonstrate Hello World operation
+At the most basic level, the Hello World program can be verified by inspecting LED0, which should be flashing if the program is running.
+
+Optionally, a serial terminal can be connected to the ["USB/UART"](#"usbuart"-cn2) port to inspect the UART output messages of the program.  Press the "RESET" pushbutton (SW6) after connecting the serial port to verify the "Hello World!" message followed by a running count of LED blinks.
+
+![Hello World serial output](img/Hello_World.jpg)
 
 ## Software Development Quick-Start
 
@@ -709,7 +740,7 @@ Note:  In order to avoid the locked out state to begin with, it is recommended 
 
 The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit that allows the user to measure the power consumption of the MAX78002.  This separate sub-circuit can be found in the bottom right corner of the board and has its own TFT display, serial port, and microcontroller.
 
-TODO: Pic of Pmon sub-circuit
+![Power Monitor Sub-circuit](img/PMON.jpg)
 
 ### Firmware Updates
 
