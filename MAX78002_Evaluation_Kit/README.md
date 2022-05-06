@@ -1,6 +1,6 @@
 # MAX78002EVKIT Quick-Start Guide
 
-![MAX78002EVKIT](img/MAX78002_EVKIT.jpg)
+<img src="img/MAX78002_EVKIT.jpg" alt="MAX78002EVKIT" width="60%"/>
 
 ---
 
@@ -75,41 +75,43 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 2. Connect the included micro-USB cable to the "PICO" _without_ connecting the other side of the cable to your host PC yet.
 
-    ![PICO Partially Connected](img/pico_partial_connected.jpg)
+    <img src="img/pico_partial_connected.jpg" alt="PICO Partially Connected" width="400"/>
 
 3. Press and hold the pushbutton on the top of the "PICO".
 
-    ![PICO Pushbutton](img/pico_pushbutton.jpg)
+    <img src="img/pico_pushbutton.jpg" alt="PICO Pushbutton" width="400"/>
 
 4. _While holding down the pushbutton on the "PICO"_ connect the other side of the micro-USB cable to your host PC.  
 
     Keep the pushbutton held down until the LED on the "PICO" blinks and becomes solid.
 
-    ![PICO Connected](img/pico_connected.jpg)
+    <img src="img/pico_connected.jpg" alt="PICO Connected" width="400"/>
 
 5. A "MAINTENANCE" drive should now appear on your file system.
 
-    ![Maintenance Drive Image](img/MAINTENANCE.jpg)
+    <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
 
     Note:  If a DAPLINK drive presents itself instead, retry the connection while holding the pushbutton down.  Holding the pushbutton while connecting the "PICO" will place it in MAINTENANCE mode, allowing its debugger firmware to be reprogrammed.
 
 6. Drag and drop the "max32625_max78000fthr_if_crc_v1.0.2.bin" file onto the MAINTENANCE drive.  This will flash the "PICO" with the updated firmware.
 
-    ![Drag and Drop](img/drag_and_drop.JPG)
+    <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
 
-    ![Flashing](img/pico_flashing.JPG)
+    <img src="img/drag_and_drop.JPG" alt="Drag and Drop" width="400"/>
+
+    <img src="img/pico_flashing.JPG" alt="Flashing" width="400"/>
 
 7. Once the flashing is complete, the "PICO" will restart and present itself as a "DAPLINK" drive.
 
-    ![Daplink Drive](img/DAPLINK.jpg)
+    <img src="img/DAPLINK.jpg" alt="Daplink Drive" width="400"/>
 
 8. Open the DAPLINK drive.
 
-    ![Daplink Opened](img/DAPLINK_opened.jpg)
+    <img src="img/DAPLINK_opened.jpg" alt="Daplink Opened" width="400"/>
 
 9. Open the "DETAILS.TXT" file and verify the contents match the "MAX32625PICO_files/DETAILS.TXT" file in this repository.  Specifically - the "Git SHA" field should match exactly.
 
-    ![Details GIT SHA](img/DETAILS_Git_SHA.jpg)
+    <img src="img/DETAILS_Git_SHA.jpg" alt="Details GIT SHA" width="400"/>
 
 10. Your "PICO" debugger is now ready to use with the MAX78002EVKIT.
 
