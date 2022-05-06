@@ -121,11 +121,12 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 The MAX78002EVKIT requires an external 5V supply power supply.  A 5V wall adapter is supplied in the box.  Connect the 5V wall adapter to the "5V IN" barrel jack connector (J1).  
 
-![J1](img/J1.jpg)
+
+<img src="img/J1.jpg" alt="J1" width="550"/>
 
 SW1 (labeled "PWR") is the main power switch.  With 5VIN supplied, flip the switch to power the rest of the board.  The "5V" status LED (D2), "1V1 CNN" (D4), and "3V3" (D3) status LEDs will turn on and can be used to verify the board is powered on successfully.
 
-![Power LEDs](img/Power_LEDs.jpg)
+<img src="img/Power_LEDs.jpg" alt="Power LEDs" width="550"/>
 
 ### Connecting Debug Adapters
 
@@ -136,7 +137,7 @@ A MAX32625PICO:
 * For use with the Arm Cortex M4 core
 * Connects to the "SWD" debug header (JH8)
 
-![PICO SWD Connected](img/pico_swd_connected.jpg)
+<img src="img/pico_swd_connected.jpg" alt="PICO SWD Connected" width="550"/>
 
 An Olimex ARM-USB-OCD-H + ARM-JTAG 20-10 adapter:
 
@@ -188,7 +189,7 @@ The MAX78002EVKIT includes a Pcam 5C CSI camera module, which should be connecte
 
     Looking at the bottom of the Pcam 5C board, the blue strip of the ribbon cable should be facing you.
 
-    ![Pcam 5C Bottom](img/pcam_bottom.jpg)
+    <img src="img/pcam_bottom.jpg" alt="Pcam 5C Bottom" width="550"/>
 
 2. Connect the CSI ribbon cable to the CSI connector J8 on the MAX78002EVKIT.
 
@@ -198,11 +199,11 @@ The MAX78002EVKIT includes a Pcam 5C CSI camera module, which should be connecte
 
     Snap the thin darker part of the connector to close it and lock the cable in place.
 
-    ![CSI Connector](img/csi_connector.jpg)
+    <img src="img/csi_connector.jpg" alt="CSI Connector" width="550"/>
 
 3. Remove the cap from the CSI camera module before using it.
 
-    ![Pcam Top](img/pcam_top.jpg)
+    <img src="img/pcam_top.jpg" alt="Pcam Top" width="550"/>
 
 #### OVM7692
 
@@ -212,25 +213,25 @@ The MAX78002EVKIT also comes with an OVM7692 DVP (Digital Video Port) camera mod
 
     The camera module should be facing toward the outer edge of the adapter board.
 
-    ![DVP Camera Module Face](img/DVP_1.jpg)
+    <img src="img/DVP_1.jpg" alt="DVP Camera Module Face" width="550"/>
 
-    ![DVP Camera Module Top](img/DVP_2.jpg)
+    <img src="img/DVP_2.jpg" alt="DVP Camera Module Top" width="550"/>
 
 2. Remove the small amber cover sticker from the OVM7692 camera module to expose the lens.
 
-    ![DVP Camera Module Cover Removed](img/OVM7692.jpg)
+    <img src="img/OVM7692.jpg" alt="DVP Camera Module Cover Removed" width="550"/>
 
 3. Remove the plastic cover from the DVP port of the adapter board and attach one side of the included DVP cable.
 
     Use the end of the cable with the notch such that the cable comes out from the adapter board.
 
-    ![DVP Cable on Adapter](img/DVP_3.jpg)
+    <img src="img/DVP_3.jpg" alt="DVP Cable on Adapter" width="550"/>
 
 4. Attach the other side of the DVP cable to JH7 on the MAX78002EVKIT.
 
     **It should be noted that removing the cable after fully inserting it into JH7 can very easily damage it.**  To safely remove the DVP cable use a small flat-head to push out the plastic notch.  Do no remove the cable by pulling on the cable wire itself.
 
-    ![DVP Cable on EVKIT](img/DVP_4.jpg)
+    <img src="img/DVP_4.jpg" alt="DVP Cable on EVKIT" width="550"/>
 
 ## First-time Operation
 
@@ -240,7 +241,7 @@ At the most basic level, the Hello World program can be verified by inspecting L
 
 Optionally, a serial terminal can be connected to the ["USB/UART"](#"usbuart"-cn2) port to inspect the UART output messages of the program.  Press the "RESET" pushbutton (SW6) after connecting the serial port to verify the "Hello World!" message followed by a running count of LED blinks.
 
-![Hello World serial output](img/Hello_World.jpg)
+<img src="img/Hello_World.jpg" alt="Hello World serial output" width="550"/>
 
 ## Software Development Quick-Start
 
@@ -262,7 +263,7 @@ Follow the instructions above to install and set up the MaximSDK.
 
 Example projects for the MAX78002EVKIT can be found in the `MaximSDK/Examples/MAX78002` folder of the MaximSDK installation.
 
-![Examples Folder](img/examples_folder.jpg)
+<img src="img/examples_folder.jpg" alt="Examples Folder" width="550"/>
 
 Each example project contains a "README.md" file explaining what the example does.  "Out of the box" each example is set up for command-line development, Visual Studio Code, and Eclipse.  In general, the examples are organized into folder names that are based on the peripheral that it demonstrates.
 
@@ -272,7 +273,7 @@ Additional documentation on the MAX78002's peripheral API and example projects c
 
 The peripheral API documentation is particularly useful and contains full module references.  This document is useful to reference when examining the MAX78002 example projects and/or developing new projects around the peripheral drivers.
 
-![Peripheral API](img/docs_peripheral_api.jpg)
+<img src="img/docs_peripheral_api.jpg" alt="Peripheral API" width="550"/>
 
 ### Debugger Limitations of the MAX78002
 
@@ -571,15 +572,15 @@ Follow the [installation instructions](https://github.com/MaximIntegratedTechSup
 
 3. Navigate to "File -> Open Folder..."
 
-    ![Open Folder](https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/file_openfolder.JPG)
+    <img src="https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/file_openfolder.JPG" alt="Open Folder" width="550"/>
 
 4. The project should now be opened in Visual Studio Code.  For example:
 
-    ![VS Code Opened](img/VSCode_helloworld.jpg)
+    <img src="img/VSCode_helloworld.jpg" alt="VS Code Opened" width="550"/>
 
 5. Documentation (readme.md) and settings files can be found in the ".vscode" sub-folder of the example project.
 
-    ![VS Code Folder](img/VSCode_folder.jpg)
+    <img src="img/VSCode_folder.jpg" alt="VS Code Folder" width="550"/>
 
 #### VSCode-Maxim Usage
 
@@ -597,7 +598,7 @@ The only setup required to use Eclipse is to ensure that the "Eclipse" component
 
 If you are using Microsoft Windows, you must launch Eclipse from the _Windows Start Menu_ or the "MaximSDK/Tools/Eclipse/cdt/eclipse.bat" file. This eclipse.bat file calls the "setenv.bat" script in the root directory of the SDK before launching Eclipse, which makes the MaximSDK toolchain accessible.  Eclipse will fail to find the MaximSDK toolchain binaries unless it's launched with this method.
 
-![Eclipse Link in Start Menu](img/eclipse_start.jpg)
+<img src="img/eclipse_start.jpg" alt="Eclipse Link in Start Menu" width="550"/>
 
 #### Importing an Example
 
@@ -607,35 +608,35 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
 3. Select "General -> Existing Projects into Workspace" and hit "Next".
 
-    ![Import Menu](img/import.png)
+    <img src="img/import.png" alt="Import Menu" width="550"/>
 
 4. "Select root directory" and hit the "Browse" button.
 
-    ![Browse Button](img/eclipse_browse.jpg)
+    <img src="img/eclipse_browse.jpg" alt="Browse Button" width="550"/>
 
 5. Browse to the "Examples/MAX78002" folder in the MaximSDK installation, and then into the example project you would like to import.
 
     For example, the "Hello_World" Project:
 
-    ![Import Hello World](img/eclipse_helloworld_import.jpg)
+    <img src="img/eclipse_helloworld_import.jpg" alt="Import Hello World" width="550"/>
 
     or the Keyword-Spotting ("kws20_demo") CNN project.  CNN projects are found in the "CNN" subfolder.
 
-    ![Import KWS20](img/eclipse_import_kws.jpg)
+    <img src="img/eclipse_import_kws.jpg" alt="Import KWS20" width="550"/>
 
 6. Ensure that "Copy projects into workspace" is always selected when you import.  This will ensure that the MaximSDK's copy of the example remains "clean" and unmodified.
 
-    ![Copy Projects](img/eclipse_copyprojects.jpg)
+    <img src="img/eclipse_copyprojects.jpg" alt="Copy Projects" width="550"/>
 
 7. Select "Finish" to import the project.
 
 8. It should now show up in the Project Explorer.
 
-    ![Project Explorer](img/eclipse_project_explorer.jpg)
+    <img src="img/eclipse_project_explorer.jpg" alt="Project Explorer" width="550"/>
 
 9. The Eclipse projects files are configured for the MAX78002EVKIT by default.  This can be verified by opening the project properties and navigating to "C/C++ Build -> Environment"
 
-    ![Project Properties](img/eclipse_project_properties.jpg)
+    <img src="img/eclipse_project_properties.jpg" alt="Project Properties" width="550"/>
 
     * "BOARD" should be set to "EvKit_V1"
     * "TARGET" should be set to "MAX78002"
@@ -648,19 +649,19 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
 2. Ensure that the Eclipse is set to the C/C++ perspective in the top right corner.  Otherwise, the new project wizard will not show up.
 
-    ![Eclipse Perspective](img/eclipse_perspective.jpg)
+    <img src="img/eclipse_perspective.jpg" alt="Eclipse Perspective" width="550"/>
 
 3. Navigate to "File -> New -> Maxim Microcontrollers".
 
-    ![New Project](img/eclipse_new_project.jpg)
+    <img src="img/eclipse_new_project.jpg" alt="New Project" width="550"/>
 
 4. Enter the project name and hit "Next".
 
-    ![Project Name](img/eclipse_project_name.jpg)
+    <img src="img/eclipse_project_name.jpg" alt="Project Name" width="550"/>
 
 5. Enter the following settings, optionally changing the "Select example type" option to change the example that the new project will copy.
 
-    ![Project Configuration](img/eclipse_project_configuration.jpg)
+    <img src="img/eclipse_project_configuration.jpg" alt="Project Configuration" width="550"/>
 
 6. Select "Finish" to create the new project.  From here, you may edit, build, and debug the project.
 
@@ -668,13 +669,13 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
 Use the "Build" button in the top left corner of the window to build a project in Eclipse.  
 
-![Eclipse Build Button](img/eclipse_build.jpg)
+<img src="img/eclipse_build.jpg" alt="Eclipse Build Button" width="550"/>
 
 Eclipse will use the project Makefile with the "make" command set in "C/C++ Build" project properties setting.  
 
 As shown below, the default "make" target is "all".
 
-![Eclipse Build Properties](img/eclipse_build_properties.jpg)
+<img src="img/eclipse_build_properties.jpg" alt="Eclipse Build Properties" width="550"/>
 
 #### Debugging
 
@@ -682,7 +683,7 @@ Ensure that you have connected your debugger and powered on the MAX78002EVKIT be
 
 A project can be debugged by clicking the "Debug" button in the top left corner of the window, next to the "Build" button.  This button will launch the currently selected debug configuration (circled in blue below).  It's important to ensure that the debug configuration you have selected matches the project you would like to debug.
 
-![Eclipse Debug](img/eclipse_debug.jpg)
+<img src="img/eclipse_debug.jpg" alt="Eclipse Debug" width="550"/>
 
 The debugger can be stopped with the red "Stop" button next to the "Debug" button.
 
@@ -702,25 +703,25 @@ Before following the procedure below, ensure that you have updated the "PICO" de
 
 3. Open the "PICO"'s DAPLINK drive on the host PC.
 
-    ![DAPLINK Drive](img/DAPLINK.jpg)
+    <img src="img/DAPLINK.jpg" alt="DAPLINK Drive" width="550"/>
 
 4. Open the "DETAILS.TXT" inside of the DAPLINK drive in a text editor.
 
-    ![DETAILS.TXT](img/DAPLINK_opened.jpg)
+    <img src="img/DAPLINK_opened.jpg" alt="DETAILS.TXT" width="550"/>
 
 5. Verify that the "Automation allowed" field is set to 1.
 
-    ![Automation Allowed](img/DETAILS_automation_allowed.jpg)
+    <img src="img/DETAILS_automation_allowed.jpg" alt="Automation Allowed" width="550"/>
 
     If this field is _not_ set to 1, follow the procedure below:
 
     1. Press and hold the pushbutton on top of the "PICO".
 
-        ![PICO Pushbutton](img/pico_pushbutton.jpg)
+        <img src="img/pico_pushbutton.jpg" alt="PICO Pushbutton" width="550"/>
 
     2. _While holding the pushbutton_, drag and drop the "MAX32625PICO_files/auto_on.cfg" file onto the DAPLINK drive.  This file can also be downloaded directly [here](TODO).
 
-        ![auto_on.cfg](img/auto_on.cfg.jpg)
+        <img src="img/auto_on.cfg.jpg" alt="auto_on.cfg" width="550"/>
 
     3. Continue holding the pushbutton until the file is finished transferring over, then release it.
 
@@ -730,7 +731,7 @@ Before following the procedure below, ensure that you have updated the "PICO" de
 
 7. Drag and drop the "MAX32625PICO_files/erase.act" file onto the "PICO's" DAPLINK drive.
 
-    ![Erase.act](img/erase.act.jpg)
+    <img src="img/erase.act.jpg" alt="Erase.act" width="550"/>
 
 8. The "PICO" debugger will mass erase the MAX78002's application-space flash bank, which will completely wipe any application firmware that is programmed on the device.
 
@@ -742,7 +743,7 @@ Note:  In order to avoid the locked out state to begin with, it is recommended 
 
 The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit that allows the user to measure the power consumption of the MAX78002.  This separate sub-circuit can be found in the bottom right corner of the board and has its own TFT display, serial port, and microcontroller.
 
-![Power Monitor Sub-circuit](img/PMON.jpg)
+<img src="img/PMON.jpg" alt="Power Monitor Sub-circuit" width="550"/>
 
 ### Firmware Updates
 
@@ -760,7 +761,7 @@ The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When th
 
 6. A "MAINTENANCE" drive should now appear on your file system.
 
-    ![MAINTENANCE DRIVE](img/MAINTENANCE.jpg)
+    <img src="img/MAINTENANCE.jpg" alt="MAINTENANCE DRIVE" width="550"/>
 
 7. Drag and drop the `PMON_Firmware/max32625_pmon_v15_if.bin` file on to the MAINTENANCE drive.
 
