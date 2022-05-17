@@ -21,7 +21,7 @@
 
 ---
 
-![Feather Board](MAX78000FTHR.jpg)
+![Feather Board](img/MAX78000FTHR.jpg)
 
 ## Schematic
 
@@ -85,19 +85,19 @@ This is the quickest way to evaluate pre-trained and synthesized ML demonstratio
 
 If you are using Microsoft Windows, it is very important to run Eclipse from the _Windows Start Menu_. Failing to do so may results in unexpected Eclipse behavior during build and debug of your code.
 
-![Eclipse Link in Start Menu](eclipse_start_.png)
+![Eclipse Link in Start Menu](img/eclipse_start_.png)
 
 ### Creating a I/O Peripheral Project
 
 The SDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within Eclipse as demonstrated below.
 
-![New->Maxim Micros](maxim_microcontrollers.png)
+![New->Maxim Micros](img/maxim_microcontrollers.png)
 
 Enter a name for your project and click 'Next'.
 
 The 'Select Project Configuration' dialog can be configure as follows:
 
-![Select Config](project_config.png)
+![Select Config](img/project_config.png)
 
 The 'Select example type' can be any firmware example you are interested in.  Note that the CNN-specific examples are not listed here.  CNN examples must be imported via a different mechanism explained below.
 
@@ -109,11 +109,11 @@ Click 'Finish' and Eclipse will open your project and you may edit, compile, and
 
 If you are interested in the CNN examples, you can use "File->Import" within Eclipse to import them into your workspace. When prompted, select 'Existing Projects into Workspace'
 
-![Import Menu](import.png)
+![Import Menu](img/import.png)
 
 You need to provide the path to the CNN examples within the SDK tree similar to the image below.  The path will depend on where you installed the SDK.
 
-![Import Projects](cnn_import.png)
+![Import Projects](img/cnn_import.png)
 
 The Maxim SDK comes with many convolutional neural network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the SDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
 
@@ -135,7 +135,7 @@ All CNN examples will run on the MAX78000EVKIT, but not all a currently supporte
 
 Note that all examples are targeted at the EVKIT by default.  To change the target to the FTHR, you must pass BOARD=FTHR_RevA to make.  This can be accomplished within Eclipse on a per-project basis as follows:
 
-![Project Properties](board_type.png)
+![Project Properties](img/board_type.png)
 
 The Firmware-Focused Approach allows you to quickly compile, modify, and debug existing CNN examples, but if you want to modify the ML models or re-train the ML network, you will need to use the ML-focused approach described in the next section.
 
@@ -145,11 +145,11 @@ The SDK includes multiple examples to demonstrate the features of the MAX78000 a
 
 On Windows, the MSYS shell (included in the SDK) can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
 
-![msys location](msys.png)
+![msys location](img/msys.png)
 
 Below is an example of how to build the "hello world" example.  Other tools, such as openocd and gdb can be accessed from the MinGW shell.
 
-![make](make.png)
+![make](img/make.png)
 
 ## Loading and Running Example Firmware
 
@@ -167,11 +167,11 @@ The MAX78000FTHR has an integrated daplink debugger.
 
 3. On successful connection, you will see messages as shown below.
 
-     ![gdb server](ocd.png)
+     ![gdb server](img/ocd.png)
 
 4. From another command prompt, change to the directory containing the application you would like to load.
 
-    ![load elf file](gdb.png)
+    ![load elf file](img/gdb.png)
 
 5. Launch GDB using one of the following commands:
 
@@ -264,9 +264,9 @@ This TFT display comes fully assembled with dual sockets for MAX78000 Feather to
 
 To connect TFT display to MAX78000 Feather board you need to solder two headers as shown below:
 
-<img src="feather_header.png" style="zoom: 25%;" />
+<img src="img/feather_header.png" style="zoom: 25%;" />
 
-<img src="feather_TFT.png" style="zoom:25%;" />
+<img src="img/feather_TFT.png" style="zoom:25%;" />
 
 While using TFT display keep its power switch in "ON" position. The TFT "Reset" button also can be used as Feather reset.
 
