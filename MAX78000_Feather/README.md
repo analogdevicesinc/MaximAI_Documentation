@@ -27,6 +27,56 @@
 
 The schematic and BOM can be found in the MAX78000FTHR [Datasheet](<https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html>).
 
+## First-time Firmware Updates
+
+The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The firmware for this debugger should be updated to the latest version before development.  These updates contain bug fixes and improvements that are required to ensure proper operation of the debugger.
+
+### Updating the MAX32625PICO ("PICO") Debug Adapter Firmware
+
+1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file from [this](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/raw/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin) link.  
+
+2. Connect the included micro-USB cable to the MAX78000FTHR _without_ connecting the other side of the cable to your host PC yet.
+
+    <img src="img/FTHR_partial_connected.jpg" alt="PICO Partially Connected" width="400"/>
+
+3. Press and hold the SW5 pushbutton.
+
+    <img src="img/FTHR_SW5.jpg" alt="PICO Pushbutton" width="400"/>
+
+4. _While holding down the SW5 pushbutton_ connect the other side of the micro-USB cable to your host PC.  
+
+    Keep the pushbutton held down until the red LED (D3) on the MAX78000FTHR blinks and becomes solid.
+
+    <img src="img/FTHR_connected.jpg" alt="PICO Connected" width="400"/>
+
+5. A "MAINTENANCE" drive should now appear on your file system.
+
+    <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
+
+    Note:  If a DAPLINK drive presents itself instead, retry the connection while holding the pushbutton down.  Holding SW5 while connecting the FTHR board will place it in MAINTENANCE mode, allowing its debugger firmware to be reprogrammed.
+
+6. Drag and drop the "max32625_max78000fthr_if_crc_v1.0.2.bin" file onto the MAINTENANCE drive.  This will flash the "PICO" with the updated firmware.
+
+    <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
+
+    <img src="img/drag_and_drop.JPG" alt="Drag and Drop" width="400"/>
+
+    <img src="img/pico_flashing.JPG" alt="Flashing" width="400"/>
+
+7. Once the flashing is complete, the "PICO" will restart and present itself as a "DAPLINK" drive.
+
+    <img src="img/DAPLINK.jpg" alt="Daplink Drive" width="400"/>
+
+8. Open the DAPLINK drive.
+
+    <img src="img/DAPLINK_opened.jpg" alt="Daplink Opened" width="400"/>
+
+9. Open the "DETAILS.TXT" file and verify the contents match the "MAX32625PICO_files/DETAILS.TXT" file in this repository.  Specifically - the "Git SHA" field should match exactly.
+
+    <img src="img/DETAILS_Git_SHA.jpg" alt="Details GIT SHA" width="400"/>
+
+10. Your "PICO" debugger is now ready to use with the MAX78000FTHR.
+
 ## Developing with Eclipse
 
 This is the quickest way to evaluate pre-trained and synthesized ML demonstrations.  You'll need to download and install the Maxim SDK onto a Windows 10 host. The Maxim SDK is available to download from [here](<https://www.maximintegrated.com/content/maximintegrated/en/design/software-description.html/swpart=SFW0010820A>).
