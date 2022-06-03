@@ -57,19 +57,11 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 6. Drag and drop the "max32625_max78000fthr_if_crc_v1.0.2.bin" file onto the MAINTENANCE drive.  This will flash the "PICO" with the updated firmware.
 
-<<<<<<< HEAD
-    <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
-
-    <img src="img/drag_and_drop.JPG" alt="Drag and Drop" width="400"/>
-
-    <img src="img/pico_flashing.JPG" alt="Flashing" width="400"/>
-=======
     1. <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
 
     2. <img src="img/FTHR_drag_and_drop.jpg" alt="Drag and Drop" width="400"/>
 
     3. <img src="img/pico_flashing.JPG" alt="Flashing" width="400"/>
->>>>>>> 207b4f43efc2f41314c2ad983d653445d697636f
 
 7. Once the flashing is complete, the "PICO" will restart and present itself as a "DAPLINK" drive.
 
