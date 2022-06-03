@@ -4,52 +4,7 @@
 
 ---
 
-* [Introduction](#introduction)
-* [Schematic and BOM](#schematic-and-bom)
-* [First-time Firmware Updates](#first-time-firmware-updates)
-  * [Updating the MAX32625PICO ("PICO") Debug Adapter Firmware](#updating-the-max32625pico-"pico"-debug-adapter-firmware)
-* [Powering and Connecting to the Evaluation Kit](#powering-and-connecting-to-the-evaluation-kit)
-  * [Power Supply](#power-supply)
-  * [Connecting Debug Adapters](#connecting-debug-adapters)
-    * [Connecting Serial Ports](#connecting-serial-ports)
-      * ["USB/UART" (CN2)](#"usbuart"-cn2)
-      * ["USB/AI" (CN3)](#"usbai"-cn3)
-      * ["USB/PWR MON" (CN1)](#"usbpwr-mon"-cn1)
-    * [Connecting Camera Modules](#connecting-camera-modules)
-      * [Pcam 5C](#pcam-5c)
-      * [OVM7692](#ovm7692)
-* [First-time Operation](#first-time-operation)
-* [Software Development Quick-Start](#software-development-quick-start)
-  * [Setup](#setup)
-  * [Example Projects](#example-projects)
-  * [SDK Documentation and Peripheral API](#sdk-documentation-and-peripheral-api)
-  * [Debugger Limitations of the MAX78002](#debugger-limitations-of-the-max78002)
-  * [Command-Line Development](#command-line-development)
-    * [Building Examples](#building-examples)
-    * [Flashing Examples](#flashing-examples)
-    * [Debugging Examples](#debugging-examples)
-    * [Common GDB Commands](#common-gdb-commands)
-  * [Developing with Visual Studio Code](#developing-with-visual-studio-code)
-    * [VSCode-Maxim Setup](#vscode-maxim-setup)
-    * [Opening Example Projects](#opening-example-projects)
-    * [VSCode-Maxim Usage](#vscode-maxim-usage)
-  * [Developing with Eclipse](#developing-with-eclipse)
-    * [Eclipse Setup](#eclipse-setup)
-    * [Running Eclipse](#running-eclipse)
-    * [Importing an Example](#importing-an-example)
-    * [Creating a New Project](#creating-a-new-project)
-    * [Building a Project](#building-a-project)
-    * [Debugging](#debugging)
-    * [Additional Usage Info for Eclipse](#additional-usage-info-for-eclipse)
-  * [How to Unlock a MAX78002 That Can No Longer Be Programmed](#how-to-unlock-a-max78002-that-can-no-longer-be-programmed)
-* [Power Monitor Sub-Circuit](#power-monitor-sub-circuit)
-  * [Firmware Updates](#firmware-updates)
-  * [Power Monitor Usage](#power-monitor-usage)
-* [Machine Learning Development](#machine-learning-development)
-  * [Overview](#overview)
-  * [Machine Learning Setup](#machine-learning-setup)
-  * [Videos](#videos)
-  * [Machine Learning Usage](#machine-learning-usage)
+[TOC]
 
 ---
 
@@ -59,7 +14,7 @@ This quick-start document contains info on getting started with the MAX78002EVKI
 
 ## Schematic and BOM
 
-The schematic and BOM can be found in the MAX78002EVKIT [Datasheet](TODO) TODO: link datasheet.
+The schematic and BOM can be found in the [MAX78002 EVKIT Datasheet](Datasheets/MAX78002EV_Rev0_prelim.pdf) (preliminary)
 
 ## First-time Firmware Updates
 
@@ -67,11 +22,9 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 ### Updating the MAX32625PICO ("PICO") Debug Adapter Firmware
 
-1. Locate the "max32625_max78000fthr_if_crc_v1.0.2.bin" file.  
+1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file.  TODO:  Download link
 
-    If you have cloned this repository, the file is in the "MAX78002_Evaluation_Kit/MAX32625PICO_files" folder.  
-
-    Alternatively, it can be downloaded from [this](TODO) TODO: download link.
+    If you have cloned this repository, the file can also be found in the "MAX78002_Evaluation_Kit/MAX32625PICO_files" folder.
 
 2. Connect the included micro-USB cable to the "PICO" _without_ connecting the other side of the cable to your host PC yet.
 
@@ -90,8 +43,6 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 5. A "MAINTENANCE" drive should now appear on your file system.
 
     <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
-
-    Note:  If a DAPLINK drive presents itself instead, retry the connection while holding the pushbutton down.  Holding the pushbutton while connecting the "PICO" will place it in MAINTENANCE mode, allowing its debugger firmware to be reprogrammed.
 
 6. Drag and drop the "max32625_max78000fthr_if_crc_v1.0.2.bin" file onto the MAINTENANCE drive.  This will flash the "PICO" with the updated firmware.
 
@@ -139,15 +90,14 @@ A MAX32625PICO:
 
 <img src="img/pico_swd_connected.jpg" alt="PICO SWD Connected" width="550"/>
 
-An Olimex ARM-USB-OCD-H + ARM-JTAG 20-10 adapter:
+An Olimex [ARM-USB-OCD-H](https://www.olimex.com/Products/ARM/JTAG/ARM-USB-OCD-H/) + [ARM-JTAG 20-10 adapter](https://www.olimex.com/Products/ARM/JTAG/ARM-JTAG-20-10/):
 
 * For use with the RISC-V core
 * Connects to the "RV JTAG" debug header (JH5)
 * This RISC-V debug adapter needs to be connected only for debugging the RISC-V core, but not for loading in general.  Many of the examples in the MaximSDK are Arm-only.
+* RISC-V debugging does, in general, also require simultaneous debugging of the Arm M4 core.
 
-(TODO: pic of Olimex)
-
-Both debuggers should then connect back to the host PC with the included USB cables.
+<img src="img/Olimex.jpg" alt="Olimex Debugger Connected" width="550"/>
 
 ### Connecting Serial Ports
 
@@ -169,7 +119,7 @@ Maxim's examples use the following serial communication settings by default:
 * Stop bits: 1
 * Flow control: None
 
-Serial communication settings can be modified in the "MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h" file.  Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1.  Refer to the [MAX78002 Datasheet](TODO) for more details on jumper settings.
+Serial communication settings can be modified in the "MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h" file.  Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1.  Refer to the [MAX78002 EVKIT Datasheet](Datasheets/MAX78002EV_Rev0_prelim.pdf) for more details on jumper settings.
 
 ### "USB/AI" (CN3)
 
@@ -235,13 +185,15 @@ The MAX78002EVKIT also comes with an OVM7692 DVP (Digital Video Port) camera mod
 
 ## First-time Operation
 
-The MAX78002EVKIT will come pre-flashed with a "Hello World" example program out of the box.  This simple example program will be functional after powering on the MAX78002EVKIT.
+The MAX78002EVKIT will come pre-flashed with a Keyword-spotting demo program out of the box.  This demo showcases the "kws20" Neural Network, which has been trained on Google's speech commands dataset to recognize the following 20 keywords:
 
-At the most basic level, the Hello World program can be verified by inspecting LED0, which should be flashing if the program is running.
+ ['**up', 'down', 'left', 'right', 'stop', 'go', 'yes', 'no', 'on', 'off', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero**']
 
-Optionally, a serial terminal can be connected to the ["USB/UART"](#"usbuart"-cn2) port to inspect the UART output messages of the program.  Press the "RESET" pushbutton (SW6) after connecting the serial port to verify the "Hello World!" message followed by a running count of LED blinks.
+To excercise the demo power on the EVKIT and follow the instructions on the TFT display.
 
-<img src="img/Hello_World.jpg" alt="Hello World serial output" width="550"/>
+Optionally, connect to the USB/UART (CN2) [Serial port](#Connecting-serial-ports) to monitor the serial output of the demo program.
+
+The source code for the demo can be found in the `Examples/MAX78002/CNN/kws20_demo` folder of the MaximSDK.
 
 ## Software Development Quick-Start
 
@@ -256,8 +208,6 @@ The MaximSDK can be downloaded and installed from the following links:
 * [MacOS](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0018610A)
 
 More detailed setup instructions for the MaximSDK can be found in the "Embedded Software Development Kit (SDK)" section of the ai8x-synthesis readme [here](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md#embedded-software-development-kit-sdk).
-
-Follow the instructions above to install and set up the MaximSDK.
 
 ### Example Projects
 
@@ -296,7 +246,7 @@ This section is presented first because all of the IDEs supported by the MaximSD
 
 #### Building Examples
 
-The MaximSDK build system is a managed system that uses GNU Make.  Every example project contains a `Makefile` that is used to build the source code.  The [GNU Make manual](https://www.gnu.org/software/make/manual/make.html) is a good document to bookmark when working with Makefiles.
+The MaximSDK build system is a managed system that uses GNU Make.  Every example project contains a `Makefile` that is used to build the source code.  The [GNU Make manual](https://www.gnu.org/software/make/manual/make.html) is a good document to bookmark when working with Makefiles.  The example projects in the `Examples/MAX78002` directory of the MaximSDK contain Makefiles that are preconfigured for the MAX78002EVKIT.
 
 1. First, copy the example project to an accessible directory outside of the SDK.  It's strongly recommended to keep the MaximSDK examples "clean" and unmodified in case they need to be referenced again later.
 
@@ -417,7 +367,7 @@ The MaximSDK build system is a managed system that uses GNU Make.  Every example
 
 2. Launch a _new_ terminal.  On Windows, use the `MaximSDK/Tools/MSYS2/msys.bat` file to launch a new MSYS2 terminal.
 
-3. "cd" into the location of the copied example project.
+3. "cd" into the location of the copied example project.  The next steps will use the "Hello World" project as an example.
 
 4. Run the following command to launch a GDB client.
 
@@ -425,7 +375,7 @@ The MaximSDK build system is a managed system that uses GNU Make.  Every example
     arm-none-eabi-gdb --se=build/max78002.elf
     ```
 
-    * "--se" sets the symbol and executable file to the compiled build output.
+    * "--se" sets the symbol and executable file to the compiled program file.  If you've changed the name of the output file the command above should change accordingly.
 
     Expected output:
 
@@ -574,11 +524,12 @@ Follow the [installation instructions](https://github.com/MaximIntegratedTechSup
 
     <img src="https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/file_openfolder.JPG" alt="Open Folder" width="550"/>
 
-4. The project should now be opened in Visual Studio Code.  For example:
+4.  Navigate to the location of the copied example project from step 1 and hit "Select Folder".
+5. The project should now be opened in Visual Studio Code.  For example:
 
     <img src="img/VSCode_helloworld.jpg" alt="VS Code Opened" width="550"/>
 
-5. Documentation (readme.md) and settings files can be found in the ".vscode" sub-folder of the example project.
+6. Documentation (readme.md) and settings files can be found in the ".vscode" sub-folder of the example project.
 
     <img src="img/VSCode_folder.jpg" alt="VS Code Folder" width="550"/>
 
@@ -765,64 +716,49 @@ The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When th
 
 7. Drag and drop the `PMON_Firmware/max32625_pmon_v15_if.bin` file on to the MAINTENANCE drive.
 
-    TODO: Drag and drop pic with pmon firmware file
-
-    TODO: Progress bar with pmon firmware file
-
 8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor's microcontroller restarts.  
 
-    On restart, the TFT display should come online with the latest functional firmware.
+    On restart, the TFT display should come online with the latest functional firmware (v1.5).
 
     The power monitor sub-circuit is now ready to use.
 
 ### Power Monitor Usage
 
-Detailed usage information on the power monitor sub-circuit can be found [here](TODO) TODO: link updated pmon guide for AI87
+Detailed usage information on the power monitor sub-circuit can be found [here](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/MAX78000_Evaluation_Kit/MAX78000%20Power%20Monitor%20and%20Energy%20Benchmarking%20Guide.pdf).
 
-## Machine Learning Development
+## Machine Learning (ML) Development
 
 The quick-start development sections aboved have covered the "embedded" side of development with the MAX78002EVKIT.  This includes working with example projects, peripheral driver APIs, and the IDEs and toolchain supported by the MaximSDK.
 
 As the MAX78002 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development with the part.  This is done with a separate set of tools.  The example projects that are found in the "CNN" sub-folder of the MAX78002 examples have been created with these tools.  More specifically, they have been created with the ai8x-synthesis ("izer") tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78002 using the "embedded" development methods discussed in this document.
 
-### Overview
+### ML Overview
 
 The documentation associated with the setup and usage of these tools is significant.  Here are the links to get started:
 
 * [Analog Devices AI Github Repository](https://github.com/maximintegratedAI)
 * [ai8x-synthesis tool](https://github.com/MaximIntegratedAI/ai8x-synthesis)
-  * The ai8x-synthesis ("izer") tool is the easiest tool to get started with.  It includes pre-trained models and example scripts for generating C code from those models.
 * [ai8x-training tool](https://github.com/MaximIntegratedAI/ai8x-training)
-  * The ai8x-training tool is used for model development and training with PyTorch and CUDA-accelerated GPUs.
+* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
 
-Both tools are required for custom model development on the MAX78002.
+### ML Videos
 
-### Machine Learning Setup
-
-The setup and usage of the machine learning tools is thoroughly documented in the "README.md" file that can be found in the root directory of both the "izer" and training tools.
-
-* [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md)
-
-Additional documentation and application notes can also be found in the Documentation repository:  
-
-* <https://github.com/MaximIntegratedAI/MaximAI_Documentation>
-
-### Videos
-
-A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is currently available and actively being produced.  These are available via the links below.
+A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below.  These are the best way to get started with ML on the MAX78002.
 
 * [Artificial Intelligence Videos Page](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4)
-* The "Understanding Artifical Intelligence" series on the page above is highly recommended for all developers of the MAX78002.
+* The "Understanding Artifical Intelligence" series is highly recommended for all developers.
 
-### Machine Learning Usage
+### ML Setup
 
-Detailed usage of the "izer" and training tools is beyond the scope of this document.  The document below is a great first document to read.  It discusses the Machine Learning workflow for the MAX78000 and MAX78002 at a high level.
+The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the "izer" and training tools.  See the [Installation](https://github.com/MaximIntegratedAI/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
 
-* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md)
+### ML Usage
 
-From there, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) for the tools should be thoroughly reviewed.
+Detailed usage of the "izer" and training tools is beyond the scope of this document.  The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction, and the [Videos](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4) dive deeper.
 
-Below are a few excercises to get started once setup has been completed and the README has been read:
+Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
+
+Below are a few excercises to get started after setup is complete:
 
 * Run the `gen-demos-max78002.sh` script found in the root directory of the "izer" tool and reference its ["Command Line Arguments"](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
