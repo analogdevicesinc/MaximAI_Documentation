@@ -162,7 +162,7 @@ If the input sample data is not in the default **ai8x-synthesis/test** folder, a
 
 - **--sample-input ../ai8x-training/logs/2022.05.11-210349/sample_cats_vs_dogs.npy**
 
-Run the script to generate the KAT c code in the specified target directory (e.g. ai8x-synthesis/sdk/Examples/MAX78000/CNN/cats-dogs/)
+Run the script to generate the KAT C code in the specified target directory (e.g. ai8x-synthesis/sdk/Examples/MAX78000/CNN/cats-dogs/)
 
  
 
