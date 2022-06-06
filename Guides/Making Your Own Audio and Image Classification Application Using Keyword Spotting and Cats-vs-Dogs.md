@@ -205,7 +205,7 @@ $ openocd -s C:/MaximSDK/Tools/OpenOCD/scripts -f interface/cmsis-dap.cfg -f tar
 
 ## Modifying KWS to Create Your Own Keyword Spotting
 
-The data loader (ai8x-training/datasets/kws20.py) automatically downloads Google's speech command dataset. The dataset consists of over 100k of utterances of 35 different words stored as one-second .wave format files sampled at 16kHz. For this demo, the model is trained with the above 20 words as desired classes, and the rest are all labeled as an 'unknown' class (21 classes). 
+The data loader (ai8x-training/datasets/kws20.py) automatically downloads Google's speech command dataset. The dataset consists of over 100k of utterances of 35 different words stored as one-second .wave format files sampled at 16kHz. For this demo, the model is trained with the below 20 words as desired classes, and the rest are all labeled as an 'unknown' class (21 classes). 
 
 Speech command classes:
 
@@ -257,7 +257,7 @@ Make sure the directory structure of the datasets is correct:
 
 ```
 data -- KWS
-           |--raw: containts folders with labels name, each containing 1sec .wav file for that label
+           |--raw: contains folders with labels name, each containing 1sec .wav file for that label
 ```
 
  
