@@ -22,7 +22,7 @@ The firmware for the MAX32625PICO ("PICO") debug adapter should be updated befor
 
 ### Updating the MAX32625PICO ("PICO") Debug Adapter Firmware
 
-1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file.  TODO:  Download link
+1. Download the ["max32625_max78000fthr_if_crc_v1.0.2.bin"](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) file.
 
     If you have cloned this repository, the file can also be found in the "MAX78002_Evaluation_Kit/MAX32625PICO_files" folder.
 
@@ -665,12 +665,14 @@ Before following the procedure below, ensure that you have updated the "PICO" de
     <img src="img/DETAILS_automation_allowed.jpg" alt="Automation Allowed" width="550"/>
 
     If this field is _not_ set to 1, follow the procedure below:
+    
+    1. Create a new _empty_ file, and save it as "auto_on.cfg".
 
-    1. Press and hold the pushbutton on top of the "PICO".
+    2. Press and hold the pushbutton on top of the "PICO".
 
         <img src="img/pico_pushbutton.jpg" alt="PICO Pushbutton" width="550"/>
 
-    2. _While holding the pushbutton_, drag and drop the "MAX32625PICO_files/auto_on.cfg" file onto the DAPLINK drive.  This file can also be downloaded directly [here](TODO).
+    3. _While holding the pushbutton_, drag and drop the "auto_on.cfg" file onto the DAPLINK drive.
 
         <img src="img/auto_on.cfg.jpg" alt="auto_on.cfg" width="550"/>
 
