@@ -104,7 +104,7 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 - OpenOCD
 
-    1. Maxim provides pre-built binaries. These should automatically be installed along with the ai8x-synthesis repo above.  The binaries can also be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1. Analog Devices provides pre-built binaries. These should automatically be installed along with the ai8x-synthesis repo above.  The binaries can also be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
 
     2. You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 

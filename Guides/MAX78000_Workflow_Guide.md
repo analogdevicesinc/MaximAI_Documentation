@@ -2,7 +2,7 @@
 
 # Introduction
 
-This application note is intended to serve as a quick start guide that demonstrates the use of the Maxim Integrated AI toolchain. All information contained here appears in greater detail in the MaximIntegratedAI github repository training and synthesis README.md&#39;s at [https://github.com/MaximIntegratedAI](https://github.com/MaximIntegratedAI)
+This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the MaximIntegratedAI github repository training and synthesis README.md&#39;s at [https://github.com/MaximIntegratedAI](https://github.com/MaximIntegratedAI)
 
 The documentation within the GitHub repositories should be considered authoritative, but this guide demonstrates a quick path from model to C code for the AI initiate.
 
