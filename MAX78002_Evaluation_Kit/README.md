@@ -720,7 +720,7 @@ The latest version of the power monitor sub-circuit’s firmware is v1.5b. When 
 
     <img src="img/MAINTENANCE.jpg" alt="MAINTENANCE DRIVE" width="550"/>
 
-7. Drag and drop the [`PMON_Firmware/max32625_pmon_v15b_if.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/PMON_Firmware/max3265_pmon_v15b_if.bin) file on to the `MAINTENANCE` drive.
+7. Drag and drop the [`PMON_Firmware/max32625_pmon_v15b_if.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/PMON_Firmware/max32625_pmon_v15b_if.bin) file on to the `MAINTENANCE` drive.
 
 8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor’s microcontroller restarts. 
 
