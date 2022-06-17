@@ -42,13 +42,13 @@ The project consists of five repositories:
 
 ## Links to MAX78000/MAX78002 Documentation
 
-* Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html) [MAX78002 (preliminary)](./MAX78002/MAX78002%20Datasheet.pdf) 
+* Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html) [MAX78002](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html) 
 * Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
 * Link to MAX78000 EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
   * (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
   * (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
 * Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
-* Link to MAX78002 EV Kit datasheet: [MAX78002 EVKIT Datasheet (preliminary)](./MAX78002_Evaluation_Kit/Datasheets/MAX78002EV_Rev0_prelim.pdf) 
+* Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) 
 * Link to SDK repository (for both MAX78000 and MAX78002): [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
 * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
 * Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)

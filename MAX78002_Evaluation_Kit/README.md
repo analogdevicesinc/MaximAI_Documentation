@@ -14,7 +14,7 @@ This quick-start document contains info on getting started with the MAX78002EVKI
 
 ## Schematic and BOM
 
-The schematic and BOM can be found in the [MAX78002 EVKIT Datasheet](Datasheets/MAX78002EV_Rev0_prelim.pdf) (preliminary)
+The schematic and BOM can be found in the [MAX78002 EVKIT web page](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html)
 
 ## First-time Firmware Updates
 
@@ -119,7 +119,7 @@ ADI’s examples use the following serial communication settings by default:
 * Stop bits: 1
 * Flow control: None
 
-Serial communication settings can be modified in the `MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h` file. Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1. Refer to the [MAX78002 EVKIT Datasheet](Datasheets/MAX78002EV_Rev0_prelim.pdf) for more details on jumper settings.
+Serial communication settings can be modified in the `MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h` file. Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1. Refer to the [MAX78002 EVKIT Datasheet](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) for more details on jumper settings.
 
 ### “USB/AI” (CN3)
 
