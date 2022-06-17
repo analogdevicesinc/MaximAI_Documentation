@@ -700,7 +700,7 @@ The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit that allows 
 
 ### Firmware Updates
 
-The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When the MAX78002EVKIT is powered on, this version number should be visible on the TFT display.  If the version number is outdated, then the sub-circuit's firmware must be updated to the latest version before using it.
+The latest version of the Power Monitor Sub-Circuit's firmware is v1.5b.  When the MAX78002EVKIT is powered on, this version number should be visible on the TFT display.  If the version number is outdated, then the sub-circuit's firmware must be updated to the latest version before using it.
 
 1. Power off the MAX78002EVKIT.
 
@@ -716,7 +716,7 @@ The latest version of the Power Monitor Sub-Circuit's firmware is v1.5.  When th
 
     <img src="img/MAINTENANCE.jpg" alt="MAINTENANCE DRIVE" width="550"/>
 
-7. Drag and drop the `PMON_Firmware/max32625_pmon_v15_if.bin` file on to the MAINTENANCE drive.
+7. Drag and drop the `PMON_Firmware/max32625_pmon_v15b_if.bin` file on to the MAINTENANCE drive.
 
 8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor's microcontroller restarts.  
 
