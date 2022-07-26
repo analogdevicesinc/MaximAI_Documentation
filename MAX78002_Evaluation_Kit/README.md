@@ -710,11 +710,11 @@ The latest version of the power monitor sub-circuit’s firmware is v1.5b. When 
 
 2. Connect the included micro-USB cable between the “USB/PWR MON” (CN1) connector on the board and the host PC.
 
-3. Press and hold the SW6 pushbutton found inside the sub-circuit on the bottom edge of the board.
+3. Press and hold the SW2 pushbutton found inside the sub-circuit on the bottom edge of the board.
 
-4. _While holding SW6_ power the MAX78002EVKIT back on.
+4. _While holding SW2_ power the MAX78002EVKIT back on.
 
-5. Hold SW6 until the power monitor’s status LED finishes blinking and becomes solid.
+5. Hold SW2 until the power monitor’s status LED finishes blinking and becomes solid.
 
 6. A `MAINTENANCE` drive should now appear on your file system.
 
