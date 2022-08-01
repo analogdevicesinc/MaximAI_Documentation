@@ -27,7 +27,7 @@ The project consists of five repositories:
 1. This repo (“Documentation”)
 
 2. The software development kit (SDK), which contains peripheral drivers and example programs ready to run on the Evaluation Kit:
-   [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK). See [here](https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7219.html) for the most recent SDK Installation Guide.
+   [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK) (includes support for both MAX78000 and MAX78002). See [here](https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7219.html) for the most recent SDK Installation Guide.
 
 3. The training repo, which is used for deep learning model development and training:
    [ai8x-training](https://github.com/MaximIntegratedAI/ai8x-training)
@@ -42,17 +42,25 @@ The project consists of five repositories:
 
 ## Links to MAX78000/MAX78002 Documentation
 
-* Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html) [MAX78002](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html) 
-* Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
-* Link to MAX78000 EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
-  * (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
-  * (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
-* Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
-* Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) 
-* Link to SDK repository (for both MAX78000 and MAX78002): [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
-* Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
-* Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)
-* Quick Start Guides and Optional Features: [Guides](Guides)
+* MAX78000
+  * Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html)
+  * Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
+  * Link to MAX78000 EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
+    * (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
+    * (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
+
+  * Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
+  * Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)
+
+* MAX78002
+  * Link to IC description and datasheet: [MAX78002](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html) 
+  * Link to IC User Guide: [MAX78002 User Guide (Preliminary).pdf](./MAX78002/MAX78002%20User%20Guide%20Preliminary.pdf)
+  * Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) 
+* MAX78000 and MAX78002
+  * Link to SDK repository (for both MAX78000 and MAX78002): [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
+  * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
+  * Quick Start Guides and Optional Features: [Guides](Guides)
+
 
 ## Application Notes
 
