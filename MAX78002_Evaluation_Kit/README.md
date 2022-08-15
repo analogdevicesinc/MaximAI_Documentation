@@ -34,7 +34,7 @@ The firmware for the MAX32625PICO (PICO) debug adapter should be updated before 
 
     <img src="img/pico_pushbutton.jpg" alt="PICO Pushbutton" width="400"/>
 
-4. _While holding down the pushbutton on the PICO_ connect the other side of the micro-USB cable to your host PC. 
+4. _While holding down the pushbutton on the PICO_ connect the other side of the micro-USB cable to your host PC.
 
     Keep the pushbutton held down until the LED on the PICO blinks and becomes solid.
 
@@ -70,7 +70,7 @@ The firmware for the MAX32625PICO (PICO) debug adapter should be updated before 
 
 ### Power Supply
 
-The MAX78002EVKIT requires an external 5V supply power supply. A 5V wall adapter is supplied in the box. Connect the 5V wall adapter to the “5V IN” barrel jack connector (J1). 
+The MAX78002EVKIT requires an external 5V supply power supply. A 5V wall adapter is supplied in the box. Connect the 5V wall adapter to the “5V IN” barrel jack connector (J1).
 
 
 <img src="img/J1.jpg" alt="J1" width="550"/>
@@ -107,7 +107,7 @@ The MAX78002EVKIT exposes 3 serial ports via micro-USB connectors.
 
 This serial port routes UART0 and UART1 from the MAX78002 to an [FT231XS](https://ftdichip.com/products/ft231xs/) UART to USB adapter. This is the default serial port used by most examples.
 
-To communicate over this port, connect a micro-USB cable from the host PC to CN2. Most Operating Systems will auto-install the required drivers or already include them on the system, and the FT231XS chip will present itself as a Virtual COM Port (VCP). 
+To communicate over this port, connect a micro-USB cable from the host PC to CN2. Most Operating Systems will auto-install the required drivers or already include them on the system, and the FT231XS chip will present itself as a Virtual COM Port (VCP).
 
 If the port does _not_ present itself, then manual driver installation is required. See [this](https://ftdichip.com/drivers/vcp-drivers/) page from the official FTDI site.
 
@@ -187,11 +187,11 @@ The MAX78002EVKIT also comes with an OVM7692 DVP (Digital Video Port) camera mod
 
 The MAX78002EVKIT will come pre-flashed with a Keyword-spotting demo program out of the box. This demo showcases the “kws20” Neural Network, which has been trained on Google’s speech commands dataset to recognize the following 20 keywords:
 
- **up, down, left, right, stop, go, yes, no, on, off, one, two, three, four, five, six, seven, eight, nine, zero**
+ up, down, left, right, stop, go, yes, no, on, off, one, two, three, four, five, six, seven, eight, nine, zero
 
 To excercise the demo power on the EVKIT and follow the instructions on the TFT display.
 
-Optionally, connect to the USB/UART (CN2) [Serial port](#Connecting-serial-ports) to monitor the serial output of the demo program.
+Optionally, connect to the USB/UART (CN2) [Serial port](#connecting-serial-ports) to monitor the serial output of the demo program.
 
 The source code for the demo can be found in the `Examples/MAX78002/CNN/kws20_demo` folder of the MaximSDK.
 
@@ -230,7 +230,7 @@ The peripheral API documentation is particularly useful and contains full module
 Before continuing into the development quick-starts below, it’s important to note some limitations when debugging the MAX78002:
 
 * The debugger can not be connected to the MAX78002 _while_ the device is in reset.
-* The MAX78002 can not be debugged while the device is in Sleep, Low Power Mode, Micro Power Mode, Standby, Backup, or Shutdown mode. 
+* The MAX78002 can not be debugged while the device is in Sleep, Low Power Mode, Micro Power Mode, Standby, Backup, or Shutdown mode.
 
     These modes shut down the SWD clock.
 
@@ -396,7 +396,7 @@ The MaximSDK build system is a managed system that uses GNU Make. Every example 
     For help, type "help".
     Type "apropos word" to search for commands related to "word"...
     Reading symbols from build/max78002.elf...
-    (gdb) 
+    (gdb)
     ```
 
 5. Next, connect to the OpenOCD server that is running in the other terminal window with the following command.
@@ -412,7 +412,7 @@ The MaximSDK build system is a managed system that uses GNU Make. Every example 
     0x0000fff4 in ?? () <-- Note: ?? may be present at this stage, which is OK.
     ```
 
-6. (Optional) Reset the MAX78002. 
+6. (Optional) Reset the MAX78002.
 
     ```shell
     monitor reset halt
@@ -459,7 +459,7 @@ The MaximSDK build system is a managed system that uses GNU Make. Every example 
 
 9. (Optional) Continue debugging.
 
-    At this stage, the debugger is connected properly and the program is halted on the `main` function. 
+    At this stage, the debugger is connected properly and the program is halted on the `main` function.
     You can continue debugging freely from here.
     See [Common GDB Commands](#Common GDB Commands) below for a quick reference
 
@@ -524,7 +524,8 @@ Follow the [installation instructions](https://github.com/MaximIntegratedTechSup
 
     <img src="https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/file_openfolder.JPG" alt="Open Folder" width="550"/>
 
-4.  Navigate to the location of the copied example project from step 1 and hit “Select Folder”.
+4. Navigate to the location of the copied example project from step 1 and hit “Select Folder”.
+
 5. The project should now be opened in Visual Studio Code. For example:
 
     <img src="img/VSCode_helloworld.jpg" alt="VS Code Opened" width="550"/>
@@ -618,11 +619,11 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
 #### Building a Project
 
-Use the “Build” button in the top left corner of the window to build a project in Eclipse. 
+Use the “Build” button in the top left corner of the window to build a project in Eclipse.
 
 <img src="img/eclipse_build.jpg" alt="Eclipse Build Button" width="550"/>
 
-Eclipse will use the project Makefile with the “make” command set in “C/C++ Build” project properties setting. 
+Eclipse will use the project Makefile with the “make” command set in “C/C++ Build” project properties setting.
 
 As shown below, the default “make” target is “all”.
 
@@ -669,7 +670,7 @@ Before following the procedure below, ensure that you have updated the PICO debu
     <img src="img/DETAILS_automation_allowed.jpg" alt="Automation Allowed" width="550"/>
 
     If this field is _not_ set to 1, follow the procedure below:
-    
+
     1. Create a new _empty_ file, and save it as `auto_on.cfg`.
 
     2. Press and hold the pushbutton on top of the PICO.
@@ -680,9 +681,9 @@ Before following the procedure below, ensure that you have updated the PICO debu
 
         <img src="img/auto_on.cfg.jpg" alt="auto_on.cfg" width="550"/>
 
-    3. Continue holding the pushbutton until the file is finished transferring over, then release it.
+    4. Continue holding the pushbutton until the file is finished transferring over, then release it.
 
-    4. The PICO should power cycle, and the DAPLINK drive should re-appear with “Automation allowed” set to 1.
+    5. The PICO should power cycle, and the DAPLINK drive should re-appear with “Automation allowed” set to 1.
 
 6. Power on the MAX78002EVKIT (if it isn’t already).
 
@@ -722,7 +723,7 @@ The latest version of the power monitor sub-circuit’s firmware is v1.5b. When 
 
 7. Drag and drop the [`PMON_Firmware/max32625_pmon_v15b_if.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/PMON_Firmware/max32625_pmon_v15b_if.bin) file on to the `MAINTENANCE` drive.
 
-8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor’s microcontroller restarts. 
+8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor’s microcontroller restarts.
 
     On restart, the TFT display should come online with the latest functional firmware (v1.5b).
 

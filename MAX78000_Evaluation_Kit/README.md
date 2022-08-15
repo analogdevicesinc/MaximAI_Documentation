@@ -5,7 +5,7 @@
   - [List of Evaluation Kit Components](#list-of-evaluation-kit-components)
   - [Picture of EV Kit](#picture-of-ev-kit)
   - [Picture of Camera Module](#picture-of-camera-module)
-  - [Rev A EV Kit Schematic](#rev-a-ev-kit-schematic)
+  - [EV Kit Schematic](#ev-kit-schematic)
   - [Powering the MAX78000 Evaluation Kit for the First Time](#powering-the-max78000-evaluation-kit-for-the-first-time)
   - [Troubleshooting](#troubleshooting)
   - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
@@ -75,7 +75,7 @@ The MAX78000 Evaluation Kit (EV kit) comes preloaded with a MAX78000 device that
 
 Once you see the described behavior, you know your board is functioning properly.
 
-![](term.png)
+![Hello World Console Output](term.png)
 
 ## Troubleshooting
 
@@ -94,7 +94,7 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 - The GNU Tools for ARM Embedded Processors
 
-    1. Browse to [here](<https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads>) and download and extract the __gcc-arm-none-eabi-9-2019-q4-major__ package that corresponds to your system.
+    1. Browse to [developer.arm.com](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) and download and extract the gcc-arm-none-eabi-9-2019-q4-major package that corresponds to your system.
 
     2. Edit your PATH variable to include the path to the arm-none-eabi directory.
 
@@ -128,11 +128,11 @@ The SDK includes multiple examples to demonstrate the features of the MAX78000 a
 
 On Windows, the MinGW shell can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
 
-![](msys.png)
+![msys Explorer Window](msys.png)
 
 Below is an example of how to build the "hello world" example.  Other tools, such as openocd and gdb can be accessed from the MinGW shell.
 
-![](make.png)
+![make Console Output](make.png)
 
 ## Loading and Running Applications on the EV Kit
 
@@ -150,11 +150,11 @@ Applications are loaded, debugged, and run using OpenOCD and GDB.
 
 4. On successful connection, you will see messages as shown below.
 
-   ![](ocd.png)
+   ![OpenOCD Console Output](ocd.png)
 
 5. From another command prompt, change to the directory containing the application you would like to load.
 
-    ![](gdb.png)
+    ![gdb Console Output](gdb.png)
 
 6. Launch GDB using one of the following commands:
 
@@ -261,7 +261,7 @@ The jumpers on the board have been set to the proper position prior to shipment.
 
 In rare occasions, you may need to open the socket containing the MAX78000.  If there are no signs-of-life (no LEDs blinking, no terminal output, no debugger communication), you can open the socket and inspect the MAX78000 to see if it is present and ball 1 is in the proper location.  When looking at the top of the MAX78000 chip, the plus sign (+) indicates the corner containing ball 1.  Ball 1 of the MAX78000 needs to match the ball 1 location of the socket, which can be determined by looking at the PCB silkscreen (see picture below).  Other times this information is relevant is when the user wants to swap MAX78000s, for example, to program more than one device.
 
-![](./resources/MAX78000ball1marker.jpg)
+![Ball 1 Indicator](./resources/MAX78000ball1marker.jpg)
 
 ## Next Steps:  Loading and running the included **mnist** CNN example
 

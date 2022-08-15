@@ -2,7 +2,7 @@
 
 Manifold is a model-agnostic visual debugging tool for machine learning. Manifold can compare models, detects which subset of data a model is inaccurately predicting, and explains the potential cause of poor model performance by surfacing the feature distribution difference between better and worse-performing subsets of data.
 
-There is a hosted version of Manifold at http://manifold.mlvis.io/. To install it locally (for IP reasons and/or higher speed):
+There is a hosted version of Manifold at [http://manifold.mlvis.io/]. To install it locally (for IP reasons and/or higher speed):
 
 On macOS:
 
@@ -40,7 +40,7 @@ The actual code will run in JavaScript inside the browser (this may cause warnin
 
 Manifold support can be added to the MAX78000 [training software](https://github.com/MaximIntegratedAI/ai8x-training).
 
-The easiest integration of Manifold is by generating three CSV files during/after training and load them into the demo application (started with the `npm run start` command shown above). 
+The easiest integration of Manifold is by generating three CSV files during/after training and load them into the demo application (started with the `npm run start` command shown above).
 
 Simple CSV support is built into the training software.
 

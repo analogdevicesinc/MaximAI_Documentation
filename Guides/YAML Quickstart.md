@@ -1,6 +1,6 @@
 # Network Description YAML Files: A Quick Start Guide
 
-*2/14/2022*
+August 15, 2022
 
 This document is intended to help users to create network description YAML files corresponding to their network models.
 
@@ -17,7 +17,7 @@ It is a network description written in YAML, a simple markup language. Typically
 
 Following the instructions below, you will be able to create a layer-by-layer description of your model in the YAML format. Once completed, copy the YAML file to ai8x-synthesis/networks and reference it in the synthesis script for your trained model.
 
- 
+
 
 ## YAML File Structure
 
@@ -43,7 +43,7 @@ dataset: MNIST  # Mandatory: use the name of the dataset as in training
 
 The layer descriptions section defines each layer as it appears in the model. This section starts with the “`layers`“ keyword, followed by the configuration of each layer.  
 
-Use “`-`” as the delimiter to start each layer. The order of keywords in the description of a layer is arbitrary. 
+Use “`-`” as the delimiter to start each layer. The order of keywords in the description of a layer is arbitrary.
 
 ```yaml
 # ------------   Layers   ------------
@@ -76,7 +76,7 @@ The table below shows the description of frequently used keywords. For a complet
 | avg_pool (optional)     | The pool_size if the layer includes AvgPool                  | 1 to 16                                                      |
 | pool_stride (optional)  | The pool_stride if the layer includes MaxPool or AvgPool     | 1 to 16                                                      |
 | kernel_size (optional)  | The kernel size                                              | For conv2d: 1 (1×1) or 3 (3×3) (default)<br/>For conv1d: 1 (default) to 9 |
-| processors              | Each bit of this 64-bit processor map represents enabling of one of the 64 processors in CNN.  The number of enabled processors should match the input channel count. If there are more than 64 channels, the number of processor is the largest integer division of the channel count up to 64, rounded to the next multiple of 4. For example, 60 processors (0x0fffffffffffffff) are specified for 120 channels, or 52 processors for 100 channels.<br/> **Note 1:** If possible, try to use processors with non-overlapping memory instances (*4 processors share the same memory instance*) in consecutive layers (e.g. processors: 0x0000000000000001 in layer 1 and 0x00000000000ffff0 in layer 2)<br/>**Note 2:** if CHW data_format is used, processors must be attached to different memory instances (e.g. for <u>3 input channels: 0x0000000000000111 in CHW, 0x0000000000000007 in HWC)<br/>**Note 3:**  For optimum efficiency, it is recommended to choose the number of channels as a multiple of 4 in each layer<br/>**Note 4:**  In linear layers, the number of processors is the number of channels before flattening. | 0x0000000000000001  to 0xffffffffffffffff                    |
+| processors              | Each bit of this 64-bit processor map represents enabling of one of the 64 processors in CNN.  The number of enabled processors should match the input channel count. If there are more than 64 channels, the number of processor is the largest integer division of the channel count up to 64, rounded to the next multiple of 4. For example, 60 processors (0x0fffffffffffffff) are specified for 120 channels, or 52 processors for 100 channels.<br/> **Note 1:** If possible, try to use processors with non-overlapping memory instances (*4 processors share the same memory instance*) in consecutive layers (e.g. processors: 0x0000000000000001 in layer 1 and 0x00000000000ffff0 in layer 2) – this will make it easier to allocate large portions of memory.<br/>**Note 2:** if CHW data_format is used, processors must be attached to different memory instances (e.g. for <u>3 input channels: 0x0000000000000111 in CHW, 0x0000000000000007 in HWC).<br/>**Note 3:**  For optimum efficiency, it is recommended to choose the number of channels as a multiple of 4 in each layer.<br/>**Note 4:**  In linear layers, the number of processors is the number of channels before flattening. | 0x0000000000000001  to 0xffffffffffffffff                    |
 | out_offset (optional)   | The relative offset inside the data memory to write the output data to.<br/>**Note 5:**  The input of each layer is taken from the output offset of the previous layer. To avoid overwriting an input that has not been consumed, use ping-ponging between out_offset=0 and half the memory (0x4000)  or less in consecutive layers. | 0x0000 to 0x8000                                             |
 | in_offset (optional)    | Specifies the offset into the data memory instances where the input data should be loaded from. When not specified, this key defaults to the previous layer’s `out_offset`, or `0` for the first layer. | 0x0000 to 0x8000 (default: out_offset of last layer)         |
 | flatten (optional)      | Used in Linear layers to specify that 2D input data should be transformed to 1D data | True, False (default)                                        |
@@ -388,7 +388,7 @@ layers:
 #        x = self.conv3(x_res)     
 #        x = self.add1(x, x_res)
 #        x = self.conv4(x)
-#		 ...
+#        ...
 
 # Layer 0:  self.conv1 = ai8x.FusedConv2dReLU(num_channels, 16, 3, stride=1, padding=1, bias=bias, **kwargs)
 - out_offset: 0x2000

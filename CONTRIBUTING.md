@@ -49,6 +49,7 @@ All contributors should correctly setup their git and GitHub credentials before 
 - Typically after successful pull request merges the originating branch is deleted.
 
 ## NOTES
+
 - Please check this document for changes periodically as new requirements may be deployed.
 
 - Additional Continuous Integration checks and other automated checks will likely be added to the pull request system in the future.
