@@ -13,12 +13,13 @@ This is the home for IC, EV Kit, SDK, and AI documentation for the Analog Device
 ->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/MaximIntegratedAI/refdes/blob/main/maxrefdes178_doc/README.md)**
 
 -----
+
 - Analog Devices AI Documentation
   - [Project Structure](#project-structure)
   - [Links to MAX78000/MAX78002 Documentation](#links-to-max78000max78002-documentation)
   - [Application Notes](#application-notes)
   - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000max78002-and-machine-learning-education-resources)
-      - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
+    - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
 
 ## Project Structure
 
@@ -42,24 +43,24 @@ The project consists of five repositories:
 
 ## Links to MAX78000/MAX78002 Documentation
 
-* MAX78000
-  * Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html)
-  * Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
-  * Link to MAX78000 EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
-    * (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
-    * (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
+- MAX78000
+  - Link to IC description and datasheet: [MAX78000](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html)
+  - Link to IC User Guide: [MAX78000 User Guide.pdf](https://pdfserv.maximintegrated.com/en/an/ug7456.pdf)
+  - Link to MAX78000 EV Kit description and documentation: [MAX78000 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
+    - (Older revision) Link to Rev **A** EV Kit schematic: [MAX78000 REV A including mods.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20A%20including%20mods.pdf)
+    - (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
 
-  * Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
-  * Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)
+  - Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html)
+  - Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)
 
-* MAX78002
-  * Link to IC description and datasheet: [MAX78002](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html) 
-  * Link to IC User Guide: [MAX78002 User Guide (Preliminary).pdf](./MAX78002/MAX78002%20User%20Guide%20Preliminary.pdf)
-  * Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) 
-* MAX78000 and MAX78002
-  * Link to SDK repository (for both MAX78000 and MAX78002): [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
-  * Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
-  * Quick Start Guides and Optional Features: [Guides](Guides)
+- MAX78002
+  - Link to IC description and datasheet: [MAX78002](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html)
+  - Link to IC User Guide: [MAX78002 User Guide (Preliminary).pdf](./MAX78002/MAX78002%20User%20Guide%20Preliminary.pdf)
+  - Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html)
+- MAX78000 and MAX78002
+  - Link to SDK repository (for both MAX78000 and MAX78002): [MAX78000_SDK](https://github.com/MaximIntegratedAI/MAX78000_SDK)
+  - Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/MaximIntegratedAI/MAX78000_SDK/blob/master/Libraries/PeriphDrivers/Documentation/MAX78000)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.  To view the SDK documentation locally, double click on the index.html file found in /Libraries/PeriphDrivers/Documentation/MAX78000
+  - Quick Start Guides and Optional Features: [Guides](Guides)
 
 
 ## Application Notes
@@ -75,7 +76,7 @@ The project consists of five repositories:
 3. [Keywords Spotting Using the MAX78000](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7359.html):
 
    *Abstract:* Audio assistants have become very popular with range of applications from household to automotive and industrial products and IoT. Such devices constantly listen to their surroundings and wake up on pretrained keywords to execute certain commands. Power consumption is a key factor for many of such resource constrained edge applications, where the connectivity to the cloud for processing of raw data is not feasibly. The MAX78000 is a new breed of Artificial Intelligence (AI) microcontroller built to enable neural networks to execute at ultra-low power and live at the edge of the IoT. In this document, we show case the implementation of a keyword spotting application on the MAX78000. The machine learning model is built with ADI’s development flow on PyTorch, trained with a subset of Google’s speech command dataset with 20 keywords, and deployed on the MAX78000EVKIT.
-   
+
 4. [Data Loader Design for MAX78000 Model Training](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html)
    *Abstract:* The MAX78000, Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator, can effectively run artificial intelligence models on the chip. Users should first develop a neural network model, using Analog Devices’s development flow on PyTorch. The MAX78000 synthesizer tool then accepts the PyTorch checkpoint and the model description in the YAML format to automatically generate the C code to be compiled and executed on the MAX78000. One of the essential software components used in the model development phase is the data loader, which is responsible for application-specific data preparation tasks. This document describes principles and design considerations on a data loader implementation when preparing application-specific training and validation/test set entities suited for the MAX78000 model training.
 
@@ -83,6 +84,6 @@ The project consists of five repositories:
 
 ## Additional MAX78000/MAX78002 and Machine Learning Education Resources
 
-#### Videos, Webinars, Presentations, Books and More
+### Videos, Webinars, Presentations, Books and More
 
 Interested in the MAX78000/MAX78002, or just getting started with Machine Learning? [Here’s a set of videos and books to get you going.](./learning/README.md)

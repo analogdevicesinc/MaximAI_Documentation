@@ -1,0 +1,13 @@
+---
+line-length: false
+emphasis-style: false
+no-inline-html:
+  allowed_elements:
+    - u
+    - img
+    - br
+no-multiple-blanks: false
+code-block-style: false
+commands-show-output: false
+no-duplicate-heading: false
+no-space-in-emphasis: false

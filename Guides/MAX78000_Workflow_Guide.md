@@ -1,6 +1,6 @@
 # MAX78000 Workflow Guide
 
-# Introduction
+## Introduction
 
 This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the MaximIntegratedAI github repository training and synthesis README.md&#39;s at [https://github.com/MaximIntegratedAI](https://github.com/MaximIntegratedAI)
 
@@ -15,7 +15,7 @@ With a dataset and model in-hand, training, network quantization, and evaluation
 
 What follows are the basic steps in the MAX78000 workflow. For details, please refer to the README.md&#39;s as well as the bash and python scripts contained within the training and synthesis repositories.
 
-# Training
+## Training
 
 Training is the process of generating a PyTorch checkpoint file given a model and set of training data. PyTorch models reside in the _models_ directory and corresponding torchvision datasets.
 
@@ -30,13 +30,14 @@ train\_mnist.sh:
 ```console
 ./train.py --epochs 200 --deterministic --compress schedule.yaml --model ai85net5 --dataset MNIST --confusion --param-hist --pr-curves --embedding --device MAX78000 "$@"
 ```
+
 The --model parameter specifies the Pytorch model to use. Supported models are implemented in python scripts in the _models_ directory. Each script exports a variable called _models_ which relates the value specified in the --model parameter to a Pytorch model implementation.
 
 The --dataset parameter specifies the torchvision dataset to use. Dataset loader scripts are in the _datasets_ directory and export a variable called _datasets_ which relates the value specified in the --dataset parameter to a torchvision dataset. Datasets are downloaded into the _data_ subdirectory.
 
 The output of training is a checkpoint file called best.pth.tar. You&#39;ll find this file in the _logs_ directory tree. Each time train.py is invoked and new subdirectory under logs is created according to the current time and date, for example, 2021.03.10-122323. Additionally, two softlinks are created identify the most recent training directory and log file, _latest\_log\_dir_ and _latest\_log\_file_ respectively.
 
-# Quantization
+## Quantization
 
 Quantization is the process of converting floating point weights from a checkpoint file into fixed-point weights compatible with the MAX780000&#39;s hardware CNN. Quantization is performed in synthesis directory ([https://github.com/MaximIntegratedAI/ai8x-synthesis](https://github.com/MaximIntegratedAI/ai8x-synthesis)).
 
@@ -49,9 +50,10 @@ quantize\_mnist.sh:
 ```console
 ./quantize.py trained/ai85-mnist-qat8.pth.tar trained/ai85-mnist-qat8-q.pth.tar --device MAX78000 -v "$@"
 ```
+
 The output of quantization is _trained/ai85-mnist-qat8-q.pth.tar_. This file can be used to evaluate synthesis using scripts/evaluate\_mnist.sh in the training directory or can be provided to the network loader, ai8xize.py, to generate C code for the MAX78000.
 
-# Evaluation
+## Evaluation
 
 Evaluation of a trained model routinely occurs in two places in the workflow, post-training and post-quantization. Evaluation uses test data, that is data not used during training, to measure the performance of the network. Post-training evaluation occurs often throughout development. Post-quantization evaluation occurs later in development and is used to measure the impact of quantized weights on network performance.
 
@@ -63,7 +65,7 @@ Once the weights have been synthesized (and optionally quantized), the results c
 
 train.py is provided the quantized weights from the output of the quantize.py script.
 
-# C code auto generator (network loader)
+## C code auto generator (network loader)
 
 The next step in the workflow is to generate C code from the quantized weights. This is done with the help of the Network Loader, ai8xize.py and a yaml network description file that defines the model in the context of the MAX780000 CNN architecture. The yaml network description correlates directly with the Pytorch model used to generate the weights but adds MAX780000 CNN specific information. Network descriptions reside in the _networks_ subdirectory.
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document describes how to instrument firmware to facilitate power measurement using the integrated power measurement circuit on the MAX78000EVKIT, https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html
+This document describes how to instrument firmware to facilitate power measurement using the integrated power measurement circuit on the MAX78000EVKIT, [https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html]
 
 ## System Design
 
@@ -22,7 +22,7 @@ If no information is displayed, you will need to check and see if the PM MCU has
 
 #### Updating the Power Monitor Firmware
 
-If the boot loader is available, please update to the latest PM firmware from https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware.
+If the boot loader is available, please update to the latest PM firmware from [https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware].
 
 To load a PM firmware image, connect the PM USB port to your and put the PM MCU into boot loader mode by pressing SW6 while power cycling the board (wait for D4 to illuminate). A virtual drive will appear on your host PC. Drag and drop the PM firmware image onto the drive. Once the drive disappears, you may need to power cycle the board. The PM firmware should display power information a second or two after reset.
 
@@ -87,9 +87,9 @@ The power measurements provided by this mode are as follows:
 
 #### Instrumenting MAX78000 Firmware
 
-To use the Windowed Energy Accumulation Mode, the application firmware running on the MAX78000 must be instrumented with provided function calls that communicate the measurement window to the PM MCU via a GPIO signal. 
+To use the Windowed Energy Accumulation Mode, the application firmware running on the MAX78000 must be instrumented with provided function calls that communicate the measurement window to the PM MCU via a GPIO signal.
 
-Before instrumenting firmware, it is helpful to understand the limitations of the PM’s AFE. The AFE accumulates power data at 1024Hz. Additionally, there is a window latency of about 1ms (mostly PM firmware overhead). These facts constrain the minimum measurement period. The suggested window period is 100ms to 20 seconds 
+Before instrumenting firmware, it is helpful to understand the limitations of the PM’s AFE. The AFE accumulates power data at 1024Hz. Additionally, there is a window latency of about 1ms (mostly PM firmware overhead). These facts constrain the minimum measurement period. The suggested window period is 100ms to 20 seconds
 
 The monitor watches two GPIO signals originating from the MAX78000. The idle power measurement signal is delivered on GPIO P0_2 which is connects to the power monitor MCU via JP3. The active power measurement signal is delivered on GPIO P0_3 which connects via JP4. Both signals are active low.
 
@@ -108,7 +108,7 @@ The Power Monitor firmware will measure idle power (I), active power (A), and th
 
 $$ E = (A-I)*T $$
 
-Windowed energy accumulation mode begins displaying “CNN Power Mode”. Once the idle measurement period signal is asserted, the display will transition to “MEASURING IDLE POWER”. The idle measurement period is nominally 1 second. 
+Windowed energy accumulation mode begins displaying “CNN Power Mode”. Once the idle measurement period signal is asserted, the display will transition to “MEASURING IDLE POWER”. The idle measurement period is nominally 1 second.
 
 The idle measurement signal is then deasserted and the active measurement signal is asserted. Active power is measured in 3 stages. **To make sure that enough energy is accumulated and averaged in each stage, the operation in each stage SHALL be repeated 100 times.** The power monitor will internally divide the measured accumulated energy by 100.
 
@@ -141,7 +141,7 @@ The code below uses the `SYS_START`/`SYS_COMPLETE` macros to assert the idle pow
   for (i = 0; i < 100; i++)
     cnn_load_weights(); // Load kernels
   CNN_COMPLETE;
- 
+
   printf("Measuring input loading...\n");
   MXC_TMR_Delay(MXC_TMR0, 500000);
   CNN_START;
@@ -163,7 +163,7 @@ The code below uses the `SYS_START`/`SYS_COMPLETE` macros to assert the idle pow
 
 The result includes the active power of loading only weights (kernels), loading only input data, and loading data and running inference. The results are displayed on three screens, selectable by the SW7 (Right Arrow) button:
 
-![Kernels Results](resources/kernels-results.png)![Input Results](resources/input-results.png)![Input and Inference Results](resources/input-inference-results.png) 
+![Kernels Results](resources/kernels-results.png)![Input Results](resources/input-results.png)![Input and Inference Results](resources/input-inference-results.png)
 
 In order to measure only the energy (or time) of the inference, the user can subtract the energy (or time) for loading input data from the energy (or time) for loading input data + inference, *if FIFO mode is <u>not</u> used*.
 
@@ -173,7 +173,7 @@ In FIFO mode, the inference does not wait for the entire input data to be loaded
 
 In this mode, the total system energy is measured, which includes the CNN accelerator. The measurement starts from assertion of `SYS_START` and ends at assertion of `SYS_COMPLETE`. This mode can be used to measure the total energy consumption of an application. P0_3 (LED2) needs to be kept high throughout this measurement. This mode is similar to the idle power measurement described above. The measurement duration should be between 100ms to 20 seconds.
 
-![Measuring System Power](resources/measuring-system-power.png) 
+![Measuring System Power](resources/measuring-system-power.png)
 
 ##### Firmware Example
 

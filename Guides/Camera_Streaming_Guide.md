@@ -4,7 +4,7 @@
 
 ## Overview
 
-Capturing and storing QVGA (320×240) or VGA (640×480) images requires a significant amount of memory beyond the internal memory of MAX78000. To solve this issue, camera streaming mode with Direct Memory Access (DMA) can be used to capture large images and transfer them line-by-line into MAX78000 memory for further processing in the Neural Network Accelerator, or for display on the TFT. 
+Capturing and storing QVGA (320×240) or VGA (640×480) images requires a significant amount of memory beyond the internal memory of MAX78000. To solve this issue, camera streaming mode with Direct Memory Access (DMA) can be used to capture large images and transfer them line-by-line into MAX78000 memory for further processing in the Neural Network Accelerator, or for display on the TFT.
 
 ## Camera Settings
 
@@ -85,9 +85,9 @@ The overflow condition is detected when `overflow_count` is not zero. It may hap
 
 ## Streaming an Image to the CNN
 
-The CNN model must be  synthesized with the `--fifo ` or `--fast-fifo` options in ai8xize.py.
+The CNN model must be  synthesized with the `--fifo` or `--fast-fifo` options in ai8xize.py.
 
-The `cnn_start()` function should be called first, followed by `camera_start_capture_image()` to capture  an image. 
+The `cnn_start()` function should be called first, followed by `camera_start_capture_image()` to capture  an image.
 
 The CNN will start processing data automatically when enough data is available.
 
@@ -113,35 +113,34 @@ camera_start_capture_image();
 
 // Load captured image to CNN memory
 for (int i = 0; i < height; i++) {
-	// Wait until camera streaming buffer is full
-    while((data = get_camera_stream_buffer()) == NULL)
-    {
-    	if(camera_is_image_rcv())
-        	break;
-    };
+  // Wait until camera streaming buffer is full
+  while((data = get_camera_stream_buffer()) == NULL) {
+    if (camera_is_image_rcv())
+      break;
+  }
 
-    data_ptr = data;
-	// Load image horizontal line
-    for (int j = 0; j < width; j++) {
-    	uint8_t ur, ug, ub;
-        // Extract colors from RGB565 and convert to signed value
-        ur = (*data_ptr & 0xF8) ^ 0x80; 
-        ug = ((*data_ptr << 5) | ((*(data_ptr+1) & 0xE0) >> 3)) ^ 0x80;
-        ub = (*(data_ptr+1) << 3) ^ 0x80;
-        // Next pixel
-        data_ptr += 2;
-        // Wait for FIFO 0
-        while (((*((volatile uint32_t*) 0x50000004) & 1)) != 0);  
-        // Loading data into the CNN fifo in HWC format
-        *((volatile uint32_t*) 0x50000008) = 0x00FFFFFF & ((ub << 16) | (ug << 8) | ur);
-     }
-    
-     // Optional: Draw one horizontal line of captured image on TFT
-     // It increases latency and may require reducing image capture speed 
-     MXC_TFT_ShowImageCameraRGB565(X_START, Y_START + i, data, width, 1);
-       
-     // Release streaming buffer
-     release_camera_stream_buffer();
+  data_ptr = data;
+      // Load image horizontal line
+  for (int j = 0; j < width; j++) {
+    uint8_t ur, ug, ub;
+    // Extract colors from RGB565 and convert to signed value
+    ur = (*data_ptr & 0xF8) ^ 0x80; 
+    ug = ((*data_ptr << 5) | ((*(data_ptr+1) & 0xE0) >> 3)) ^ 0x80;
+    ub = (*(data_ptr+1) << 3) ^ 0x80;
+    // Next pixel
+    data_ptr += 2;
+    // Wait for FIFO 0
+    while (((*((volatile uint32_t*) 0x50000004) & 1)) != 0);  
+    // Loading data into the CNN fifo in HWC format
+    *((volatile uint32_t*) 0x50000008) = 0x00FFFFFF & ((ub << 16) | (ug << 8) | ur);
+  }
+  
+  // Optional: Draw one horizontal line of captured image on TFT
+  // It increases latency and may require reducing image capture speed 
+  MXC_TFT_ShowImageCameraRGB565(X_START, Y_START + i, data, width, 1);
+     
+  // Release streaming buffer
+  release_camera_stream_buffer();
 }
 
 stream_stat_t* stat = get_camera_stream_statistic();
@@ -154,7 +153,7 @@ while(camera_is_image_rcv() == 0);
 
 // Wait for CNN done
 while (cnn_time == 0) {
-	__WFI();    
+  __WFI();    
 }
     
 // Unload CNN result
@@ -167,7 +166,6 @@ MXC_SYS_ClockDisable(MXC_SYS_PERIPH_CLOCK_CNN);
 ```
 
 
-
-
 ## References
-[1] https://github.com/MaximIntegratedAI/MaximAI_Documentation
+
+1: [https://github.com/MaximIntegratedAI/MaximAI_Documentation]
