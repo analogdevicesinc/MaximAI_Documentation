@@ -699,39 +699,25 @@ Note:  In order to avoid the locked out state to begin with, it is recommended 
 
 ## Power Monitor Sub-Circuit
 
-The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit that allows the user to measure the power consumption of the MAX78002. This separate sub-circuit can be found in the bottom right corner of the board and has its own TFT display, serial port, and microcontroller.
+The MAX78002EVKIT includes a dedicated power-monitoring sub-circuit (PMON) that allows the user to measure the power consumption of the MAX78002 to determine the active and idle power, and the energy and time to perform CNN inferences as well as kernel and data loading. This separate sub-circuit can be found in the bottom right corner of the board and has its own TFT display, USB virtual serial port, and microcontroller.
+
+
 
 <img src="img/PMON.jpg" alt="Power Monitor Sub-circuit" width="550"/>
 
-### Firmware Updates
 
-The latest version of the power monitor sub-circuit’s firmware is v1.5b. When the MAX78002EVKIT is powered on, this version number should be visible on the TFT display. If the version number is outdated, then the sub-circuit’s firmware must be updated to the latest version before using it.
 
-1. Power off the MAX78002EVKIT.
+The PMON firmware version can be checked by repeatedly pressing either the PWR MODE SEL LEFT or RIGHT button to cycle through the screens to view the information page. 
 
-2. Connect the included micro-USB cable between the “USB/PWR MON” (CN1) connector on the board and the host PC.
 
-3. Press and hold the SW2 pushbutton found inside the sub-circuit on the bottom edge of the board.
 
-4. _While holding SW2_ power the MAX78002EVKIT back on.
+<img src="img/show_info_page_78002.png" alt="Power Monitor Firmware Version" style="zoom:125%;"/>
 
-5. Hold SW2 until the power monitor’s status LED finishes blinking and becomes solid.
 
-6. A `MAINTENANCE` drive should now appear on your file system.
 
-    <img src="img/MAINTENANCE.jpg" alt="MAINTENANCE DRIVE" width="550"/>
+At the time of this writing, latest version of the power monitor sub-circuit’s firmware is v2.0. Check the reported version against the latest MAX78002EVKIT PMON firmware available [HERE](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware) 
 
-7. Drag and drop the [`PMON_Firmware/max32625_pmon_v15b_if.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/PMON_Firmware/max32625_pmon_v15b_if.bin) file on to the `MAINTENANCE` drive.
-
-8. Once the file transfer is complete, the MAINTENANCE drive should disappear and the power monitor’s microcontroller restarts.
-
-    On restart, the TFT display should come online with the latest functional firmware (v1.5b).
-
-    The power monitor sub-circuit is now ready to use.
-
-### Power Monitor Usage
-
-Detailed usage information on the power monitor sub-circuit can be found [here](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/MAX78000_Evaluation_Kit/MAX78000%20Power%20Monitor%20and%20Energy%20Benchmarking%20Guide.pdf).
+Detailed usage information on the PMON operation, including measurements, how to instrument code and updating the firmware is available in the [MAX7800x Power Monitor and Energy Benchmarking Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX7800x%20Power%20Monitor%20and%20Energy%20Benchmarking%20Guide.md).
 
 ## Machine Learning (ML) Development
 
