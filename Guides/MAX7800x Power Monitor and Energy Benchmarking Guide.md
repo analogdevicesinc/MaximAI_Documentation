@@ -125,7 +125,7 @@ The AVG PWR mode displays the measured power being consumed from each power rail
 
 
 
-<img src="resources/show_avg_power.png" alt="show_avg_power" align="left" style="zoom:125%;" />
+<img src="resources/show_avg_power.png" alt="show_avg_power" style="zoom:125%;" />
 
 ### Supply Voltage Mode
 
@@ -133,7 +133,7 @@ The SUPPLY V mode displays the voltage measurement of each rail in volts. The me
 
 
 
-<img src="resources/show_volts.png" alt="Supply Voltage Mode Screen" align="left" style="zoom:125%;" />
+<img src="resources/show_volts.png" alt="Supply Voltage Mode Screen" style="zoom:125%;" />
 
 ### Supply Current Mode
 
@@ -141,7 +141,7 @@ The CURRENT mode displays the current measured on each rail by the PMON AFE in m
 
 
 
-<img src="resources/show_inst_current.png" alt="Supply Current Mode Screen" align="left" style="zoom:125%;" />
+<img src="resources/show_inst_current.png" alt="Supply Current Mode Screen" style="zoom:125%;" />
 
 ### Windowed Energy Accumulation
 
@@ -292,7 +292,7 @@ The user can alternatively also set up a timer to assert the signals periodicall
 
 
 
-<img src="resources/show_system_power.png" alt="System Results" align="left" style="zoom:125%;" />
+<img src="resources/show_system_power.png" alt="System Results" style="zoom:125%;" />
 
 
 
