@@ -44,15 +44,17 @@ If you see power information in the display, then the PMON is functioning, and y
 
 #### Updating the Power Monitor Firmware
 
-The PMON firmware version can be checked by repeatedly pressing either the PWR MODE SEL LEFT or RIGHT button to cycle through the screens to view the information page for either the MAX78000EVKIT or MAX78002EVKIT as shown below.  Check the reported version against the latest PMON firmware available from
-
-MAX78000: [https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware].
-
-MAX78002: [https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware]
+The PMON firmware version can be checked by repeatedly pressing either the PWR MODE SEL LEFT or RIGHT button to cycle through the screens to view the information page for either the MAX78000EVKIT or MAX78002EVKIT as shown here.  
 
 
+<img src="resources/show_info_page_78000.png" alt="show_info_page_78000"  style="zoom:125%;"/> <img src="resources/show_info_page_78002.png" alt="show_info_page_78002" style="zoom:125%;"/>
 
-<p align="center"><img src="resources/show_info_page_78000.png" alt="show_info_page_78000"  style="zoom:125%;"/>     <img src="resources/show_info_page_78002.png" alt="show_info_page_78002" style="zoom:125%;"/><p/>
+
+Check the reported version against the latest PMON firmware binaries available on from
+
+[MAX78000_Evaluation_Kit/PMON_Firmware](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware)
+
+[MAX78002/Evaluation_Kit/PMON_Firmware](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware)
 
 
 To load a PMON firmware image, connect the dedicated PMON USB port (J1 on MAX78000EVIT, or CN1 on MAX78002EVKIT) to your PC and put the PMON MCU into boot loader mode by pressing the PWR MODE SEL LEFT pushbutton (SW6 on MAX78000EVKIT and SW2 on MAX78002EVKIT) while power cycling the board.  Wait for 625 STATUS LED (D4 on MAX78000EVKIT, or D8 on MAX78002EVKIT) to illuminate. A virtual drive will appear on your host PC. Drag and drop the PMON firmware image onto the drive. Once the drive disappears, you may need to power cycle the board. The PMON firmware should display power information a second or two after reset.
@@ -97,7 +99,7 @@ On power-up, the PMON LCD will briefly display the Analog Devices logo then show
 
 The following tables describe the LCD labels, board net, MAX7800x supply input pins and a description of the load being measured.
 
-#### MAX78000EVIT
+#### MAX78000EVKIT
 
 | LCD Label | Board Net   | MAX78000 Pins | Vnom | Description                      |
 | --------- | ----------- | ------------- | ---- | -------------------------------- |
@@ -106,7 +108,7 @@ The following tables describe the LCD labels, board net, MAX7800x supply input p
 | CB        | VCOREB_PM   | VCOREB        | 1.0V | Low power memory mode loads      |
 | 1V8       | VREGO_A_PM  | VDDIO, VDDA   | 1.8V | GPIO and Analog block loads      |
 
-#### MAX78002EVIT
+#### MAX78002EVKIT
 
 | LCD Label | Board Net  | MAX78002 Pins | Vnom | Description                      |
 | --------- | ---------- | ------------- | ---- | -------------------------------- |
@@ -117,14 +119,13 @@ The following tables describe the LCD labels, board net, MAX7800x supply input p
 
 
 
-
 ### Average Power Measurement Mode
 
 The AVG PWR mode displays the measured power being consumed from each power rail in milliwatts and is useful for quickly making coarse power measurements.  The 3V3 power measurement includes the power being consumed by the other MAX78000/MAX78002 supply rails plus voltage converter losses.
 
 
 
-<img src="resources/show_avg_power.png" alt="show_avg_power" style="zoom:125%;" />
+<img src="resources/show_avg_power.png" alt="show_avg_power" align="left" style="zoom:125%;" />
 
 ### Supply Voltage Mode
 
@@ -132,7 +133,7 @@ The SUPPLY V mode displays the voltage measurement of each rail in volts. The me
 
 
 
-<img src="resources/show_volts.png" alt="Supply Voltage Mode Screen" style="zoom:125%;" />
+<img src="resources/show_volts.png" alt="Supply Voltage Mode Screen" align="left" style="zoom:125%;" />
 
 ### Supply Current Mode
 
@@ -140,7 +141,7 @@ The CURRENT mode displays the current measured on each rail by the PMON AFE in m
 
 
 
-<img src="resources/show_inst_current.png" alt="Supply Current Mode Screen" style="zoom:125%;" />
+<img src="resources/show_inst_current.png" alt="Supply Current Mode Screen" align="left" style="zoom:125%;" />
 
 ### Windowed Energy Accumulation
 
@@ -148,15 +149,20 @@ The intent of Windowed Energy Accumulation is to infer activity-specific power c
 
 The power measurements provided by this mode are as follows:
 
-**E**   Energy transformed during the window
-**T**   Active measurement period
-**I**    Idle period power measurement
-**A**   Active period power measurement
+**E**  = Energy transformed during the window
+
+**T**  = Active measurement period
+
+**I**  = Idle period power measurement
+
+**A**  = Active period power measurement
 
 *Windowed Energy Accumulation* requires timing signals from the MAX7800x firmware that define measurement periods for idle and active during both the CNN Power Mode and the System Power Mode.
 
 
-<p align="center"><img src="resources/enter_cnn_power_mode.png" alt="CNN Power Mode Screen" style="zoom:125%;" />  <img src="resources/enter_system_power_mode.png" alt="System Power Mode Screen" style="zoom:125%;" /></p>
+
+
+<img src="resources/enter_cnn_power_mode.png" alt="CNN Power Mode Screen" style="zoom:125%;" /> <img src="resources/enter_system_power_mode.png" alt="System Power Mode Screen" style="zoom:125%;" />
 
 
 
@@ -192,9 +198,9 @@ Please note the following:
 The application firmware specifies two power accumulation windows, the idle power window (I), and the active power (A) window which by itself includes 3 stages. These windows are defined by the assertion of two non-overlapping GPIO signals TRIG1 and TRIG2 by the MAX78000 or MAX78002. The code to drive these GPIO signals can be generated by the *ai85izer* tool included in the MAX78000 or MAX78002 SDK or the signals can be driven by user code using the existing macros. See the section *Instrumenting MAX7800x Firmware* above.
 
 The Power Monitor firmware will measure idle power (I), active power (A), and the time period of the active power measurement (T). Resulting energy dissipated (E) is calculated as follows:
-$$
-E = (A-I)*T
-$$
+
+$$ E = (A-I)*T $$
+
 Windowed energy accumulation mode begins displaying “CNN Power Mode”. Once the idle measurement period signal is asserted, the display will transition to “MEASURING IDLE POWER”. The idle measurement period is nominally 1 second.
 
 The idle measurement signal is then deasserted and the active measurement signal is asserted. Active power is measured in 3 stages. **To make sure that enough energy is accumulated and averaged in each stage, the operation in each stage is repeated 100 times.** The power monitor will internally divide the measured accumulated energy by 100.
@@ -256,7 +262,7 @@ The result includes the active power of loading only weights (kernels), loading 
 
 
 
-<p align="center"><img src="resources/show_power_review_page_kernels.png" alt="Kernels Results" style="zoom:125%;" /><img src="resources/show_power_review_page_input.png" alt="Input Results" style="zoom:125%;" /><img src="resources/show_power_review_page_input_plus_inf.png" alt="Input and Inference Results" style="zoom:125%;" /></p>
+<img src="resources/show_power_review_page_kernels.png" alt="Kernels Results" style="zoom:125%;" /> <img src="resources/show_power_review_page_input.png" alt="Input Results" style="zoom:125%;" /> <img src="resources/show_power_review_page_input_plus_inf.png" alt="Input and Inference Results" style="zoom:125%;" />
 
 In order to measure only the energy (or time) of the inference, the user can subtract the energy (or time) for loading input data from the energy (or time) for loading input data + inference, *if FIFO mode is <u>not</u> used*.
 
@@ -286,7 +292,7 @@ The user can alternatively also set up a timer to assert the signals periodicall
 
 
 
-<img src="resources/show_system_power.png" alt="System Results" style="zoom:125%;" />
+<img src="resources/show_system_power.png" alt="System Results" align="left" style="zoom:125%;" />
 
 
 
