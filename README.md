@@ -80,6 +80,10 @@ The project consists of five repositories:
 4. [Data Loader Design for MAX78000 Model Training](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html)
    *Abstract:* The MAX78000, Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator, can effectively run artificial intelligence models on the chip. Users should first develop a neural network model, using Analog Devices’s development flow on PyTorch. The MAX78000 synthesizer tool then accepts the PyTorch checkpoint and the model description in the YAML format to automatically generate the C code to be compiled and executed on the MAX78000. One of the essential software components used in the model development phase is the data loader, which is responsible for application-specific data preparation tasks. This document describes principles and design considerations on a data loader implementation when preparing application-specific training and validation/test set entities suited for the MAX78000 model training.
 
+5. [Developing Power-Optimized Applications on MAX78002](./MAX78002/AN7664-Developing%20Power-Optimized%20Applications%20on%20MAX78002.pdf)
+   *Abstract:* Power consumption is a key factor for edge AI applications, where the entire system is powered by small battery cells and is expected to operate for months without recharging or replacing the batteries. The MAX78002 ultra-low power AI microcontroller is built to target such applications at the edge of the internet-of-things (IoT). This document describes various options to develop power-optimized applications on the MAX78002 and presents benchmarking examples.
+
+
 
 
 ## Additional MAX78000/MAX78002 and Machine Learning Education Resources
