@@ -25,7 +25,7 @@
 
 ## Schematic
 
-The schematic and BOM can be found in the MAX78000FTHR [Datasheet](<https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html>).
+The schematic and BOM can be found in the MAX78000FTHR [Datasheet](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000fthr.html).
 
 ## First-time Firmware Updates
 
@@ -79,7 +79,7 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 ## Developing with Eclipse
 
-This is the quickest way to evaluate pre-trained and synthesized ML demonstrations.  You'll need to download and install the Maxim SDK onto a Windows 10 host. The Maxim SDK is available to download from [here](<https://www.maximintegrated.com/content/maximintegrated/en/design/software-description.html/swpart=SFW0010820A>).
+This is the quickest way to evaluate pre-trained and synthesized ML demonstrations.  You'll need to download and install the Micontroller SDK onto a Windows 10/11 host. The Microcontroller SDK is available to download from [here](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
 
 ### Running Eclipse
 
@@ -250,7 +250,7 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 - \*.c -- These files contain additional source code required by the example if necessary. Many of the examples reside entirely in the main.c file and will not have additional .c files.
 
-- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf)
+- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see [Getting Started with Eclipse](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf).
 
 The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 

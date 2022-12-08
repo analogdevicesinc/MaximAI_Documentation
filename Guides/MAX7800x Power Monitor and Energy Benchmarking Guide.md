@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document describes the integrated power measurement circuit on the [MAX78000EVKIT](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)  and [MAX78002EVKIT](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html), and how to instrument firmware to facilitate power, time and energy measurements when loading kernels and input data, and performing CNN inferences.
+This document describes the integrated power measurement circuit on the [MAX78000EVKIT](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000evkit.html) and [MAX78002EVKIT](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html), and how to instrument firmware to facilitate power, time and energy measurements when loading kernels and input data, and performing CNN inferences.
 
 The power monitor circuit and firmware are provided as a convenient means of comparing performance improvements during model and firmware development.  While the measurement accuracy and precision are sufficient for this purpose, the power monitor system is not a replacement for bench measurement equipment.
 

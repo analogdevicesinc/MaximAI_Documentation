@@ -51,7 +51,7 @@ For demos that need the camera to work in selfie mode(e.g. faceID), please use t
 
 ## EV Kit Schematic
 
-EV Kit schematic: [Schematics](https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html)
+EV Kit schematic: [Schematics](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000evkit.html)
 
 ## Powering the MAX78000 Evaluation Kit for the First Time
 
@@ -110,9 +110,9 @@ There are a few tools you will need to build, load, run, and debug applications 
 
 ## Installing the Developer Tools (Windows 10)
 
-Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning. See [here](https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7219.html) for the most recent SDK Installation Guide.
+Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning. See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent SDK Installation Guide.
 
-1. Download and run the [Maxim Micros SDK](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0010820A).
+1. Download and run the [Microcontroller SDK](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
 2. At the first screen that appears, click the _Next_ button to complete the installation.
 
 
@@ -236,7 +236,7 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 - \*.c -- These files contain additional source code required by the example if necessary. Many of the examples reside entirely in the main.c file and will not have additional .c files.
 
-- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf)
+- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf)
 
 The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 

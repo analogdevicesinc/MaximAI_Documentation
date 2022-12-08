@@ -14,7 +14,7 @@ This quick-start document contains info on getting started with the MAX78002EVKI
 
 ## Schematic and BOM
 
-The schematic and BOM can be found in the [MAX78002 EVKIT web page](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html)
+The schematic and BOM can be found in the [MAX78002 EVKIT web page](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html).
 
 ## First-time Firmware Updates
 
@@ -94,7 +94,7 @@ An Olimex [ARM-USB-OCD-H](https://www.olimex.com/Products/ARM/JTAG/ARM-USB-OCD-H
 
 * For use with the RISC-V core
 * Connects to the “RV JTAG” debug header (JH5)
-* This RISC-V debug adapter needs to be connected only for debugging the RISC-V core, but not for loading in general. Many of the examples in the MaximSDK are Arm-only.
+* This RISC-V debug adapter needs to be connected only for debugging the RISC-V core, but not for loading in general. Many of the examples in the Microcontroller SDK are Arm-only.
 * RISC-V debugging does, in general, also require simultaneous debugging of the Arm M4 core.
 
 <img src="img/Olimex.jpg" alt="Olimex Debugger Connected" width="550"/>
@@ -119,7 +119,7 @@ ADI’s examples use the following serial communication settings by default:
 * Stop bits: 1
 * Flow control: None
 
-Serial communication settings can be modified in the `MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h` file. Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1. Refer to the [MAX78002 EVKIT Datasheet](https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html) for more details on jumper settings.
+Serial communication settings can be modified in the `MaximSDK/Libraries/Boards/MAX78002/EvKit_V1/Include/board.h` file. Jumper settings should be checked when modifying the default settings, such as changing from UART0 to UART1. Refer to the [MAX78002 EVKIT Datasheet](ihttps://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html) for more details on jumper settings.
 
 ### “USB/AI” (CN3)
 
@@ -193,25 +193,25 @@ To excercise the demo power on the EVKIT and follow the instructions on the TFT 
 
 Optionally, connect to the USB/UART (CN2) [Serial port](#connecting-serial-ports) to monitor the serial output of the demo program.
 
-The source code for the demo can be found in the `Examples/MAX78002/CNN/kws20_demo` folder of the MaximSDK.
+The source code for the demo can be found in the `Examples/MAX78002/CNN/kws20_demo` folder of the Microcontroller SDK.
 
 ## Software Development Quick-Start
 
 ### Setup
 
-Embedded development for the MAX78002EVKIT is enabled by the Maxim Microcontroller SDK (“MaximSDK”).
+Embedded development for the MAX78002EVKIT is enabled by the Microcontroller SDK.
 
-The MaximSDK can be downloaded and installed from the following links:
+The Microcontroller SDK can be downloaded and installed from the following links:
 
-* [Windows](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0010820A)
-* [Linux](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0018720A)
-* [MacOS](https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0018610A)
+    * [Windows](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A)
+    * [Ubuntu Linux](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018720A)
+    * [macOS](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018610A)
 
-More detailed setup instructions for the MaximSDK can be found in the “Embedded Software Development Kit (SDK)” section of the ai8x-synthesis readme [here](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md#embedded-software-development-kit-sdk).
+More detailed setup instructions for the Microcontroller SDK can be found in the “Embedded Software Development Kit (SDK)” section of the ai8x-synthesis readme [here](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md#embedded-software-development-kit-sdk).
 
 ### Example Projects
 
-Example projects for the MAX78002EVKIT can be found in the `MaximSDK/Examples/MAX78002` folder of the MaximSDK installation.
+Example projects for the MAX78002EVKIT can be found in the `MaximSDK/Examples/MAX78002` folder of the Microcontroller SDK installation.
 
 <img src="img/examples_folder.jpg" alt="Examples Folder" width="550"/>
 
@@ -240,17 +240,17 @@ These limitations may make the device difficult (or impossible) for the debugger
 
 ### Command-Line Development
 
-This section demonstrates how to build the MaximSDK example projects for the MAX78002EVKIT on the command line. It also demonstrates how to flash and debug over the command-line.
+This section demonstrates how to build the Microcontroller SDK example projects for the MAX78002EVKIT on the command line. It also demonstrates how to flash and debug over the command-line.
 
-This section is presented first because all of the IDEs supported by the MaximSDK rely on a functional command-line toolchain. Familiarity with the inner workings of the command-line can facilitate better experiences with the IDEs. However, this is by no means required reading to use those IDEs.
+This section is presented first because all of the IDEs supported by the Microcontroller SDK rely on a functional command-line toolchain. Familiarity with the inner workings of the command-line can facilitate better experiences with the IDEs. However, this is by no means required reading to use those IDEs.
 
 #### Building Examples
 
-The MaximSDK build system is a managed system that uses GNU Make. Every example project contains a `Makefile` that is used to build the source code. The [GNU Make manual](https://www.gnu.org/software/make/manual/make.html) is a good document to bookmark when working with Makefiles. The example projects in the `Examples/MAX78002` directory of the MaximSDK contain Makefiles that are preconfigured for the MAX78002EVKIT.
+The Microcontroller SDK build system is a managed system that uses GNU Make. Every example project contains a `Makefile` that is used to build the source code. The [GNU Make manual](https://www.gnu.org/software/make/manual/make.html) is a good document to bookmark when working with Makefiles. The example projects in the `Examples/MAX78002` directory of the Microcontroller SDK contain Makefiles that are preconfigured for the MAX78002EVKIT.
 
-1. First, copy the example project to an accessible directory outside of the SDK. It is strongly recommended to keep the MaximSDK examples “clean” and unmodified in case they need to be referenced again later.
+1. First, copy the example project to an accessible directory outside of the SDK. It is strongly recommended to keep the Microcontroller SDK examples “clean” and unmodified in case they need to be referenced again later.
 
-2. Launch your terminal. On Windows, use the `MaximSDK/Tools/MSYS2/msys.bat` file to launch the MSYS2 terminal, which auto-configures the terminal for the MaximSDK toolchain. On Linux and MacOS, you should have set up the toolchain for your terminal as part of the setup procedure.
+2. Launch your terminal. On Windows, use the `MaximSDK/Tools/MSYS2/msys.bat` file to launch the MSYS2 terminal, which auto-configures the terminal for the Microcontroller SDK toolchain. On Linux and MacOS, you should have set up the toolchain for your terminal as part of the setup procedure.
 
 3. `cd` into the location of the copied example project.
 
@@ -264,7 +264,7 @@ The MaximSDK build system is a managed system that uses GNU Make. Every example 
     * “-j 8” enabled parallel execution of the build in 8 threads. In general, this number should be double the number of cores on your machine.
     * “all” is the target for building “all” of the source code.
 
-5. You’ll see the source code for the project and the MaximSDK peripheral drivers being compiled on the terminal output. Finally, the compiled source code will be linked into the build output file (`build/max78002.elf`).
+5. You’ll see the source code for the project and the Microcontroller SDK peripheral drivers being compiled on the terminal output. Finally, the compiled source code will be linked into the build output file (`build/max78002.elf`).
 
 6. The example project is now successfully built and ready to flash and debug.
 
@@ -506,7 +506,7 @@ The MaximSDK build system is a managed system that uses GNU Make. Every example 
 
 ### Developing with Visual Studio Code
 
-The MaximSDK includes Visual Studio Code (“VS Code”) support via the [VSCode-Maxim](https://github.com/MaximIntegratedTechSupport/VSCode-Maxim) project.
+The Microcontroller SDK includes Visual Studio Code (“VS Code”) support via the [VSCode-Maxim](https://github.com/MaximIntegratedTechSupport/VSCode-Maxim) project.
 
 All MAX78002 example projects come “out of the box” with the latest VSCode-Maxim project files and documentation. These can be found in the `.vscode` folder inside each example. The example projects all come pre-configured for the MAX78002EVKIT by default. However, some basic one-time setup is required for Visual Studio Code:
 
@@ -516,9 +516,9 @@ Follow the [installation instructions](https://github.com/MaximIntegratedTechSup
 
 #### Opening Example Projects
 
-1. First, copy the example project from the `Examples/MAX78002` folder in the MaximSDK installation to an accessible directory outside of the SDK. It is strongly recommended to keep the MaximSDK examples “clean” and unmodified in case they need to be referenced again later.
+1. First, copy the example project from the `Examples/MAX78002` folder in the Microcontroller SDK installation to an accessible directory outside of the SDK. It is strongly recommended to keep the Microcontroller SDK examples “clean” and unmodified in case they need to be referenced again later.
 
-2. Launch Visal Studio Code. You should have already configured VS Code for use with the MaximSDK as part of the setup procedure. If not, follow the Setup section above before continuing.
+2. Launch Visal Studio Code. You should have already configured VS Code for use with the Microcontroller SDK as part of the setup procedure. If not, follow the Setup section above before continuing.
 
 3. Navigate to “File -> Open Folder...”
 
@@ -544,11 +544,11 @@ Additionally, a full [User Guide](https://github.com/MaximIntegratedTechSupport/
 
 #### Eclipse Setup
 
-The only setup required to use Eclipse is to ensure that the “Eclipse” component is selected during the MaximSDK installation. If the MaximSDK is already installed, the component can be added by launching the “MaintenanceTool” application in the root directory of the MaximSDK and selecting “Add or the remove components”.
+The only setup required to use Eclipse is to ensure that the “Eclipse” component is selected during the Microcontroller SDK installation. If the Microcontroller SDK is already installed, the component can be added by launching the “MaintenanceTool” application in the root directory of the Microcontroller SDK and selecting “Add or the remove components”.
 
 #### Running Eclipse
 
-If you are using Microsoft Windows, you must launch Eclipse from the _Windows Start Menu_ or the `MaximSDK/Tools/Eclipse/cdt/eclipse.bat` file. This `eclipse.bat` file calls the `setenv.bat` script in the root directory of the SDK before launching Eclipse, which makes the MaximSDK toolchain accessible. Eclipse will fail to find the MaximSDK toolchain binaries unless it is launched with this method.
+If you are using Microsoft Windows, you must launch Eclipse from the _Windows Start Menu_ or the `MaximSDK/Tools/Eclipse/cdt/eclipse.bat` file. This `eclipse.bat` file calls the `setenv.bat` script in the root directory of the SDK before launching Eclipse, which makes the Microcontroller SDK toolchain accessible. Eclipse will fail to find the Microcontroller SDK toolchain binaries unless it is launched with this method.
 
 <img src="img/eclipse_start.jpg" alt="Eclipse Link in Start Menu" width="550"/>
 
@@ -566,7 +566,7 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
     <img src="img/eclipse_browse.jpg" alt="Browse Button" width="550"/>
 
-5. Browse to the `Examples/MAX78002` folder in the MaximSDK installation, and then into the example project you would like to import.
+5. Browse to the `Examples/MAX78002` folder in the Microcontroller SDK installation, and then into the example project you would like to import.
 
     For example, the `Hello_World` Project:
 
@@ -576,7 +576,7 @@ If you are using Microsoft Windows, you must launch Eclipse from the _Windows St
 
     <img src="img/eclipse_import_kws.jpg" alt="Import KWS20" width="550"/>
 
-6. Ensure that “Copy projects into workspace” is always selected when you import. This will ensure that the MaximSDK copy of the example remains “clean” and unmodified.
+6. Ensure that “Copy projects into workspace” is always selected when you import. This will ensure that the Microcontroller SDK copy of the example remains “clean” and unmodified.
 
     <img src="img/eclipse_copyprojects.jpg" alt="Copy Projects" width="550"/>
 
@@ -641,7 +641,7 @@ The debugger can be stopped with the red “Stop” button next to the “Debug�
 
 #### Additional Usage Info for Eclipse
 
-Additional usage information for Eclipse can be found in the [Getting Started with Eclipse](https://pdfserv.maximintegrated.com/en/an/TUT6245.pdf) document.
+Additional usage information for Eclipse can be found in the [Getting Started with Eclipse](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf) document.
 
 ---
 
@@ -721,7 +721,7 @@ Detailed usage information on the PMON operation, including measurements, how to
 
 ## Machine Learning (ML) Development
 
-The quick-start development sections aboved have covered the "embedded" side of development with the MAX78002EVKIT. This includes working with example projects, peripheral driver APIs, and the IDEs and toolchain supported by the MaximSDK.
+The quick-start development sections aboved have covered the "embedded" side of development with the MAX78002EVKIT. This includes working with example projects, peripheral driver APIs, and the IDEs and toolchain supported by the Microcontroller SDK.
 
 As the MAX78002 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development with the part. This is done with a separate set of tools. The example projects that are found in the `CNN` sub-folder of the MAX78002 examples have been created with these tools. More specifically, they have been created with the `ai8x-synthesis` (“izer”) tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78002 using the “embedded” development methods discussed in this document.
 
@@ -738,7 +738,7 @@ The documentation associated with the setup and usage of these tools is signific
 
 A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.
 
-* [Artificial Intelligence Videos Page](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4)
+* [Artificial Intelligence Videos Page](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
 * The “Understanding Artifical Intelligence” series is highly recommended for all developers.
 
 ### ML Setup
@@ -747,7 +747,7 @@ The setup and usage of the machine learning tools is thoroughly documented in th
 
 ### ML Usage
 
-Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction, and the [Videos](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4) dive deeper.
+Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction, and the [Videos](https://www.analog.com/en/education/education-library/videos/6313215159112.html) dive deeper.
 
 Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
@@ -761,4 +761,4 @@ Below are a few excercises to get started after setup is complete:
 
 * Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-training#command-line-arguments) to see how it works.
 
-* Familiarize yourself with the concept of data loaders with [Application Note 7600](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.
+* Familiarize yourself with the concept of [Data Loaders](https://www.analog.com/en/app-notes/data-loader-design-for-max78000-model-training.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.

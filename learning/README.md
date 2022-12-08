@@ -7,7 +7,7 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 ## MAX78000 Training Videos
 
-* [Understanding Artificial Intelligence](https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4)
+* [Understanding Artificial Intelligence](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
 
 
 
@@ -38,8 +38,8 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 Two part presentation on the MAX78000 with focus on the MAX78000FTHR development platform:
 
-* [EBV Session 1](https://www.maximintegrated.com/en/support/videos.html/vd_1_3b0yibd5) (January 27, 2021)
-* [EBV Session 2](https://www.maximintegrated.com/en/support/videos.html/vd_1_e6myvpjx) (January 28, 2021)
+* [EBV Session 1](https://www.analog.com/en/education/education-library/videos/6313214712112.html) (January 27, 2021)
+* [EBV Session 2](https://www.analog.com/en/education/education-library/videos/6313213704112.html) (January 28, 2021)
 
 
 
