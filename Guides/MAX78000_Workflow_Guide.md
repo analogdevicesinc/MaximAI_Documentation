@@ -75,12 +75,12 @@ gen-demos-max78000.sh provides an example of invoking ai8xize.py with various ne
 ./ai8xize.py --verbose --log --test-dir sdk/Examples/MAX78000/CNN --prefix mnist --checkpoint-file trained/ai85-mnist-qat8-q.pth.tar --config-file networks/mnist-chw-ai85.yaml --softmax --device MAX78000 --compact-data --mexpress --timer 0 --display-checkpoint
 ```
 
---test-dir specifies where the C project will be created. _sdk/Examples/MAX78000/CNN_ conveniently locates this directory within the MaximSDK so that you can simply run _make_ to generate a firmware image as with all the SDK projects.
+--test-dir specifies where the C project will be created. _sdk/Examples/MAX78000/CNN_ conveniently locates this directory within the MSDK so that you can simply run _make_ to generate a firmware image as with all the MSDK projects.
 
 By default, ai8xize.py targets the MAX78000 evkit. If you are working with a different target, use the --board-name option to specifiy that target. For example, if your target is the MAX78000FTHR, add:
 
 --board-name FTHR\_RevA
 
-At this point, you can build, flash, and debug as you would any MaximSDK firmware project.
+At this point, you can build, flash, and debug as you would any MSDK firmware project.
 
 The loader generates code that performs a known-answer test which does not rely on sourcing real input data from sensors.

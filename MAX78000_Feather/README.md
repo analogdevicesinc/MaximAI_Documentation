@@ -6,11 +6,11 @@
     - [Running Eclipse](#running-eclipse)
     - [Creating a I/O Peripheral Project](#creating-a-io-peripheral-project)
     - [Creating a CNN Project from an Example](#creating-a-cnn-project-from-an-example)
-  - [Building the SDK Examples using MINGW on Windows](#building-the-sdk-examples-using-mingw-on-windows)
+  - [Building the MSDK Examples using MINGW on Windows](#building-the-msdk-examples-using-mingw-on-windows)
   - [Loading and Running Example Firmware](#loading-and-running-example-firmware)
   - [Debugging Applications with GDB](#debugging-applications-with-gdb)
   - [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
-  - [Additional SDK Information](#additional-sdk-information)
+  - [Additional MSDK Information](#additional-msdk-information)
   - [TFT display](#tft-display)
   - [ML-Focused Approach using Linux](#ml-focused-approach-using-linux)
   - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
@@ -79,7 +79,7 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 ## Developing with Eclipse
 
-This is the quickest way to evaluate pre-trained and synthesized ML demonstrations.  You'll need to download and install the Micontroller SDK onto a Windows 10/11 host. The Microcontroller SDK is available to download from [here](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
+This is the quickest way to evaluate pre-trained and synthesized ML demonstrations. You'll need to download and install the MSDK onto a Windows 10/11 host. The Analog Devices MSDK is available to download from [here](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
 
 ### Running Eclipse
 
@@ -89,7 +89,7 @@ If you are using Microsoft Windows, it is very important to run Eclipse from the
 
 ### Creating a I/O Peripheral Project
 
-The SDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within Eclipse as demonstrated below.
+The MSDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within Eclipse as demonstrated below.
 
 ![New->Maxim Micros](img/maxim_microcontrollers.png)
 
@@ -111,11 +111,11 @@ If you are interested in the CNN examples, you can use "File->Import" within Ecl
 
 ![Import Menu](img/import.png)
 
-You need to provide the path to the CNN examples within the SDK tree similar to the image below.  The path will depend on where you installed the SDK.
+You need to provide the path to the CNN examples within the MSDK tree similar to the image below.  The path will depend on where you installed the MSDK.
 
 ![Import Projects](img/cnn_import.png)
 
-The Maxim SDK comes with many convolutional neural network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the SDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
+The MSDK comes with many convolutional neural network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the MSDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
 
 All CNN examples will run on the MAX78000EVKIT, but not all a currently supported on the MAX78000FTHR.  Here's a list of examples that are supported on the MAX78000FTHR:
 
@@ -139,11 +139,11 @@ Note that all examples are targeted at the EVKIT by default.  To change the targ
 
 The Firmware-Focused Approach allows you to quickly compile, modify, and debug existing CNN examples, but if you want to modify the ML models or re-train the ML network, you will need to use the ML-focused approach described in the next section.
 
-## Building the SDK Examples using MINGW on Windows
+## Building the MSDK Examples using MINGW on Windows
 
-The SDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
+The MSDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
 
-On Windows, the MSYS shell (included in the SDK) can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
+On Windows, the MSYS shell (included in the MSDK) can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
 
 ![msys location](img/msys.png)
 
@@ -240,9 +240,9 @@ At this point, the target device should be once again programmable.
 
 Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
 
-## Additional SDK Information
+## Additional MSDK Information
 
-The examples are separated by device type. The SDK on GitHub currently only includes the MAX78000. Therefore, the examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files:
+The examples are separated by device type. The examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files:
 
 - makefile -- This file contains the rules used to build the application with the "make" command. The binaries for each project can be removed with the "make clean" command. Use "make distclean" to remove the binaries for each project and any libraries the project depends on.
 
@@ -252,7 +252,7 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 - \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see [Getting Started with Eclipse](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf).
 
-The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
+The MSDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 
 ## TFT display
 
@@ -282,11 +282,11 @@ Two github repositories are required:
 
 Refer to the readme found in each repository for details on how to configure your Linux host.
 
-Additional repositories of interest include documentation and early-release versions of the Maxim SDK:
+Additional repositories of interest include documentation and the MSDK:
 
 <https://github.com/MaximIntegratedAI/MaximAI_Documentation>
 
-<https://github.com/MaximIntegratedAI/MAX78000_SDK>
+<https://github.com/Analog-Devices-MSDK/msdk>
 
 ## Installing the Developer Tools (Linux)
 
@@ -298,13 +298,16 @@ In addition to Windows+Eclipse, you can compile, flash, and debug firmware under
 
     2. Edit your PATH variable to include the path to the arm-none-eabi directory.
 
-- The MAX78000 SDK
+- The MSDK
 
-    1. The SDK is hosted on GitHub and is a submodule of the ai8x-synthesis repository. To get the SDK and all the additional supporting files, clone the ai8x-synthesis repository (including submodules) found at <https://github.com/MaximIntegratedAI/ai8x-synthesis>.
+    1. To get the MSDK and all the additional supporting files, use the MSDK installer for your operating system.
+        * [Windows](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A)
+        * [Ubuntu Linux](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018720A)
+        * [macOS](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018610A)
 
 - OpenOCD
 
-    1. Maxim provides pre-built binaries for the Ubuntu 18.04 LTS distribution. These should automatically be installed along with the SDK above.  However, if not, the binaries can be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1. The MSDK includes pre-built binaries. These should automatically be installed along with the MSDK above.
 
     2. You also have the option of building OpenOCD from source. Visit [here](<https://github.com/MaximIntegratedMicros/openocd>) and follow the instructions in the README found there.
 

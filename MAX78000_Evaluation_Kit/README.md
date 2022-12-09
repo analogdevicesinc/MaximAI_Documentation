@@ -11,11 +11,11 @@
   - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
   - [Installing the Developer Tools (Windows 10)](#installing-the-developer-tools-windows-10)
     - [Running Eclipse](#running-eclipse)
-  - [Building the SDK Examples](#building-the-sdk-examples)
+  - [Building the MSDK Examples](#building-the-msdk-examples)
   - [Loading and Running Applications on the EV Kit](#loading-and-running-applications-on-the-ev-kit)
   - [Debugging Applications with GDB](#debugging-applications-with-gdb)
   - [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
-  - [Additional SDK Information](#additional-sdk-information)
+  - [Additional MSDK Information](#additional-msdk-information)
   - [Jumper Settings for the MAX78000 EV Kit](#jumper-settings-for-the-max78000-ev-kit)
   - [Proper installation of MAX78000 in the socket](#proper-installation-of-max78000-in-the-socket)
   - [Next Steps:  Loading and running the included **mnist** CNN example](#next-steps--loading-and-running-the-included-mnist-cnn-example)
@@ -98,21 +98,24 @@ There are a few tools you will need to build, load, run, and debug applications 
 
     2. Edit your PATH variable to include the path to the arm-none-eabi directory.
 
-- The MAX78000 SDK
+- The MAX78000 MSDK
 
-    1. The SDK is hosted on GitHub and is a submodule of the ai8x-synthesis repository. To get the SDK and all the additional supporting files, clone the ai8x-synthesis repository (including submodules) found at <https://github.com/MaximIntegratedAI/ai8x-synthesis>.
+    1. To get the MSDK and all the additional supporting files, use the installer for your operating system:
+        * [Windows](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A)
+        * [Ubuntu Linux](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018720A)
+        * [macOS](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018610A)
 
 - OpenOCD
 
-    1. Analog Devices provides pre-built binaries. These should automatically be installed along with the ai8x-synthesis repo above.  The binaries can also be downloaded from [here](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Tools/OpenOCD).
+    1. Analog Devices provides pre-built binaries. These will be installed automatically when the MSDK is installed.
 
     2. You also have the option of building OpenOCD from source. Visit <https://github.com/MaximIntegratedMicros/openocd> and follow the instructions in the README found there.
 
 ## Installing the Developer Tools (Windows 10)
 
-Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning. See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent SDK Installation Guide.
+Note:  Linux is the preferred platform for machine learning due to the tools needed for training of the neural networks.  The Windows platform can still be used for all other development outside of the machine learning. See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent MSDK Installation Guide.
 
-1. Download and run the [Microcontroller SDK](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
+1. Download and run the [Analog Devices MSDK](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
 2. At the first screen that appears, click the _Next_ button to complete the installation.
 
 
@@ -122,9 +125,9 @@ If you are using Microsoft Windows, it is very important to run Eclipse from the
 
 ![Eclipse Link in Start Menu](resources/eclipse_start_.png)
 
-## Building the SDK Examples
+## Building the MSDK Examples
 
-The SDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
+The MSDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
 
 On Windows, the MinGW shell can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
 
@@ -226,9 +229,9 @@ At this point, the target device should be once again programmable.
 
 Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
 
-## Additional SDK Information
+## Additional MSDK Information
 
-The examples are separated by device type. The SDK on GitHub currently only includes the MAX78000. Therefore, the examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files.
+The examples are separated by device type. The examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files.
 
 - makefile -- This file contains the rules used to build the application with the "make" command. The binaries for each project can be removed with the "make clean" command. Use "make distclean" to remove the binaries for each project and any libraries the project depends on.
 
@@ -238,7 +241,7 @@ The examples are separated by device type. The SDK on GitHub currently only incl
 
 - \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see ["Getting Started with Eclipse"](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf)
 
-The SDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
+The MSDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
 
 ## Jumper Settings for the MAX78000 EV Kit
 
@@ -280,8 +283,8 @@ To measure the CNN current, JP13, PM BYPASS VREGI, and connect a low impedance c
 
 ### Links to mnist and additional CNN examples
 
-- [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
-- [Directory of additional CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN)
+- [mnist CNN example](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN/mnist)
+- [Directory of additional CNN examples](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN)
 
 ## Going beyond the included CNN examples - Advanced Topics
 

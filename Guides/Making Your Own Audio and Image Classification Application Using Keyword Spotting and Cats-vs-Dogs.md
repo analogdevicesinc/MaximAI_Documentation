@@ -153,7 +153,7 @@ Run the script to generate the KAT C code in the specified target directory (e.g
 “Make” the project and load it into the device, configure and connect the serial terminal and check the messages for `PASS`:
 
 ```bash
-$ cd /c/MAX78000SDK/Examples/MAX78000/CNN/cats-dogs
+$ cd /c/MaximSDK/Examples/MAX78000/CNN/cats-dogs
 $ make -r
 $ openocd -s C:/MaximSDK/Tools/OpenOCD/scripts -f interface/cmsis-dap.cfg -f target/max78000.cfg  -c "program build/cats-dogs.elf reset exit"
 ```
@@ -171,7 +171,7 @@ Copy **cats-dogs_demo,** and update as needed:
 - Build, flash and run the code. It uses the images from the camera, loads them to CNN, performs the inference, and prints the result using the serial terminal.
 
 ```bash
-$ cd /c/MAX78000SDK/Examples/MAX78000/CNN/cats-dogs_demo
+$ cd /c/MaximSDK/Examples/MAX78000/CNN/cats-dogs_demo
 $ make -r clean
 $ make -r
 $ openocd -s C:/MaximSDK/Tools/OpenOCD/scripts -f interface/cmsis-dap.cfg -f target/max78000.cfg  -c "program build/max78000.elf reset exit"

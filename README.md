@@ -1,6 +1,6 @@
 # Analog Devices AI Documentation
 
-This is the home for IC, EV Kit, SDK, and AI documentation for the Analog Devices MAX78000/MAX78002 AI product family.
+This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devices MAX78000/MAX78002 AI product family.
 
 **START HERE:**
 
@@ -28,7 +28,7 @@ The project consists of five repositories:
 1. This repo (“Documentation”)
 
 2. The microcontroller software development kit (MSDK), which contains peripheral drivers and example programs ready to run on the Evaluation Kit:
-   [Analog Devices MSDK](https://github.com/Analog-Devices-MSDK/msdk) (includes support for both MAX78000 and MAX78002). See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent SDK Installation Guide.
+   [Analog Devices MSDK](https://github.com/Analog-Devices-MSDK/msdk) (includes support for both MAX78000 and MAX78002). See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent MSDK Installation Guide.
 
 3. The training repo, which is used for deep learning model development and training:
    [ai8x-training](https://github.com/MaximIntegratedAI/ai8x-training)
@@ -58,8 +58,8 @@ The project consists of five repositories:
   - Link to IC User Guide: [MAX78002 User Guide (Preliminary).pdf](./MAX78002/MAX78002%20User%20Guide%20Preliminary.pdf)
   - Link to MAX78002 EV Kit description and documentation: [MAX78002 EV Kit](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html)
 - MAX78000 and MAX78002
-  - Link to SDK repository (for both MAX78000 and MAX78002): [Analog Devices MSDK](https://github.com/Analog-Devices-MSDK/msdk)
-  - Link to SDK documentation: [SDK Docs - click on index.html](https://github.com/Analog-Devices-MSDK/msdk/blob/master/Documentation/)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the SDK documentation from a local copy, which is automatically installed with the SDK.
+  - Link to MSDK repository (for both MAX78000 and MAX78002): [Analog Devices MSDK](https://github.com/Analog-Devices-MSDK/msdk)
+  - Link to MSDK documentation: [MSDK Docs - click on index.html](https://github.com/Analog-Devices-MSDK/msdk/blob/master/Documentation/)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the MSDK documentation from a local copy, which is automatically installed with the MSDK.
   - Quick Start Guides and Optional Features: [Guides](Guides)
 
 
