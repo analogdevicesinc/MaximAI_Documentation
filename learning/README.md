@@ -1,17 +1,17 @@
 
 # Machine Learning Education Resources
 
-Here’s a list of books and videos that present the MAX78000, and machine learning fundamentals from theoretical and practical perspectives.
+The following is a list of books, videos and podcasts that present the MAX78000/MAX78002, and machine learning fundamentals from theoretical and practical perspectives.
 
 
 
-## MAX78000 Training Videos
+## MAX7800X Training Videos
 
 * [Understanding Artificial Intelligence](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
 
 
 
-### MAX78000 Product Demonstration Videos
+### MAX7800X Product Demonstration Videos
 
 * [AI Camera in Action](https://youtu.be/-cavAgCOTfg)
 * [AI Face Identification](https://youtu.be/z2Gnyxs8kUk)
@@ -20,7 +20,7 @@ Here’s a list of books and videos that present the MAX78000, and machine learn
 
 
 
-## MAX780000 Webinars and Presentations
+## MAX78000X Webinars and Presentations
 
 ### Elektor Webinar
 
@@ -53,15 +53,22 @@ Two part presentation on the MAX78000 with focus on the MAX78000FTHR development
 
 ## General AI Topic Videos
 
-* [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning) Fundamentals.  Andrew Ng.
-* [https://developers.google.com/machine-learning/crash-course](https://developers.google.com/machine-learning/crash-course)  Google
-* [https://www.tensorflow.org/resources/learn-ml](https://www.tensorflow.org/resources/learn-ml) TensorFlow
+* [Coursera: Fundamentals with Andrew Ng](https://www.coursera.org/learn/machine-learning)
+* [Google Crash Course](https://developers.google.com/machine-learning/crash-course)
+* [TensorFlow Resources](https://www.tensorflow.org/resources/learn-ml)
+
+
+
+## More AI Videos
+
+* [Andrew Ng: Nuts and Bolts of Applying Deep Learning](https://youtube.com/watch?v=F1ka6a13S9I)
 
 
 
 ## AI Podcasts
 
-* [The Robot Brains Podcast](https://www.therobotbrains.ai) - listen on [Apple Podcasts](https://podcasts.apple.com/gb/podcast/the-robot-brains-podcast/id1559275284), [Spotify](https://open.spotify.com/show/2qbLq3HrhTnnmmsHc37QOD), [Google](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5hY2FzdC5jb20vcHVibGljL3Nob3dzL3RoZS1yb2JvdC1icmFpbnM), [Amazon](https://music.amazon.com/podcasts/944100c5-b2f7-4124-84e0-5f74ebe42177/THE-ROBOT-BRAINS-PODCAST)
+* [The Robot Brains Podcast](https://www.therobotbrains.ai) - listen on [Apple Podcasts](https://podcasts.apple.com/us/podcast/the-robot-brains-podcast/id1559275284), [Spotify](https://open.spotify.com/show/2qbLq3HrhTnnmmsHc37QOD), [Google](https://podcasts.google.com/search/The%20Robot%20Brains%20Podcas), [Amazon](https://music.amazon.com/podcasts/944100c5-b2f7-4124-84e0-5f74ebe42177/THE-ROBOT-BRAINS-PODCAST)
+* Gradient Dissent Podcast with Lukas Biewald - [Apple Podcasts](https://podcasts.apple.com/us/podcast/gradient-dissent/id1504567418), [Spotify](https://open.spotify.com/show/7o9r3fFig3MhTJwehXDbXm), [Google](https://podcasts.google.com/search/Gradient%20Dissent), [Amazon](https://music.amazon.com/podcasts/81224ceb-9314-4cc1-8984-d4fae3fd8f8b/gradient-dissent)
 
 
 
