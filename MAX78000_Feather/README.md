@@ -33,7 +33,7 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 ### Updating the MAX32625PICO ("PICO") Debug Adapter Firmware
 
-1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file from [this](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/raw/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin) link.  
+1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file from [this](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Feather/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) link.  
 
 2. Connect the included micro-USB cable to the MAX78000FTHR _without_ connecting the other side of the cable to your host PC yet.
 
@@ -225,11 +225,8 @@ Follow the same steps provided in the *Loading and Running Applications on the E
 
 The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this "lockout" state.
 
-1. Remove the USB cable connected to the MAX78000FTHR board.  
-2. Place the on-board debug adapter in MAINTENANCE mode by holding down button SW5 while reconnecting the USB cable to the host PC.  
-   - The debug adapter will enumerate as a mass storage device named MAINTENANCE.  
-   - Drag-and-drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK binary file](https://github.com/MaximIntegratedMicros/max32625pico-firmware-images/blob/main/bin/max32625_max78000fthr_if_crc_v1.0.2.bin).  
-   - Following the Drag-and-drop, the debug adapter should reboot and reconnect as a drive named DAPLINK.  
+1. Update the debug adapter firmware to the latest version if you haven't already.  See [First-time Firmware Updates](#first-time-firmware-updates)
+2. Connect the USB cable connected to the MAX78000FTHR board.
 3. Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
     - Create an empty text file named '**auto_on.cfg**'. Copy the file to DAPLINK drive while SW5 button is held.
     - Release SW5 button when the drive unmounts. When it remounts, confirm "Automation allowed" is set to 1 in DETAILS.TXT file.
