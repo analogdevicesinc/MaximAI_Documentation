@@ -303,7 +303,16 @@ The documentation associated with the setup and usage of these tools is signific
 
 A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artifical Intelligence” series is highly recommended for all developers.
 
-* [Understanding Artificial Intelligence Episode 1](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
+- **Understanding Artificial Intelligence**
+  - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
+  - [Episode 2 - Thinking About Machine Learning](https://www.analog.com/en/education/education-library/videos/6313214510112.html)
+  - [Episode 3 - All About Models](https://www.analog.com/en/education/education-library/videos/6313216827112.html)
+  - [Episode 4 - All About Training](https://www.analog.com/en/education/education-library/videos/6313215699112.html)
+  - [Episode 5 - Say Hello to the MAX78000](https://www.analog.com/en/education/education-library/videos/6313217809112.html)
+  - [Episode 6 - From Checkpoint to C](https://www.analog.com/en/education/education-library/videos/6313215449112.html)
+  - [Episode 7 - How to Train a Network](https://www.analog.com/en/education/education-library/videos/6313213231112.html)
+  - [Episode 8 - The MAX78000FTHR](https://www.analog.com/en/education/education-library/videos/6313213346112.html)
+  - [Episode 8.5 - Visual Studio Code](https://www.analog.com/en/education/education-library/videos/6313212752112.html)
 
 ### ML Setup
 
