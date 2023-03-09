@@ -12,6 +12,17 @@ This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devic
 
 ->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/MaximIntegratedAI/refdes/blob/main/maxrefdes178_doc/README.md)**
 
+->->-> **Understanding Artificial Intelligence Video Series**
+- [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
+- [Episode 2 - Thinking About Machine Learning](https://www.analog.com/en/education/education-library/videos/6313214510112.html)
+- [Episode 3 - All About Models](https://www.analog.com/en/education/education-library/videos/6313216827112.html)
+- [Episode 4 - All About Training](https://www.analog.com/en/education/education-library/videos/6313215699112.html)
+- [Episode 5 - Say Hello to the MAX78000](https://www.analog.com/en/education/education-library/videos/6313217809112.html)
+- [Episode 6 - From Checkpoint to C](https://www.analog.com/en/education/education-library/videos/6313215449112.html)
+- [Episode 7 - How to Train a Network](https://www.analog.com/en/education/education-library/videos/6313213231112.html)
+- [Episode 8 - The MAX78000FTHR](https://www.analog.com/en/education/education-library/videos/6313213346112.html)
+- [Episode 8.5 - Visual Studio Code](https://www.analog.com/en/education/education-library/videos/6313212752112.html)
+
 -----
 
 - Analog Devices AI Documentation
