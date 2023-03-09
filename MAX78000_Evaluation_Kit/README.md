@@ -122,9 +122,7 @@ Note:  In order to avoid the locked out state to begin with, it is recommended 
 
 ## Machine Learning (ML) Development
 
-The quick-start development sections aboved have covered the "embedded" side of development with the MAX78000EVKIT. This includes working with example projects, peripheral driver APIs, and the IDEs and toolchain supported by the MaximSDK.
-
-As the MAX78000 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development with the part. This is done with a separate set of tools. The example projects that are found in the `CNN` sub-folder of the MAX78000 examples have been created with these tools. More specifically, they have been created with the `ai8x-synthesis` (“izer”) tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78000 using the “embedded” development methods discussed in this document.
+As the MAX78000 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development. This is done with a separate set of tools. The example projects that are found in the `CNN` sub-folder of the MAX78000 examples have been created with these tools. More specifically, they have been created with the `ai8x-synthesis` (“izer”) tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78000.
 
 ### ML Overview
 
