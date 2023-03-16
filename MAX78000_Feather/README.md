@@ -164,8 +164,8 @@ The internal SIMO can be used to power the CNN under moderate computational load
 
 ### Links to mnist and additional CNN examples
 
-- [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
-- [Directory of additional CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN)
+- [mnist CNN example](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN/mnist)
+- [Directory of additional CNN examples](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN)
 
 ### Going beyond the included CNN examples - Advanced Topics
 
