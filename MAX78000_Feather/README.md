@@ -1,23 +1,6 @@
 # Getting Started with the MAX78000FTHR
 
-- [Getting Started with the MAX78000FTHR](#getting-started-with-the-max78000fthr)
-  - [Schematic](#schematic)
-  - [Developing with Eclipse](#developing-with-eclipse)
-    - [Running Eclipse](#running-eclipse)
-    - [Creating a I/O Peripheral Project](#creating-a-io-peripheral-project)
-    - [Creating a CNN Project from an Example](#creating-a-cnn-project-from-an-example)
-  - [Building the MSDK Examples using MINGW on Windows](#building-the-msdk-examples-using-mingw-on-windows)
-  - [Loading and Running Example Firmware](#loading-and-running-example-firmware)
-  - [Debugging Applications with GDB](#debugging-applications-with-gdb)
-  - [How to Unlock a MAX78000 That Can No Longer Be Programmed](#how-to-unlock-a-max78000-that-can-no-longer-be-programmed)
-  - [Additional MSDK Information](#additional-msdk-information)
-  - [TFT display](#tft-display)
-  - [ML-Focused Approach using Linux](#ml-focused-approach-using-linux)
-  - [Installing the Developer Tools (Linux)](#installing-the-developer-tools-linux)
-  - [Next Steps:  Loading and running the included **mnist** CNN example](#next-steps--loading-and-running-the-included-mnist-cnn-example)
-    - [CNN Boost](#cnn-boost)
-    - [Links to mnist and additional CNN examples](#links-to-mnist-and-additional-cnn-examples)
-  - [Going beyond the included CNN examples - Advanced Topics](#going-beyond-the-included-cnn-examples---advanced-topics)
+[TOC]
 
 ---
 
@@ -77,179 +60,85 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 10. Your "PICO" debugger is now ready to use with the MAX78000FTHR.
 
-## Developing with Eclipse
+## Software Development
 
-This is the quickest way to evaluate pre-trained and synthesized ML demonstrations. You'll need to download and install the MSDK onto a Windows 10/11 host. The Analog Devices MSDK is available to download from [here](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A).
+### Setup
 
-### Running Eclipse
+Embedded development for the MAX78000FTHR is enabled by the Maxim Microcontroller SDK (“MSDK”), now a part of Analog Devices.
 
-If you are using Microsoft Windows, it is very important to run Eclipse from the _Windows Start Menu_. Failing to do so may results in unexpected Eclipse behavior during build and debug of your code.
+See the [**MSDK User Guide**](https://analog-devices-msdk.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
 
-![Eclipse Link in Start Menu](img/eclipse_start_.png)
+### How to Unlock a MAX78000 That Can No Longer Be Programmed
 
-### Creating a I/O Peripheral Project
+The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this lockout state:  
 
-The MSDK contains example projects for all integrated peripherals, such as I2C, GPIO, and UART.  These can be used as a template for your own projects. To do this select "New"->"Maxim Microcontrollers" within Eclipse as demonstrated below.
+1. Remove the USB cable connected to the MAX32625PICO debug adapter board.  
+2. Remove power to the target device by powering down the EV Kit or feather board.  
+3. Place the MAX32625PICO debug adapter in MAINTENANCE mode by holding down its button while reconnecting the USB cable to the host PC.  
 
-![New->Maxim Micros](img/maxim_microcontrollers.png)
+   - The MAX32625PICO debug adapter will enumerate as a mass storage device named MAINTENANCE.  
+   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK bin file](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin).  
+   - Following the Drag-n-Drop, the MAX32625PICO should reboot and reconnect as a drive named DAPLINK.  
 
-Enter a name for your project and click 'Next'.
+4. Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
+    - Create an empty text file named '**auto_on.cfg**'. Copy the file to DAPLINK drive while its button is held.
+    - Release the button when the drive unmounts. When it remounts, confirm "Automation allowed" is set to 1 in DETAILS.TXT file.
+5. Create an empty text file named '**erase.act**' and Drag-and-drop it onto the DAPLINK drive.
+6. This should mass erase the flash of the target device, allowing the device to be programmed again.
 
-The 'Select Project Configuration' dialog can be configure as follows:
+At this point, the target device should be once again programmable.
 
-![Select Config](img/project_config.png)
+Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.
 
-The 'Select example type' can be any firmware example you are interested in.  Note that the CNN-specific examples are not listed here.  CNN examples must be imported via a different mechanism explained below.
+## Machine Learning (ML) Development
 
-If you are using the PICO debugger, set the adapter type to MAX32625_PICO.  If you are using the Olimax debugger, set the adapter type to CMSIS-DAP.
+As the MAX78000 contains a powerful Convolution Neural Network (CNN) accelerator, there is also the Machine Learning side of development. This is done with a separate set of tools. The example projects that are found in the `CNN` sub-folder of the MAX78000 examples have been created with these tools. More specifically, they have been created with the `ai8x-synthesis` (“izer”) tool, which converts a trained model into C code that can be compiled and flashed onto the MAX78000.
 
-Click 'Finish' and Eclipse will open your project and you may edit, compile, and debug.
+### ML Overview
 
-### Creating a CNN Project from an Example
+The documentation associated with the setup and usage of these tools is significant. Here are the links to get started:
 
-If you are interested in the CNN examples, you can use "File->Import" within Eclipse to import them into your workspace. When prompted, select 'Existing Projects into Workspace'
+* [Analog Devices AI Github Repository](https://github.com/maximintegratedAI)
+* [ai8x-synthesis tool](https://github.com/MaximIntegratedAI/ai8x-synthesis)
+* [ai8x-training tool](https://github.com/MaximIntegratedAI/ai8x-training)
+* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
 
-![Import Menu](img/import.png)
+### ML Videos
 
-You need to provide the path to the CNN examples within the MSDK tree similar to the image below.  The path will depend on where you installed the MSDK.
+A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artifical Intelligence” series is highly recommended for all developers.
 
-![Import Projects](img/cnn_import.png)
+- **Understanding Artificial Intelligence**
+  - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
+  - [Episode 2 - Thinking About Machine Learning](https://www.analog.com/en/education/education-library/videos/6313214510112.html)
+  - [Episode 3 - All About Models](https://www.analog.com/en/education/education-library/videos/6313216827112.html)
+  - [Episode 4 - All About Training](https://www.analog.com/en/education/education-library/videos/6313215699112.html)
+  - [Episode 5 - Say Hello to the MAX78000](https://www.analog.com/en/education/education-library/videos/6313217809112.html)
+  - [Episode 6 - From Checkpoint to C](https://www.analog.com/en/education/education-library/videos/6313215449112.html)
+  - [Episode 7 - How to Train a Network](https://www.analog.com/en/education/education-library/videos/6313213231112.html)
+  - [Episode 8 - The MAX78000FTHR](https://www.analog.com/en/education/education-library/videos/6313213346112.html)
+  - [Episode 8.5 - Visual Studio Code](https://www.analog.com/en/education/education-library/videos/6313212752112.html)
 
-The MSDK comes with many convolutional neural network demonstrations which can be imported into Eclipse.  These firmware examples can be found within the MSDK in Examples\MAX78000\CNN.  Choose "File"->"Import" and then select "General->Existing Projects into Workspace".  Using the subsequent dialogs, navigate to Examples\MAX78000\CNN and import all firmware projects that you are interested in.  You'll find peripheral-oriented examples for the MAX78000 in the Examples\MAX78000 directory.
+### ML Setup
 
-All CNN examples will run on the MAX78000EVKIT, but not all a currently supported on the MAX78000FTHR.  Here's a list of examples that are supported on the MAX78000FTHR:
+The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the “izer” and training tools. See the [Installation](https://github.com/MaximIntegratedAI/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
 
-- cifar-10
-- cifar-100
-- mnist
-- mnist-riscv
-- mnist-streaming
-- kws20_v3
-- kws20_demo
-- faceid
-- faceid_demo
-- faceid_evkit
-- cats-dogs_demo
-- rps
-- snake_game_demo
+### ML Usage
 
-Note that all examples are targeted at the EVKIT by default.  To change the target to the FTHR, you must pass BOARD=FTHR_RevA to make.  This can be accomplished within Eclipse on a per-project basis as follows:
+Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction.
 
-![Project Properties](img/board_type.png)
+Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
-The Firmware-Focused Approach allows you to quickly compile, modify, and debug existing CNN examples, but if you want to modify the ML models or re-train the ML network, you will need to use the ML-focused approach described in the next section.
+Below are a few excercises to get started after setup is complete:
 
-## Building the MSDK Examples using MINGW on Windows
+* Run the `gen-demos-max78000.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
-The MSDK includes multiple examples to demonstrate the features of the MAX78000 and to show the use of the various functions available in the API. Each example includes a makefile that has been configured to work with the EV Kit. To build an example, simply change to the directory containing the example and run "make". When built, each example results in a max78000.elf (or max78000-combined.elf for projects involving both the RISC-V and ARM cores) file that can be found in the "build" directory of that example.
+* Build and flash the output of one of the `gen-demos-max78000.sh` projects and verify that the generated “known answer” test passes.
 
-On Windows, the MSYS shell (included in the MSDK) can be used to build examples.  Start 'msys.bat' to launch the shell.  The shell can be accessed from the Windows Start Menu or in the default installation directory show below.
+* Locate the YAML files for the pre-trained models in the “izer” tool and reference the [YAML Network Description](https://github.com/MaximIntegratedAI/ai8x-synthesis#yaml-network-description) to see how they work.
 
-![msys location](img/msys.png)
+* Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-training#command-line-arguments) to see how it works.
 
-Below is an example of how to build the "hello world" example.  Other tools, such as openocd and gdb can be accessed from the MinGW shell.
-
-![make](img/make.png)
-
-## Loading and Running Example Firmware
-
-Applications are loaded, debugged, and run using OpenOCD and GDB.  This section shows how to do this specifically with MSYS on Windows, but very similar methods can be used under Linux.  In fact, if you prefer to develop using Linux, see the section [Installing the Developer Tools \(Linux\)](#installing-the-developer-tools-linux) below.
-
-The MAX78000FTHR has an integrated daplink debugger.
-
-1. Connect the FTHR to your host PC with a USB cable.  Windows will enumerate a daplink device and-thumb drive device.
-
-2. Change to the OpenOCD directory and launch OpenOCD with the following command:
-
-    ```bash
-    openocd -f interface/cmsis-dap.cfg -f target/max78000.cfg -s/c/MaximSDK/Tools/OpenOCD/scripts
-    ```
-
-3. On successful connection, you will see messages as shown below.
-
-     ![gdb server](img/ocd.png)
-
-4. From another command prompt, change to the directory containing the application you would like to load.
-
-    ![load elf file](img/gdb.png)
-
-5. Launch GDB using one of the following commands:
-
-    ```bash
-    arm-none-eabi-gdb max78000.elf
-    arm-none-eabi-gdb max78000-combined.elf
-    ```
-
-6. Connect GDB to OpenOCD and reset the MAX78000.
-
-    ```bash
-    target remote localhost:3333
-    monitor reset halt
-    ```
-
-7. Load and verify the application.
-
-    ```bash
-    load
-    compare-sections
-    ```
-
-8. Reset the device and run the application:
-
-    ```bash
-    monitor reset halt
-    c
-    ```
-
-## Debugging Applications with GDB
-
-Follow the same steps provided in the *Loading and Running Applications on the EV Kit* section. While the application is running, use \<CTRL-C\> to interrupt the application and halt its execution. The table below lists a few of the commands available to you any time the application is halted.
-
-| **Command**                    | **Short Command** | **Description**                                              |
-| ------------------------------ | ----------------- | ------------------------------------------------------------ |
-| monitor halt                   |                   | Halt the microcontroller.                                    |
-| monitor reset halt             |                   | Reset the microcontroller and immediately halt.              |
-| monitor max32xxx mass\_erase 0 |                   | Mass erase the flash.                                        |
-| continue                       | c                 | Continue execution.                                          |
-| break \<arg\>                  | b \<arg\>         | Set a breakpoint. Argument can be function\_name, file:line\_number, or \*address. |
-| print \<variable\>             | p                 | Print the value of a variable. Variable must be in current scope. |
-| backtrace                      | bt                | Print contents of the stack frame.                           |
-| step                           | s                 | Execute the next instruction.                                |
-| next                           | n                 | Execute the next line of code.                               |
-| finish                         | f                 | Continue to the end of the current function.                 |
-| info reg                       |                   | Print the values of the ARM registers.                       |
-| help                           |                   | Print descriptions for available commands                    |
-| help \<cmd\>                   |                   | Print description for given command.                         |
-
-## How to Unlock a MAX78000 That Can No Longer Be Programmed
-
-The SWD interface is unavailable for a certain number of clock cycles after reset.  If the application code instructs the device to enter any low power or shutdown mode too soon, it could be difficult to reprogram the device.  The following instructions help recover a device in this "lockout" state.
-
-1. Update the debug adapter firmware to the latest version if you haven't already.  See [First-time Firmware Updates](#first-time-firmware-updates)
-2. Connect the USB cable connected to the MAX78000FTHR board.
-3. Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
-    - Create an empty text file named '**auto_on.cfg**'. Copy the file to DAPLINK drive while SW5 button is held.
-    - Release SW5 button when the drive unmounts. When it remounts, confirm "Automation allowed" is set to 1 in DETAILS.TXT file.
-4. Create an empty text file named '**erase.act**' and Drag-and-drop it onto the DAPLINK drive.
-5. This should mass erase the flash of the target device, allowing the device to be programmed again.
-
-At this point, the target device should be once again programmable.  
-
-Note:  In order to avoid the locked out state to begin with, it is recommended that during code development, a delay be placed at the beginning of user code in order to give the debug adapter an opportunity to communicate with or halt the processor.  A delay of 2 seconds is ideal so that the debugger can be attached manually.  
-
-## Additional MSDK Information
-
-The examples are separated by device type. The examples will be located in the Examples/MAX78000 folder. For each example, you will find the following files:
-
-- makefile -- This file contains the rules used to build the application with the "make" command. The binaries for each project can be removed with the "make clean" command. Use "make distclean" to remove the binaries for each project and any libraries the project depends on.
-
-- main.c -- This source file contains the entry point for the application.
-
-- \*.c -- These files contain additional source code required by the example if necessary. Many of the examples reside entirely in the main.c file and will not have additional .c files.
-
-- \*.launch, .cproject, and .project -- These files are the project files used in the Eclipse environment. They can be ignored when working with OpenOCD and GDB from the command line. (Note a few examples do not have Eclipse project files yet.)  For more information on using Eclipse, see [Getting Started with Eclipse](https://www.analog.com/media/en/technical-documentation/user-guides/getting-started-with-eclipse.pdf).
-
-The MSDK provides an API for working with the device's components. To use the API, you will need to include the header (\*.h) files in your source code. The API header files for the MAX78000 reside in Libraries/PeriphDrivers/Include/MAX78000/. For convenience, you can include the "mxc.h" file in your source. This file includes the headers for all the supported peripheral libraries. Documentation for the functions contained in the API can be found at Libraries/PeriphDrivers/Documentation/MAX78000/index.html.
+* Familiarize yourself with the concept of data loaders with [Application Note 7600](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.
 
 ## TFT display
 
@@ -265,52 +154,7 @@ To connect TFT display to MAX78000 Feather board you need to solder two headers 
 
 <img src="img/feather_TFT.png" style="zoom:25%;" />
 
-While using TFT display keep its power switch in "ON" position. The TFT "Reset" button also can be used as Feather reset.
-
-## ML-Focused Approach using Linux
-
-This approach allows the user to train and synthesize convolutional neural networks using Pytorch and TensorFlow.  Additionally, compilation and debugging is supported under Linux making this method preferable for most developers that do not require Eclipse and are comfortable using bash, openOCD, and GDB directly.  Additionally, augmented ML toolchains, MAX78000-specific synthesis tools and supporting software are made available via github.
-
-Two github repositories are required:  
-
-<https://github.com/MaximIntegratedAI/ai8x-training>
-
-<https://github.com/MaximIntegratedAI/ai8x-synthesis>
-
-Refer to the readme found in each repository for details on how to configure your Linux host.
-
-Additional repositories of interest include documentation and the MSDK:
-
-<https://github.com/MaximIntegratedAI/MaximAI_Documentation>
-
-<https://github.com/Analog-Devices-MSDK/msdk>
-
-## Installing the Developer Tools (Linux)
-
-In addition to Windows+Eclipse, you can compile, flash, and debug firmware under Linux:
-
-- The GNU Tools for ARM Embedded Processors
-
-    1. Browse to [here](<https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads>) and download and extract the gcc-arm-none-eabi-9-2019-q4-major package that corresponds to your system.
-
-    2. Edit your PATH variable to include the path to the arm-none-eabi directory.
-
-- The MSDK
-
-    1. To get the MSDK and all the additional supporting files, use the MSDK installer for your operating system.
-        * [Windows](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0010820A)
-        * [Ubuntu Linux](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018720A)
-        * [macOS](https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download?swpart=SFW0018610A)
-
-- OpenOCD
-
-    1. The MSDK includes pre-built binaries. These should automatically be installed along with the MSDK above.
-
-    2. You also have the option of building OpenOCD from source. Visit [here](<https://github.com/MaximIntegratedMicros/openocd>) and follow the instructions in the README found there.
-
-## Next Steps:  Loading and running the included **mnist** CNN example
-
-Now that proper operation of the MAX78000FTHR has been established by running a simple demo and observing the expected LED and console output, the next step is to run the included 'Hello World' of CNNs, the **mnist** example.  
+While using TFT display keep its power switch in "ON" position. The TFT "Reset" button also can be used as Feather reset. 
 
 ### CNN Boost
 
@@ -320,10 +164,10 @@ The internal SIMO can be used to power the CNN under moderate computational load
 
 ### Links to mnist and additional CNN examples
 
-- [mnist CNN example](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN/mnist)
-- [Directory of additional CNN examples](https://github.com/MaximIntegratedAI/MAX78000_SDK/tree/master/Examples/MAX78000/CNN)
+- [mnist CNN example](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN/mnist)
+- [Directory of additional CNN examples](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN)
 
-## Going beyond the included CNN examples - Advanced Topics
+### Going beyond the included CNN examples - Advanced Topics
 
 - [AI8X Model Training and Quantization](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
 - [AI8X Network Loader and RTL Simulation Generator](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
