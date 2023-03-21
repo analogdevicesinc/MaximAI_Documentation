@@ -268,7 +268,7 @@ elif num_classes == 20:
          'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero']
 elif num_classes == 21: # additional keyword 'hello'
       classes = ['up', 'down', 'left', 'right', 'stop', 'go', 'yes', 'no', 'on', 'off', 'one',
-         'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero', 'hello'] # 'hello' is class 20, uknown is 21
+         'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero', 'hello'] # 'hello' is class 20, unknown is 21
 ```
 
 

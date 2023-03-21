@@ -33,3 +33,9 @@ jobs:
           VALIDATE_CLANG_FORMAT: false
           VALIDATE_GITHUB_ACTIONS: false
           FILTER_REGEX_EXCLUDE: (attic/.*|datasets/face_id/.*\.md|\.github/workflows/.*\.yml)
+
+      - name: Install dependencies
+        run: pip install codespell tomli
+
+      - name: Run codespell
+        run: codespell

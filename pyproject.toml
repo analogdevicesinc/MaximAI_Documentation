@@ -1,0 +1,6 @@
+[tool.codespell]
+count = ''
+ignore-words-list = 'afe'
+quiet-level = 3
+skip = '*.dasm,*.map,*.pdf,./.mypy_cache,./venv,./.git,./super-linter.log'
+ignore-regex = '^\s+"image/png".*$'

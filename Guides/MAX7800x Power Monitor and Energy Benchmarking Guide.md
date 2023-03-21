@@ -86,7 +86,7 @@ JP29 may be set to either position depending if the MAX78002 USB XCVR pin curren
 
 ## Using the Power Monitor
 
-On power-up, the PMON LCD will briefly display the Analog Devices logo then show the Average Power measurement mode described in the next section.  Pushbuttons located just below the PMON LCD and labled PWR MODE SEL LEFT and PWR MODE SEL RIGHT (SW6 and SW7 on MAX78000EVKIT, or SW2 and SW3 on MAX78002EVKIT) allow navigation between the following PMON modes:
+On power-up, the PMON LCD will briefly display the Analog Devices logo then show the Average Power measurement mode described in the next section.  Pushbuttons located just below the PMON LCD and labeled PWR MODE SEL LEFT and PWR MODE SEL RIGHT (SW6 and SW7 on MAX78000EVKIT, or SW2 and SW3 on MAX78002EVKIT) allow navigation between the following PMON modes:
 
 - Average Power Mode
 - Supply Current Mode

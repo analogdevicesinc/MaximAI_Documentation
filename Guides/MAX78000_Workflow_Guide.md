@@ -77,7 +77,7 @@ gen-demos-max78000.sh provides an example of invoking ai8xize.py with various ne
 
 --test-dir specifies where the C project will be created. _sdk/Examples/MAX78000/CNN_ conveniently locates this directory within the MSDK so that you can simply run _make_ to generate a firmware image as with all the MSDK projects.
 
-By default, ai8xize.py targets the MAX78000 evkit. If you are working with a different target, use the --board-name option to specifiy that target. For example, if your target is the MAX78000FTHR, add:
+By default, ai8xize.py targets the MAX78000 evkit. If you are working with a different target, use the --board-name option to specify that target. For example, if your target is the MAX78000FTHR, add:
 
 --board-name FTHR\_RevA
 

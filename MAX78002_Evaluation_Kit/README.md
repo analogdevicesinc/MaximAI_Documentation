@@ -207,7 +207,7 @@ The MAX78002EVKIT will come pre-flashed with a Keyword-spotting demo program out
 
  up, down, left, right, stop, go, yes, no, on, off, one, two, three, four, five, six, seven, eight, nine, zero
 
-To excercise the demo power on the EVKIT and follow the instructions on the TFT display.
+To exercise the demo power on the EVKIT and follow the instructions on the TFT display.
 
 Optionally, connect to the USB/UART (CN2) [Serial port](#connecting-serial-ports) to monitor the serial output of the demo program.
 
@@ -299,7 +299,7 @@ The documentation associated with the setup and usage of these tools is signific
 
 ### ML Videos
 
-A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artifical Intelligence” series is highly recommended for all developers.
+A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artificial Intelligence” series is highly recommended for all developers.
 
 - **Understanding Artificial Intelligence**
   - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
@@ -322,7 +322,7 @@ Detailed usage of the “izer” and training tools is beyond the scope of this 
 
 Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
-Below are a few excercises to get started after setup is complete:
+Below are a few exercises to get started after setup is complete:
 
 * Run the `gen-demos-max78002.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 

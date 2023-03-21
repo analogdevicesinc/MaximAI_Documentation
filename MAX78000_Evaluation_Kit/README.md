@@ -73,12 +73,12 @@ The jumpers on the board have been set to the proper position prior to shipment.
 
 | **Jumper Name** | **Description**                                              |
 | --------------- | ------------------------------------------------------------ |
-| JH1.P0\_2       | Connects the CTS signal of UART0 to the CTS signal of the USB to Serial convertor. |
-| JH1.P0\_3       | Connects the RTS signal of UART0 to the CTS signal of the USB to Serial convertor. |
-| JH1.P0\_0       | Connects the RX signal of UART0 to the TX signal of the USB to Serial convertor. |
-| JH1.P0\_1       | Connects the TX signal of UART0 to the RX signal of the USB to Serial convertor. |
-| JH2.P0\_13      | Connects the TX signal of UART1 to the RX signal of the USB to Serial convertor. |
-| JH2.P0\_12      | Connects the RX signal of UART1 to the TX signal of the USB to Serial convertor. |
+| JH1.P0\_2       | Connects the CTS signal of UART0 to the CTS signal of the USB to Serial converter. |
+| JH1.P0\_3       | Connects the RTS signal of UART0 to the CTS signal of the USB to Serial converter. |
+| JH1.P0\_0       | Connects the RX signal of UART0 to the TX signal of the USB to Serial converter. |
+| JH1.P0\_1       | Connects the TX signal of UART0 to the RX signal of the USB to Serial converter. |
+| JH2.P0\_13      | Connects the TX signal of UART1 to the RX signal of the USB to Serial converter. |
+| JH2.P0\_12      | Connects the RX signal of UART1 to the TX signal of the USB to Serial converter. |
 | JP1             | Allows P0.2 to the control the state of LED1 (D1).           |
 | JP2             | Allows P0.3 to the control the state of LED2 (D2).           |
 | JP7             | Enables the CNN BOOST circuitry. When this jumper is connected, use the \`\--boost 2.5\` command line argument to ai8xizer. This enables port 2.5 during CNN computation, which enables the current boost. |
@@ -135,7 +135,7 @@ The documentation associated with the setup and usage of these tools is signific
 
 ### ML Videos
 
-A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artifical Intelligence” series is highly recommended for all developers.
+A large technical library of technical training videos on Artificial Intelligence (AI) and the MAX78000/MAX78002 is available via the links below. These are the best way to get started with ML on the MAX78002.  The “Understanding Artificial Intelligence” series is highly recommended for all developers.
 
 - **Understanding Artificial Intelligence**
   - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
@@ -158,7 +158,7 @@ Detailed usage of the “izer” and training tools is beyond the scope of this 
 
 Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
-Below are a few excercises to get started after setup is complete:
+Below are a few exercises to get started after setup is complete:
 
 * Run the `gen-demos-max78000.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
