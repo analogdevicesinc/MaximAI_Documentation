@@ -168,4 +168,4 @@ MXC_SYS_ClockDisable(MXC_SYS_PERIPH_CLOCK_CNN);
 
 ## References
 
-1: [https://github.com/MaximIntegratedAI/MaximAI_Documentation]
+1: https://github.com/MaximIntegratedAI/MaximAI_Documentation

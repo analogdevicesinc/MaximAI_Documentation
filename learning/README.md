@@ -24,7 +24,7 @@ The following is a list of books, videos and podcasts that present the MAX78000/
 
 ### Elektor Webinar
 
-* [MAX78000FTHR – A Platform for Innovation](https://youtu.be/cWq4kKQrY0o) (March 30, 2021) [Slide Deck](MAX78000FTHR%20-%20A%20Platform%20for%20Innovation.pdf)
+* [MAX78000FTHR – A Platform for Innovation](https://youtu.be/cWq4kKQrY0o) (March 30, 2021)
 
 
 

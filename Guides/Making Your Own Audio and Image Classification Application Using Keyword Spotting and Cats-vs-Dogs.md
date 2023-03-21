@@ -24,7 +24,7 @@ Building an AI application on MAX78000 includes the following steps:
 
 10. Using the generated C code as the skeleton to develop an application
 
-There are plenty of documentation, examples, and scripts for each of the above steps to help accelerate the development cycle. For more information, please check [https://github.com/MaximIntegratedAI/MaximAI_Documentation].
+There are plenty of documentation, examples, and scripts for each of the above steps to help accelerate the development cycle. For more information, please check https://github.com/MaximIntegratedAI/MaximAI_Documentation.
 
 In this document, instructions are provided to create your own audio or image classifiers based on the Keyword Spotting and Cats-vs-Dogs demo examples.
 

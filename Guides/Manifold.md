@@ -2,7 +2,7 @@
 
 Manifold is a model-agnostic visual debugging tool for machine learning. Manifold can compare models, detects which subset of data a model is inaccurately predicting, and explains the potential cause of poor model performance by surfacing the feature distribution difference between better and worse-performing subsets of data.
 
-There is a hosted version of Manifold at [http://manifold.mlvis.io/]. To install it locally (for IP reasons and/or higher speed):
+To install Manifold locally:
 
 On macOS:
 
