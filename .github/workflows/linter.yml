@@ -1,11 +1,11 @@
 ---
-name: Lint Code Base
+name: Lint code
 
 on:
   push:
-    branches-ignore: [master]
+    branches-ignore: [test]
   pull_request:
-    branches-ignore: [master]
+    branches-ignore: [test]
 
 jobs:
   build:
@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Lint Code Base
+      - name: Lint code
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: true
@@ -34,8 +34,14 @@ jobs:
           VALIDATE_GITHUB_ACTIONS: false
           FILTER_REGEX_EXCLUDE: (attic/.*|datasets/face_id/.*\.md|\.github/workflows/.*\.yml)
 
-      - name: Install dependencies
+      - name: Install codespell
         run: pip install codespell tomli
 
       - name: Run codespell
         run: codespell
+
+      - name: Install markdown-lint-check
+        run: npm install -g markdown-link-check
+
+      - name: Run markdown-lint-check
+        run: find . -name \*.md -print0 | xargs -0 -n1 markdown-link-check -a 0 -p -v -r
