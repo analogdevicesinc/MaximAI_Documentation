@@ -13,6 +13,7 @@ This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devic
 ->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/Analog-Devices-MSDK/refdes/blob/main/maxrefdes178_doc/README.md)**
 
 ->->-> **Understanding Artificial Intelligence Video Series**
+
 - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
 - [Episode 2 - Thinking About Machine Learning](https://www.analog.com/en/education/education-library/videos/6313214510112.html)
 - [Episode 3 - All About Models](https://www.analog.com/en/education/education-library/videos/6313216827112.html)
