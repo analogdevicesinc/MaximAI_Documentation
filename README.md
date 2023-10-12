@@ -10,7 +10,7 @@ This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devic
 
 ->->-> **[Getting Started with the MAX78002 Evaluation Kit](./MAX78002_Evaluation_Kit/README.md)**
 
-->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/MaximIntegratedAI/refdes/blob/main/maxrefdes178_doc/README.md)**
+->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/Analog-Devices-MSDK/refdes/blob/main/maxrefdes178_doc/README.md)**
 
 ->->-> **Understanding Artificial Intelligence Video Series**
 - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
@@ -48,7 +48,7 @@ The project consists of five repositories:
    [ai8x-synthesis](https://github.com/MaximIntegratedAI/ai8x-synthesis)
 
 5. The reference design repo, which contains application code and documentation for the reference designs:
-   [refdes](https://github.com/MaximIntegratedAI/refdes)
+   [refdes](https://github.com/Analog-Devices-MSDK/refdes)
 
 
 
@@ -62,7 +62,7 @@ The project consists of five repositories:
     - (Older revision) Link to Rev **B** EV Kit schematic: [MAX78000 REV B.pdf](./MAX78000_Evaluation_Kit/MAX78000%20REV%20B.pdf)
 
   - Link to MAX78000 Feather Board description and documentation: [MAX78000 Feather Board](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000fthr.html)
-  - Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/MaximIntegratedAI/refdes)
+  - Link to MAX78000 Reference Design documentation and reference design application code repository: [MAX78000 Reference Designs](https://github.com/Analog-Devices-MSDK/refdes)
 
 - MAX78002
   - Link to IC description and datasheet: [MAX78002](https://www.analog.com/en/products/max78002.html)
