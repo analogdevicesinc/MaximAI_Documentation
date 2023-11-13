@@ -1,6 +1,6 @@
 # Network Description YAML Files: A Quick Start Guide
 
-August 15, 2022
+November 13, 2023
 
 This document is intended to help users to create network description YAML files corresponding to their network models.
 
@@ -368,7 +368,7 @@ layers:
   #output_width: 32
   processors: 0xfffffffc00000000
   operation: Conv2d
-# +++++++++++++++++++++ layer 6:self.fc = ai8x.Linear(30*64*64, 2, bias=True)
+# +++++++++++++++++++++ layer 6:self.fc = ai8x.Linear(32*8*8, 2, bias=True)
 - op: mlp
   flatten: true
   out_offset: 0x1000
