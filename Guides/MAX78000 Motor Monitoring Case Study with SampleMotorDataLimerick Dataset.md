@@ -109,7 +109,7 @@ For the autoencoder model training, the data samples will have a label equivalen
 The neural network architecture is called an autoencoder. Autoencoders learn to reconstruct their input at their output. Autoencoder is trained so that the maximum information is kept after dimension reduction through encoding and has the minimum reconstruction loss (RL) after decoding. Therefore, the encoder and decoder structures are forced to learn the best encoding-decoding scheme in the training process. Autoencoders suit well to an unsupervised learning approach using the healthy signal reconstruction and providing a high RL when a fault case is encountered that deviates from healthy data, by definition.
 
 <p align="center">
-    <img src="resources/SampleMotorDataLimerickl_auto_encoder_overall_arch.png" width="300">
+    <img src="resources/SampleMotorDataLimerickl_auto_encoder_overall_arch.png" width="400">
 </p>
 
 Model implementation resides in [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`models/ai85net-autoencoder.py`).
