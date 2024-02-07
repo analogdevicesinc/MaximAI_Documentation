@@ -94,7 +94,7 @@ All samples are scaled on a per sample, per axis basis such that each of the X, 
 
 #### Train – Test Set Distributions
 
-Data loader also handles the train-test data spliting operations. In the unsupervised learning approach, training set only includes healthy samples without any faulty condition. 20% of the healthy data is also kept for validation set and contribute to testset as well. Testset afterwards include all kind of faulty ones.
+Data loader also handles the train-test data splitting operations. In the unsupervised learning approach, training set only includes healthy samples without any faulty condition. 20% of the healthy data is also kept for validation set and contribute to testset as well. Testset afterwards include all kind of faulty ones.
 
 
 #### Label Modes
@@ -153,7 +153,7 @@ Trained auto encoder model will output an output with input signal shape and is 
 
 Basic principle of this post processing is using the reconstruction loss (RL) level to detect any fault and therefore a pre-determined/learned threshold is needed for the decision boundary. Using training samples' RL percentiles is practical and a sample evaluaiton script is also added to  [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`notebooks/AutoEncoder_Evaluation.ipynb`) to demonstrate this post-processing and performance evaluation steps.
 
-Several performance metrics like balanced accuracy (BA) (average of True Positive Rate (TPR) and True Negative Rate (TNR)) and False Positive Rate (FPR), F1 score etc are evaluated in this notebook. Some samples for the SampleMotorDataLimerick dataset is as follows:
+Several performance metrics like balanced accuracy (average of True Positive Rate and True Negative Rate) and False Positive Rate, F1 score etc are evaluated in this notebook. Some evaluation plots for the SampleMotorDataLimerick dataset is as follows:
 
 <p align="center">
     <img src="resources/SampleMotorDataLimerick_RL.png" width="500">
