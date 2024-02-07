@@ -104,7 +104,7 @@ The model implementation file is in the [training repository](https://github.com
 
 The input to the autoencoder is a 2D tensor of shape (256, 3). There are 256 channels each of width 3. Therefore, each channel contains one frequency bin value from each of the vibrational axes. CNN filters work depthwise across channels, so at the input layer, each filter is looking at a single axis at a time. These axes are combined internally in the model. The output data format is a 1D tensor of length 768 (3 axes × 256 frequency bins). The reason is that the output layer is a fully connected layer, not a convolutional layer.
 
-The use of a fully connected layer for the output layer (and several internal hidden layers) is to accomodate the fact that 1D transpose convolutions are not yet available in the target software stack. Transpose convolutions are generally used in the decoder to reconstruct the compressed representation of the data that the decoder received. Convolutional layers are used in the encoder to reduce the number of total parameters in the model.
+The use of a fully connected layer for the output layer (and several internal hidden layers) is to accommodate the fact that 1D transpose convolutions are not yet available in the target software stack. Transpose convolutions are generally used in the decoder to reconstruct the compressed representation of the data that the decoder received. Convolutional layers are used in the encoder to reduce the number of total parameters in the model.
 
 ![Autoencoder I/O](resources/SampleMotorDataLimerick_auto_encoder_I_O.png)
 
