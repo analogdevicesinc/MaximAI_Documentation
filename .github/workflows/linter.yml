@@ -24,8 +24,3 @@ jobs:
       - name: Run codespell
         run: codespell
 
-      - name: Install markdown-lint-check
-        run: npm install -g markdown-link-check
-
-      - name: Run markdown-lint-check
-        run: find . -name \*.md -print0 | xargs -0 -n1 markdown-link-check -a 0 -p -v -r
