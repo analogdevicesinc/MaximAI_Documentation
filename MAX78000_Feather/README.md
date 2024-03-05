@@ -66,7 +66,7 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 Embedded development for the MAX78000FTHR is enabled by the Maxim Microcontroller SDK (“MSDK”), now a part of Analog Devices.
 
-See the [**MSDK User Guide**](https://analog-devices-msdk.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
+See the [**MSDK User Guide**](https://analogdevicesinc.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
 
 ### How to Unlock a MAX78000 That Can No Longer Be Programmed
 

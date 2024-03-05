@@ -96,7 +96,7 @@ In rare occasions, you may need to open the socket containing the MAX78000.  If 
 
 Embedded development for the MAX78000EVKIT is enabled by the Maxim Microcontroller SDK (“MSDK”), now a part of Analog Devices.
 
-See the [**MSDK User Guide**](https://analog-devices-msdk.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
+See the [**MSDK User Guide**](https://analogdevicesinc.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
 
 ### How to Unlock a MAX78000 That Can No Longer Be Programmed
 
