@@ -219,7 +219,7 @@ The source code for the demo can be found in the `Examples/MAX78002/CNN/kws20_de
 
 Embedded development for the MAX78002EVKIT is enabled by the Maxim Microcontroller SDK (“MSDK”), now a part of Analog Devices.
 
-See the [**MSDK User Guide**](https://analog-devices-msdk.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
+See the [**MSDK User Guide**](https://analogdevicesinc.github.io/msdk/USERGUIDE/) for detailed documentation on installation, setup, and getting started.
 
 ### Debugger Limitations of the MAX78002
 
