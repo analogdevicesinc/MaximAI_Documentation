@@ -52,9 +52,9 @@ The PMON firmware version can be checked by repeatedly pressing either the PWR M
 
 Check the reported version against the latest PMON firmware binaries available on from
 
-[MAX78000_Evaluation_Kit/PMON_Firmware](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware)
+[MAX78000_Evaluation_Kit/PMON_Firmware](https://github.com/analogdevicesinc/MaximAI_Documentation/tree/master/MAX78000_Evaluation_Kit/PMON_Firmware)
 
-[MAX78002/Evaluation_Kit/PMON_Firmware](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware)
+[MAX78002/Evaluation_Kit/PMON_Firmware](https://github.com/analogdevicesinc/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware)
 
 
 To load a PMON firmware image, connect the dedicated PMON USB port (J1 on MAX78000EVIT, or CN1 on MAX78002EVKIT) to your PC and put the PMON MCU into boot loader mode by pressing the PWR MODE SEL LEFT pushbutton (SW6 on MAX78000EVKIT and SW2 on MAX78002EVKIT) while power cycling the board.  Wait for 625 STATUS LED (D4 on MAX78000EVKIT, or D8 on MAX78002EVKIT) to illuminate. A virtual drive will appear on your host PC. Drag and drop the PMON firmware image onto the drive. Once the drive disappears, you may need to power cycle the board. The PMON firmware should display power information a second or two after reset.

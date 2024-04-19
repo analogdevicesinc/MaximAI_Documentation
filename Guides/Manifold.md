@@ -38,7 +38,7 @@ The actual code will run in JavaScript inside the browser (this may cause warnin
 
 ## Integration into PyTorch / MAX78000 Training Code
 
-Manifold support can be added to the MAX78000 [training software](https://github.com/MaximIntegratedAI/ai8x-training).
+Manifold support can be added to the MAX78000 [training software](https://github.com/analogdevicesinc/ai8x-training).
 
 The easiest integration of Manifold is by generating three CSV files during/after training and load them into the demo application (started with the `npm run start` command shown above).
 

@@ -16,7 +16,7 @@ The MAX78000FTHR has an integrated MAX32625PICO ("PICO") debug adapter.  The fir
 
 ### Updating the MAX32625PICO ("PICO") Debug Adapter Firmware
 
-1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file from [this](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Feather/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) link.  
+1. Download the "max32625_max78000fthr_if_crc_v1.0.2.bin" file from [this](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78000_Feather/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) link.  
 
 2. Connect the included micro-USB cable to the MAX78000FTHR _without_ connecting the other side of the cable to your host PC yet.
 
@@ -77,7 +77,7 @@ The SWD interface is unavailable for a certain number of clock cycles after rese
 3. Place the MAX32625PICO debug adapter in MAINTENANCE mode by holding down its button while reconnecting the USB cable to the host PC.  
 
    - The MAX32625PICO debug adapter will enumerate as a mass storage device named MAINTENANCE.  
-   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK bin file](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78000_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin).  
+   - Drag-n-Drop the provided bin file to the drive named MAINTENANCE:  [DAPLINK bin file](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78000_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin).  
    - Following the Drag-n-Drop, the MAX32625PICO should reboot and reconnect as a drive named DAPLINK.  
 
 4. Make sure the 'Automation allowed' field is set to 1 in the DETAILS.TXT file on the DAPLINK drive. If not, perform the following steps:
@@ -98,10 +98,10 @@ As the MAX78000 contains a powerful Convolution Neural Network (CNN) accelerator
 
 The documentation associated with the setup and usage of these tools is significant. Here are the links to get started:
 
-* [Analog Devices AI Github Repository](https://github.com/maximintegratedAI)
-* [ai8x-synthesis tool](https://github.com/MaximIntegratedAI/ai8x-synthesis)
-* [ai8x-training tool](https://github.com/MaximIntegratedAI/ai8x-training)
-* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
+* [Analog Devices AI Documentation Repository](https://github.com/analogdevicesinc/MaximAI_Documentation)
+* [ai8x-synthesis tool](https://github.com/analogdevicesinc/ai8x-synthesis)
+* [ai8x-training tool](https://github.com/analogdevicesinc/ai8x-training)
+* [Workflow Guide](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
 
 ### ML Videos
 
@@ -120,25 +120,25 @@ A large technical library of technical training videos on Artificial Intelligenc
 
 ### ML Setup
 
-The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the “izer” and training tools. See the [Installation](https://github.com/MaximIntegratedAI/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
+The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the “izer” and training tools. See the [Installation](https://github.com/analogdevicesinc/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
 
 ### ML Usage
 
-Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction.
+Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction.
 
-Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
+Additionally, the [README](https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
 Below are a few exercises to get started after setup is complete:
 
-* Run the `gen-demos-max78000.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
+* Run the `gen-demos-max78000.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/analogdevicesinc/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
 * Build and flash the output of one of the `gen-demos-max78000.sh` projects and verify that the generated “known answer” test passes.
 
-* Locate the YAML files for the pre-trained models in the “izer” tool and reference the [YAML Network Description](https://github.com/MaximIntegratedAI/ai8x-synthesis#yaml-network-description) to see how they work.
+* Locate the YAML files for the pre-trained models in the “izer” tool and reference the [YAML Network Description](https://github.com/analogdevicesinc/ai8x-synthesis#yaml-network-description) to see how they work.
 
-* Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-training#command-line-arguments) to see how it works.
+* Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/analogdevicesinc/ai8x-training#command-line-arguments) to see how it works.
 
-* Familiarize yourself with the concept of data loaders with [Application Note 7600](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.
+* Familiarize yourself with the concept of data loaders with [Application Note](https://www.analog.com/en/resources/app-notes/data-loader-design-for-max78000-model-training.html) and explore the pre-written data loaders found in the [datasets](https://github.com/analogdevicesinc/ai8x-training/tree/develop/datasets) directory of the training tool.
 
 ## TFT display
 
@@ -164,10 +164,10 @@ The internal SIMO can be used to power the CNN under moderate computational load
 
 ### Links to mnist and additional CNN examples
 
-- [mnist CNN example](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN/mnist)
-- [Directory of additional CNN examples](https://github.com/Analog-Devices-MSDK/msdk/tree/master/Examples/MAX78000/CNN)
+- [mnist CNN example](https://github.com/analogdevicesinc/msdk/tree/master/Examples/MAX78000/CNN/mnist)
+- [Directory of additional CNN examples](https://github.com/analogdevicesinc/msdk/tree/master/Examples/MAX78000/CNN)
 
 ### Going beyond the included CNN examples - Advanced Topics
 
-- [AI8X Model Training and Quantization](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
-- [AI8X Network Loader and RTL Simulation Generator](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/master/README.md)
+- [AI8X Model Training and Quantization](https://github.com/analogdevicesinc/ai8x-synthesis/blob/master/README.md)
+- [AI8X Network Loader and RTL Simulation Generator](https://github.com/analogdevicesinc/ai8x-synthesis/blob/master/README.md)
