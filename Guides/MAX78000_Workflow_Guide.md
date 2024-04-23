@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the analogdevicesinc github repository training and synthesis README.md&#39;s at [https://github.com/analogdevicesinc](https://github.com/analogdevicesinc)
+This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the analogdevicesinc github repository training and synthesis README.md&#39;s at [https://github.com/analogdevicesinc/ai8x-training](https://github.com//analogdevicesinc/ai8x-training)
 
 The documentation within the GitHub repositories should be considered authoritative, but this guide demonstrates a quick path from model to C code for the AI initiate.
 
