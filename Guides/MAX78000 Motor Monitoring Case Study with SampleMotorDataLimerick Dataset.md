@@ -64,7 +64,7 @@ The data loader handles all the data related tasks for proper model training suc
 
 The signal pre-processing flow starts with a windowing of continuous signal using 0.25 seconds long segments with overlapping approach (with a 0.75 ratio set) for each raw data csv file including 2 seconds of vibration data.
 
-The data loader implementation is in the [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`datasets/samplemotordatalimerick.py`). Its functionality is described in the following sections.
+The data loader implementation is in the [training repository](https://github.com/analogdevicesinc/ai8x-training/), (`datasets/samplemotordatalimerick.py`). Its functionality is described in the following sections.
 
 #### Data Pre-processing
 
@@ -100,7 +100,7 @@ The neural network architecture is called an autoencoder. Autoencoders learn to 
 
 ![Autoencoder architecture](resources/SampleMotorDataLimerickl_auto_encoder_overall_arch.png)
 
-The model implementation file is in the [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`models/ai85net-autoencoder.py`).
+The model implementation file is in the [training repository](https://github.com/analogdevicesinc/ai8x-training/), (`models/ai85net-autoencoder.py`).
 
 The input to the autoencoder is a 2D tensor of shape (256, 3). There are 256 channels each of width 3. Therefore, each channel contains one frequency bin value from each of the vibrational axes. CNN filters work depthwise across channels, so at the input layer, each filter is looking at a single axis at a time. These axes are combined internally in the model. The output data format is a 1D tensor of length 768 (3 axes × 256 frequency bins). The reason is that the output layer is a fully connected layer, not a convolutional layer.
 
@@ -124,13 +124,13 @@ Key for fully connected layers:
 
 <img src="resources/SampleMotorDataLimerick_auto_encoder_layers.png" alt="Autoencoder layers" style="zoom: 50%;" />
 
-The model training script is also available in the [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`scripts/train_autoencoder.sh`).
+The model training script is also available in the [training repository](https://github.com/analogdevicesinc/ai8x-training/), (`scripts/train_autoencoder.sh`).
 
 ### Trained Model Evaluation Notebook
 
 The trained autoencoder model will generate an output with the input signal shape, and is trained to reconstruct the healthy signal as closely as possible. A small post-processing step is required to deploy the model in the fault detection system:. The system should mark some inputs as anomalies using the model output.
 
-The basic principle of this post-processing step is to use the reconstruction loss (RL) level to detect any fault. Therefore, a pre-determined, learned threshold is needed for the decision boundary. Using training samples' RL percentiles is practical and a sample evaluation script is also available in [training repository](https://github.com/MaximIntegratedAI/ai8x-training/), (`notebooks/AutoEncoder_Evaluation.ipynb`) and demonstrates these post-processing and performance evaluation steps.
+The basic principle of this post-processing step is to use the reconstruction loss (RL) level to detect any fault. Therefore, a pre-determined, learned threshold is needed for the decision boundary. Using training samples' RL percentiles is practical and a sample evaluation script is also available in [training repository](https://github.com/analogdevicesinc/ai8x-training/), (`notebooks/AutoEncoder_Evaluation.ipynb`) and demonstrates these post-processing and performance evaluation steps.
 
 Several performance metrics such as balanced accuracy (average of True Positive Rate and True Negative Rate) and False Positive Rate, F1 score, etc. are evaluated in this notebook. Some evaluation plots for the SampleMotorDataLimerick dataset are:
 
@@ -141,6 +141,6 @@ Several performance metrics such as balanced accuracy (average of True Positive 
 
 ## Model Implementation – Synthesis
 
-The file located at [synthesis repository](https://github.com/MaximIntegratedAI/ai8x-synthesis/), (`networks/ai85-autoencoder.yaml`)  describes to the ai8x synthesizer how the layers of the neural network should be mapped into the MAX78000 hardware.
+The file located at [synthesis repository](https://github.com/analogdevicesinc/ai8x-synthesis/), (`networks/ai85-autoencoder.yaml`)  describes to the ai8x synthesizer how the layers of the neural network should be mapped into the MAX78000 hardware.
 
-A known answer test (KAT) is also performed on the MAX78000 EVKit. The C code for this KAT can be generated using the `scripts/gen_autoencoder_max78000.sh` script in the [synthesis repository](https://github.com/MaximIntegratedAI/ai8x-synthesis/).
+A known answer test (KAT) is also performed on the MAX78000 EVKit. The C code for this KAT can be generated using the `scripts/gen_autoencoder_max78000.sh` script in the [synthesis repository](https://github.com/analogdevicesinc/ai8x-synthesis/).

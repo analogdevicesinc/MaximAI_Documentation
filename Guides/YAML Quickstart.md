@@ -64,7 +64,7 @@ The following figure shows how a layer in the model is mapped to YAML:
 
 
 
-The table below shows the description of frequently used keywords. For a complete list of keywords and more description, please check the main documentation [README.md](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/README.md).
+The table below shows the description of frequently used keywords. For a complete list of keywords and more description, please check the main documentation [README.md](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/README.md).
 
 | keyword                 | Description                                                  | Available options                                            |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |

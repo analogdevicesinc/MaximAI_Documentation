@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the MaximIntegratedAI github repository training and synthesis README.md&#39;s at [https://github.com/MaximIntegratedAI](https://github.com/MaximIntegratedAI)
+This application note is intended to serve as a quick start guide that demonstrates the use of the Analog Devices MAX78000/MAX78002 AI toolchain. All information contained here appears in greater detail in the analogdevicesinc github repository training and synthesis README.md&#39;s at [https://github.com/analogdevicesinc/ai8x-training](https://github.com//analogdevicesinc/ai8x-training)
 
 The documentation within the GitHub repositories should be considered authoritative, but this guide demonstrates a quick path from model to C code for the AI initiate.
 
-The process of developing AI applications for the MAX78000 begins with a dataset and a model. The training repository at [https://github.com/MaximIntegratedAI/ai8x-training](https://github.com/MaximIntegratedAI/ai8x-training) contains many examples based on public datasets.
+The process of developing AI applications for the MAX78000 begins with a dataset and a model. The training repository at [https://github.com/analogdevicesinc/ai8x-training](https://github.com/analogdevicesinc/ai8x-training) contains many examples based on public datasets.
 
 With a dataset and model in-hand, training, network quantization, and evaluation occurs in an iterative fashion until satisfactory results are achieved. Then the quantized network and MAX78000-specific model are used to generate C code that loads the network weights and structure into the MAX78000 and executes inferences.
 
@@ -23,7 +23,7 @@ Training is the process of generating a PyTorch checkpoint file given a model an
 
 Before working in the training directory, be sure to run _deactivate_ followed by _source bin/activate_ in order to configure the python environment for training. The _activate_ and _deactivate_ commands control the python environment used for the training and synthesis.
 
-From the root of the training directory ([https://github.com/MaximIntegratedAI/ai8x-training](https://github.com/MaximIntegratedAI/ai8x-training)), execute scripts/train\_mnist.sh. This script invokes train.py with a set of configuration parameters including a model and mnist dataset.
+From the root of the training directory ([https://github.com/analogdevicesinc/ai8x-training](https://github.com/analogdevicesinc/ai8x-training)), execute scripts/train\_mnist.sh. This script invokes train.py with a set of configuration parameters including a model and mnist dataset.
 
 train\_mnist.sh:
 
@@ -39,7 +39,7 @@ The output of training is a checkpoint file called best.pth.tar. You&#39;ll find
 
 ## Quantization
 
-Quantization is the process of converting floating point weights from a checkpoint file into fixed-point weights compatible with the MAX780000&#39;s hardware CNN. Quantization is performed in synthesis directory ([https://github.com/MaximIntegratedAI/ai8x-synthesis](https://github.com/MaximIntegratedAI/ai8x-synthesis)).
+Quantization is the process of converting floating point weights from a checkpoint file into fixed-point weights compatible with the MAX780000&#39;s hardware CNN. Quantization is performed in synthesis directory ([https://github.com/analogdevicesinc/ai8x-synthesis](https://github.com/analogdevicesinc/ai8x-synthesis)).
 
 Before working in the synthesis directory, be sure to run _deactivate_ followed by _source bin/activate_ in order to configure the python environment for synthesis.
 

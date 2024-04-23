@@ -157,7 +157,7 @@ The firmware for the MAX32625PICO (PICO) debug adapter should be updated before 
 
 ### Updating the MAX32625PICO (PICO) Debug Adapter Firmware
 
-1. Download the [`max32625_max78000fthr_if_crc_v1.0.2.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) file.
+1. Download the [`max32625_max78000fthr_if_crc_v1.0.2.bin`](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) file.
 
     If you have cloned this repository, the file can also be found in the `MAX78002_Evaluation_Kit/MAX32625PICO_files` folder.
 
@@ -179,7 +179,7 @@ The firmware for the MAX32625PICO (PICO) debug adapter should be updated before 
 
     <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
 
-6. Drag and drop the [`max32625_max78000fthr_if_crc_v1.0.2.bin`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) file onto the `MAINTENANCE` drive. This will flash the PICO with the updated firmware.
+6. Drag and drop the [`max32625_max78000fthr_if_crc_v1.0.2.bin`](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/max32625_max78000fthr_if_crc_v1.0.2.bin) file onto the `MAINTENANCE` drive. This will flash the PICO with the updated firmware.
 
     <img src="img/MAINTENANCE.jpg" alt="Maintenance Drive Image" width="400"/>
 
@@ -195,7 +195,7 @@ The firmware for the MAX32625PICO (PICO) debug adapter should be updated before 
 
     <img src="img/DAPLINK_opened.jpg" alt="Daplink Opened" width="400"/>
 
-9. Open the `DETAILS.TXT` file and verify the contents match the [`MAX32625PICO_files/DETAILS.TXT`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/DETAILS.TXT) file in this repository. Specifically - the “Git SHA” field should match exactly.
+9. Open the `DETAILS.TXT` file and verify the contents match the [`MAX32625PICO_files/DETAILS.TXT`](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/DETAILS.TXT) file in this repository. Specifically - the “Git SHA” field should match exactly.
 
     <img src="img/DETAILS_Git_SHA.jpg" alt="Details GIT SHA" width="400"/>
 
@@ -274,7 +274,7 @@ Before following the procedure below, ensure that you have updated the PICO debu
 
 6. Power on the MAX78002EVKIT (if it isn’t already).
 
-7. Drag and drop the [`MAX32625PICO_files/erase.act`](https://github.com/MaximIntegratedAI/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/erase.act) file onto the `DAPLINK` drive.
+7. Drag and drop the [`MAX32625PICO_files/erase.act`](https://github.com/analogdevicesinc/MaximAI_Documentation/raw/master/MAX78002_Evaluation_Kit/MAX32625PICO_files/erase.act) file onto the `DAPLINK` drive.
 
     <img src="img/erase.act.jpg" alt="Erase.act" width="550"/>
 
@@ -292,10 +292,10 @@ As the MAX78002 contains a powerful Convolution Neural Network (CNN) accelerator
 
 The documentation associated with the setup and usage of these tools is significant. Here are the links to get started:
 
-* [Analog Devices AI Github Repository](https://github.com/maximintegratedAI)
-* [ai8x-synthesis tool](https://github.com/MaximIntegratedAI/ai8x-synthesis)
-* [ai8x-training tool](https://github.com/MaximIntegratedAI/ai8x-training)
-* [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
+* [Analog Devices AI Documentation Repository](https://github.com/analogdevicesinc/MaximAI_Documentation)
+* [ai8x-synthesis tool](https://github.com/analogdevicesinc/ai8x-synthesis)
+* [ai8x-training tool](https://github.com/analogdevicesinc/ai8x-training)
+* [Workflow Guide](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md#max78000-workflow-guide)
 
 ### ML Videos
 
@@ -314,25 +314,25 @@ A large technical library of technical training videos on Artificial Intelligenc
 
 ### ML Setup
 
-The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the “izer” and training tools. See the [Installation](https://github.com/MaximIntegratedAI/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
+The setup and usage of the machine learning tools is thoroughly documented in the [README.md](https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md) file that can be found in the root directory of both the “izer” and training tools. See the [Installation](https://github.com/analogdevicesinc/ai8x-training/blob/develop/README.md#installation) section for detailed instructions.
 
 ### ML Usage
 
-Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction, and the [Videos](https://www.analog.com/en/education/education-library/videos/6313215159112.html) dive deeper.
+Detailed usage of the “izer” and training tools is beyond the scope of this document. The [Workflow Guide](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/Guides/MAX78000_Workflow_Guide.md) is a great introduction, and the [Videos](https://www.analog.com/en/education/education-library/videos/6313215159112.html) dive deeper.
 
-Additionally, the [README](https://github.com/MaximIntegratedAI/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
+Additionally, the [README](https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md) contains all of the usage information for the tools.
 
 Below are a few exercises to get started after setup is complete:
 
-* Run the `gen-demos-max78002.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-synthesis#command-line-arguments-3) table to see how it works.
+* Run the `gen-demos-max78002.sh` script found in the root directory of the “izer” tool and reference its [Command Line Arguments](https://github.com/analogdevicesinc/ai8x-synthesis#command-line-arguments-3) table to see how it works.
 
 * Build and flash the output of one of the `gen-demos-max78002.sh` projects and verify that the generated “known answer” test passes.
 
-* Locate the YAML files for the pre-trained models in the “izer” tool and reference the [YAML Network Description](https://github.com/MaximIntegratedAI/ai8x-synthesis#yaml-network-description) to see how they work.
+* Locate the YAML files for the pre-trained models in the “izer” tool and reference the [YAML Network Description](https://github.com/analogdevicesinc/ai8x-synthesis#yaml-network-description) to see how they work.
 
-* Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/MaximIntegratedAI/ai8x-training#command-line-arguments) to see how it works.
+* Run `train_all_models.sh` from the training repository and reference its [Command Line Arguments](https://github.com/analogdevicesinc/ai8x-training#command-line-arguments) to see how it works.
 
-* Familiarize yourself with the concept of data loaders with [Application Note 7600](https://www.maximintegrated.com/en/design/technical-documents/app-notes/7/7600.html) and explore the pre-written data loaders found in the [datasets](https://github.com/MaximIntegratedAI/ai8x-training/tree/develop/datasets) directory of the training tool.
+* Familiarize yourself with the concept of data loaders with [Application Note](https://www.analog.com/en/resources/app-notes/data-loader-design-for-max78000-model-training.html) and explore the pre-written data loaders found in the [datasets](https://github.com/analogdevicesinc/ai8x-training/tree/develop/datasets) directory of the training tool.
 
 ## Power Monitor Sub-Circuit
 
@@ -344,6 +344,6 @@ The PMON firmware version can be checked by repeatedly pressing either the PWR M
 
 <img src="img/show_info_page_78002.png" alt="Power Monitor Firmware Version" style="zoom:125%;"/>
 
-At the time of this writing, latest version of the power monitor sub-circuit’s firmware is v2.0. Check the reported version against the latest MAX78002EVKIT PMON firmware available [HERE](https://github.com/MaximIntegratedAI/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware) 
+At the time of this writing, latest version of the power monitor sub-circuit’s firmware is v2.0. Check the reported version against the latest MAX78002EVKIT PMON firmware available [HERE](https://github.com/analogdevicesinc/MaximAI_Documentation/tree/master/MAX78002_Evaluation_Kit/PMON_Firmware) 
 
-Detailed usage information on the PMON operation, including measurements, how to instrument code and updating the firmware is available in the [MAX7800x Power Monitor and Energy Benchmarking Guide](https://github.com/MaximIntegratedAI/MaximAI_Documentation/blob/master/Guides/MAX7800x%20Power%20Monitor%20and%20Energy%20Benchmarking%20Guide.md).
+Detailed usage information on the PMON operation, including measurements, how to instrument code and updating the firmware is available in the [MAX7800x Power Monitor and Energy Benchmarking Guide](https://github.com/analogdevicesinc/MaximAI_Documentation/blob/master/Guides/MAX7800x%20Power%20Monitor%20and%20Energy%20Benchmarking%20Guide.md).
