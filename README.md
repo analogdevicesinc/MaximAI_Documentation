@@ -1,18 +1,47 @@
-# Analog Devices AI Documentation
+# ADI MAX78000/MAX78002 – AI on a Battery
 
-This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devices MAX78000/MAX78002 AI product family.
+ADI’s MAX78000/MAX78002 project is comprised of five main repositories:
 
-**START HERE:**
+1. This repo: Documentation
+   - [START HERE](#start-here)
+   - [Understanding Artificial Intelligence Video Series](#understanding-artificial-intelligence-video-series)
+   - [MAX78000/MAX78002 Documentation](#max78000max78002-documentation)
+   - [Application Notes](#application-notes)
+   - [Published Papers](#published-papers)
+   - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000max78002-and-machine-learning-education-resources)
+   - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
 
-->->-> **[Getting Started with the MAX78000 Evaluation Kit](./MAX78000_Evaluation_Kit/README.md)**
+2. The software development kit (MSDK), which contains drivers and example programs ready to run on the evaluation kits:
 
-->->-> **[Getting Started with the MAX78000 Feather Board](./MAX78000_Feather/README.md)**
+    [Analog Devices MSDK](https://github.com/analogdevicesinc/msdk)
 
-->->-> **[Getting Started with the MAX78002 Evaluation Kit](./MAX78002_Evaluation_Kit/README.md)**
+3. The training repository, which is used for deep learning *model development and training*:
 
-->->-> **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/Analog-Devices-MSDK/refdes/blob/main/maxrefdes178_doc/README.md)**
+    [ai8x-training](https://github.com/analogdevicesinc/ai8x-training)
 
-->->-> **Understanding Artificial Intelligence Video Series**
+4. The synthesis repository, which is used to *convert a trained model into C code* using the “izer” tool:
+
+    [ai8x-synthesis](https://github.com/analogdevicesinc/ai8x-synthesis)
+
+5. The reference design repository, which contains host applications and sample applications for reference designs
+   *Note - Examples for EVkits and Feather boards are part of the MSDK*
+
+   [MAX78xxx-RefDes](https://github.com/analogdevicesinc/MAX78xxx-RefDes)
+
+
+
+## START HERE
+
+- **[Getting Started with the MAX78000 Evaluation Kit](./MAX78000_Evaluation_Kit/README.md)**
+- **[Getting Started with the MAX78000 Feather Board](./MAX78000_Feather/README.md)**
+
+- **[Getting Started with the MAX78002 Evaluation Kit](./MAX78002_Evaluation_Kit/README.md)**
+
+- **[Getting Started with the MAXREFDES178# Cube Camera](https://github.com/Analog-Devices-MSDK/refdes/blob/main/maxrefdes178_doc/README.md)**
+
+
+
+## Understanding Artificial Intelligence Video Series
 
 - [Episode 1 - Who Needs Machine Learning Anyways?](https://www.analog.com/en/education/education-library/videos/6313215159112.html)
 - [Episode 2 - Thinking About Machine Learning](https://www.analog.com/en/education/education-library/videos/6313214510112.html)
@@ -24,36 +53,9 @@ This is the home for IC, EV Kit, MSDK, and AI documentation for the Analog Devic
 - [Episode 8 - The MAX78000FTHR](https://www.analog.com/en/education/education-library/videos/6313213346112.html)
 - [Episode 8.5 - Visual Studio Code](https://www.analog.com/en/education/education-library/videos/6313212752112.html)
 
------
-
-- Analog Devices AI Documentation
-  - [Project Structure](#project-structure)
-  - [Links to MAX78000/MAX78002 Documentation](#links-to-max78000max78002-documentation)
-  - [Application Notes](#application-notes)
-  - [Additional MAX78000/MAX78002 and Machine Learning Education Resources](#additional-max78000max78002-and-machine-learning-education-resources)
-    - [Videos, Webinars, Presentations, Books and More](#videos-webinars-presentations-books-and-more)
-
-## Project Structure
-
-The project consists of five repositories:
-
-1. This repo (“Documentation”)
-
-2. The microcontroller software development kit (MSDK), which contains peripheral drivers and example programs ready to run on the Evaluation Kit:
-   [Analog Devices MSDK](https://github.com/analogdevicesinc/msdk) (includes support for both MAX78000 and MAX78002). See [here](https://www.analog.com/media/en/technical-documentation/user-guides/maxim-micro-sdk-maximsdk-installation-and-maintenance-user-guide.pdf) for the most recent MSDK Installation Guide.
-
-3. The training repo, which is used for deep learning model development and training:
-   [ai8x-training](https://github.com/analogdevicesinc/ai8x-training)
-
-4. The synthesis repo, which is used to convert a trained model into C code using the “izer” tool:
-   [ai8x-synthesis](https://github.com/analogdevicesinc/ai8x-synthesis)
-
-5. The reference design repo, which contains application code and documentation for the reference designs:
-   [refdes](https://github.com/Analog-Devices-MSDK/refdes)
 
 
-
-## Links to MAX78000/MAX78002 Documentation
+## MAX78000/MAX78002 Documentation
 
 - MAX78000
   - Link to IC description and datasheet: [MAX78000](https://www.analog.com/en/products/max78000.html)
@@ -73,6 +75,7 @@ The project consists of five repositories:
   - Link to MSDK repository (for both MAX78000 and MAX78002): [Analog Devices MSDK](https://github.com/analogdevicesinc/msdk)
   - Link to MSDK documentation: [MSDK Docs - click on index.html](https://github.com/analogdevicesinc/msdk/blob/master/Documentation/)  **Note:** HTML files are not rendered in GitHub and it is therefore recommended to view the MSDK documentation from a local copy, which is automatically installed with the MSDK.
   - Quick Start Guides and Optional Features: [Guides](Guides)
+
 
 
 ## Application Notes
@@ -100,6 +103,22 @@ The project consists of five repositories:
 6. [Utilizing Multiple CNN Models in One Application Using MAX78000 and MAX78002 (Prerelease)](./MAX78002/Utilizing%20Multiple%20CNN%20Models.pdf)
 
    *Abstract:* The MAX78000 and MAX78002 are Artificial Intelligence (AI) microcontrollers with an ultra-low power Convolutional Neural Network (CNN) inference engine to run AI edge applications on a battery-powered IoT device. The device can execute many complex CNN networks to achieve critical performance. This document describes an approach to utilize multiple CNN models in one application.
+
+
+
+## Published Papers
+
+1. [L^3^U-net: Low-Latency Lightweight U-net Based Image Segmentation Model for Parallel CNN Processors](https://arxiv.org/pdf/2203.16528)
+
+   *Abstract:* In this research, we propose a tiny image segmentation model, L^3^U-net, that works on low-resource edge devices in real-time. We introduce a data folding technique that reduces inference latency by leveraging the parallel convolutional layer processing capability of the CNN accelerators. We also deploy the proposed model to such a device, MAX78000, and the results show that L^3^U-net achieves more than 90% accuracy over two different segmentation datasets with 10 fps.
+
+2. [Ultra-Low Power Keyword Spotting at the Edge](https://arxiv.org/pdf/2111.04988)
+
+   *Abstract:* Keyword spotting (KWS) has become an indispensable part of many intelligent devices surrounding us, as audio is one of the most efficient ways of interacting with these devices. The accuracy and performance of KWS solutions have been the main focus of the researchers, and thanks to deep learning, substantial progress has been made in this domain. However, as the use of KWS spreads into IoT devices, energy efficiency becomes a very critical requirement besides the performance. We believe KWS solutions that would seek power optimization both in the hardware and the neural network (NN) model architecture are advantageous over many solutions in the literature where mostly the architecture side of the problem is considered. In this work, we designed an optimized KWS CNN model by considering end-to-end energy efficiency for the deployment at MAX78000, an ultra-low-power CNN accelerator. With the combined hardware and model optimization approach, we achieve 96.3% accuracy for 12 classes while only consuming 251 µJ per inference. We compare our results with other small-footprint neural network-based KWS solutions in the literature. Additionally, we share the energy consumption of our model in power-optimized ARM Cortex-M4F to depict the effectiveness of the chosen hardware for the sake of clarity.
+
+3. [BED: A Real-Time Object Detection System for Edge Devices](https://arxiv.org/pdf/2202.07503)
+
+   *Abstract:* Deploying deep neural networks (DNNs) on edge devices provides efficient and effective solutions for the real-world tasks. Edge devices have been used for collecting a large volume of data efficiently in different domains. DNNs have been an effective tool for data processing and analysis. However, designing DNNs on edge devices is challenging due to the limited computational resources and memory. To tackle this challenge, we demonstrate object detection system for Edge Devices (BED) on the MAX78000 DNN accelerator. It integrates on-device DNN inference with a camera and an LCD display for image acquisition and detection exhibition, respectively. BED is a concise, effective and detailed solution, including model training, quantization, synthesis and deployment. The entire repository is open-sourced on Github , including a Graphical User Interface (GUI) for on-chip debugging. Experiment results indicate that BED can produce accurate detection with a 300-KB tiny DNN model, which takes only 91.9 ms of inference time and 1.845 mJ of energy.
 
 
 
