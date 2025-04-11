@@ -43,7 +43,7 @@ Quantization is the process of converting floating point weights from a checkpoi
 
 Before working in the synthesis directory, be sure to run _deactivate_ followed by _source bin/activate_ in order to configure the python environment for synthesis.
 
-Continuing with our mnist example, copy the _best.pth.tar_ file from the logs/\&lt;time/date\&gt; directory into the trained directory and rename it to _ai85-mnist-qat8.pth.tar_ (you may need to first delete the pre-existing file of this name). This will allow you to use the existing mnist quantize script, _scripts/quantize\_mnist.sh_ located in the _scripts_ directory.
+Continuing with our mnist example, copy the _qat_best.pth.tar_ file from the logs/\&lt;time/date\&gt; directory into the trained directory and rename it to _ai85-mnist-qat8.pth.tar_ (you may need to first delete the pre-existing file of this name). This will allow you to use the existing mnist quantize script, _scripts/quantize\_mnist.sh_ located in the _scripts_ directory.
 
 quantize\_mnist.sh:
 
